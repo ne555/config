@@ -1,0 +1,33 @@
+[user]
+	email = wbedrij@gmail.com
+	name = aldo_bedrij
+[color]
+	ui = true
+[color "branch"]
+    current = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[github]
+	user = ne555
+	token = b24f273448699f9706a387efd02490bf
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 1280x747+0+31
+	main-window-view = HistoryView
+	file-view-vpane-position = 538
+	history-view-vpane-position = 608
+[core]
+	excludesfile = /home/ne555/.config/git/ignore

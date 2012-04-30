@@ -1,0 +1,44 @@
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.a
+*.o
+*.so
+*.bin
+a.out
+
+# backup
+.*.swp
+*~
+
+# binary files
+*.bin
+a.out
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+
+# vim set filetype=conf

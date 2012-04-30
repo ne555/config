@@ -1,0 +1,39 @@
+#apps
+rudeness 0
+bind c exec sakura
+unbind Q
+unbind k
+unbind l
+bind o only
+bind d delete
+bind h focusleft
+bind j focusdown
+bind k focusup
+bind l focusright
+
+exec sakura
+
+
+# This is a sample .ratpoisonrc file
+# Gets rid of that ugly crosshairs default cursor
+# and set the background to black
+#exec xsetroot -solid black -cursor_name left_ptr
+
+# Use the name of the program rather than the title in the window list
+#defwinname name
+
+# bind M-! to store the current frame layout in slot #1
+bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+
+#bind M-1 to restore the frame layout in slot #1
+bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
+
+# Do the same for slot #2 and bind it to M-@ and M-2, respectively.
+###bind M-at exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
+###bind M-2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
+
+# Give ourselves another slot on M-# and M-3, respectively.
+###bind M-numbersign exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
+###bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+
+
