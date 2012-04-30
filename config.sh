@@ -1,8 +1,12 @@
 #!/bin/bash
 
+#execute from $HOME
+# .config/config.sh < .config/files
+
 directory=.config
 
 while read file; do
-	ln -s "${directory}/${file}" ."${file}"
-done
+	#it will overwrite anything that you've got 
+	ln -sf "${directory}/${file}" ."${file}"
+done 
 
