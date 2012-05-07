@@ -11,11 +11,6 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	startx 
 fi
 
-#redshift -l 55.7:12.6 -t 5700:5700 -g 0.8 -m vidmode -v -o
-
-#autofoto
-~/foto.sh
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias rename='perl-rename'
@@ -30,9 +25,6 @@ complete -cf whatis
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
-
-#vi bindings
-#set -o vi
 
 #man pages with color
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
@@ -58,7 +50,7 @@ export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *"
 d=~/.dircolors
 test -r $d && eval "$(dircolors $d)"
 
-#redshift -l 45:0 -t 5700:5700 -g 0.8 -m vidmode -o #ajusta el color para que no se descuajeringue el monitor.
+#vi bindings
 set -o vi
 
 #don't clear the screen on exit
