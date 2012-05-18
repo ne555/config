@@ -14,6 +14,7 @@ fi
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias rename='perl-rename'
+alias tmux='tmux -2'
 #PS1='[\u@\h \W]\$ '
 PS1='\h@\u:\W\$ '
 
