@@ -26,7 +26,7 @@ nntp-server=
 
 # Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
 # Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
-inbox-path={pop.gmail.com/pop3/ssl/user=wbedrij@gmail.com}INBOX
+inbox-path=
 
 # List of folder pairs; the first indicates a folder to archive, and the
 # second indicates the folder read messages in the first should
@@ -71,7 +71,13 @@ signature-file=
 # List of features; see Alpine's Setup/options menu for the current set.
 # e.g. feature-list= select-without-confirm, signature-at-bottom
 # Default condition for all of the features is no-.
-feature-list=
+feature-list=compose-cancel-confirm-uses-yes,
+	no-fcc-only-without-confirm,
+	send-without-confirm,
+	next-thread-without-confirm,
+	return-to-inbox-without-confirm,
+	quit-without-confirm,
+	select-without-confirm
 
 # Alpine executes these keys upon startup (e.g. to view msg 13: i,j,1,3,CR,v)
 initial-keystroke-list=
@@ -368,7 +374,7 @@ address-book=
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=112.4
+last-time-prune-questioned=112.7
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.02
@@ -497,7 +503,7 @@ patterns-other=
 patterns-search=
 
 # Controls display of color
-color-style=
+color-style=use-termdef
 
 # Controls display of color for current index line
 current-indexline-style=
@@ -506,12 +512,12 @@ current-indexline-style=
 titlebar-color-style=
 
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
-normal-foreground-color=
-normal-background-color=
+normal-foreground-color=174,174,174
+normal-background-color=000,000,000
 reverse-foreground-color=
 reverse-background-color=
-title-foreground-color=
-title-background-color=
+title-foreground-color=000,000,000
+title-background-color=000,174,000
 title-closed-foreground-color=
 title-closed-background-color=
 status-foreground-color=
@@ -522,8 +528,8 @@ keyname-foreground-color=
 keyname-background-color=
 selectable-item-foreground-color=
 selectable-item-background-color=
-meta-message-foreground-color=
-meta-message-background-color=
+meta-message-foreground-color=000,000,000
+meta-message-background-color=255,255,000
 quote1-foreground-color=
 quote1-background-color=
 quote2-foreground-color=
