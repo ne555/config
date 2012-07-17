@@ -1,6 +1,6 @@
 #apps
 rudeness 0
-bind c exec sakura
+bind c exec xterm
 unbind Q
 unbind k
 unbind l
@@ -11,7 +11,8 @@ bind j focusdown
 bind k focusup
 bind l focusright
 
-exec sakura
+escape Super_L
+bind t other
 
 
 # This is a sample .ratpoisonrc file

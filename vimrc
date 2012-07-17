@@ -14,7 +14,7 @@ endif
 "set mouse=a
 set t_Co=256
 
-colorscheme tango2
+colorscheme desert
 
 "set background=dark
 
