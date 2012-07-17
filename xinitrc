@@ -19,14 +19,18 @@
 #EndSection
 
 
+#music daemon
+mpd /home/ne555/.config/mpd.conf
+
 xrandr -s 1280x800
 #keyboard layout
 setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 #multimedia keys
-xmodmap ~/.Xmodmap
-xbindkeys
+xmodmap ~/.config/Xmodmap
+xbindkyes -f ~/.config/xbindkeysrc
 #fix monitor
-redshift -l 55.7:12.6 -t 5700:5700 -g 0.8 -m vidmode -v -o
+redshift -l 55.7:12.6 -t 5000:5000 -g 0.8 -m vidmode -v -o
+
 # exec gnome-session
 # exec startkde
 #exec ck-launch-session startxfce4
