@@ -234,7 +234,7 @@ opening-text-separator-chars=
 # This is a list of formats for address books.  Each entry in the list is made
 # up of space-delimited tokens telling which fields are displayed and in
 # which order.  See help text
-addressbook-formats=
+addressbook-formats=NICKNAME FULLNAME COMMENT ADDRESS
 
 # This gives a format for displaying the index.  It is made
 # up of space-delimited tokens telling which fields are displayed and in
@@ -366,7 +366,7 @@ news-collections=
 # List of file or path names for personal addressbook(s).
 # Default: ~/.addressbook (Unix) or \PINE\ADDRBOOK (PC)
 # Syntax: optnl-label path-name
-address-book=
+address-book=~/.config/addressbook
 
 # List of file or path names for global/shared addressbook(s).
 # Default: none
