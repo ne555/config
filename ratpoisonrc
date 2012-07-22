@@ -1,5 +1,5 @@
 #apps
-rudeness 0
+rudeness 4
 bind c exec xterm
 unbind Q
 unbind k
@@ -21,7 +21,7 @@ bind t other
 #exec xsetroot -solid black -cursor_name left_ptr
 
 # Use the name of the program rather than the title in the window list
-#defwinname name
+set winname name
 
 # bind M-! to store the current frame layout in slot #1
 bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
