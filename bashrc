@@ -34,6 +34,7 @@ if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+export TERM=screen-256color
 #man pages with color
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
 export LESS_TERMCAP_md=$'\E[01;37m' # begin bold
