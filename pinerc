@@ -314,7 +314,7 @@ mailcap-search-path=
 mimetype-search-path=
 
 # List of programs to open Internet URLs (e.g. http or ftp references).
-url-viewers=
+url-viewers=/usr/bin/links
 
 # The maximum number of non-stayopen remote connections that Alpine will use
 max-remote-connections=
@@ -374,7 +374,7 @@ address-book=~/.config/addressbook
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=112.7
+last-time-prune-questioned=112.9
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.02
@@ -514,8 +514,8 @@ titlebar-color-style=
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
 normal-foreground-color=174,174,174
 normal-background-color=000,000,000
-reverse-foreground-color=
-reverse-background-color=
+reverse-foreground-color=000,220,000
+reverse-background-color=255,255,255
 title-foreground-color=000,000,000
 title-background-color=000,174,000
 title-closed-foreground-color=
