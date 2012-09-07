@@ -20,6 +20,7 @@ alias pdfview='apvlv'
 
 # Using .config as config directory
 alias alpine='alpine -p ~/.config/pinerc'
+alias startx='startx ~/.config/xinitrc'
 
 
 #PS1='[\u@\h \W]\$ '
