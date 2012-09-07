@@ -18,7 +18,7 @@ redshift -l 55.7:12.6 -t 5500:5500 -g 0.8 -m vidmode -v -o
 # ...or the Window Manager of your choice
 #exec ck-launch-session dbus-launch startfxce4
 #exec awesome
-exec ratpoison
+exec ratpoison --file /home/ne555/.config/ratpoisonrc
 #exec fluxbox
 #exec pawm
 #exec fusion-icon
