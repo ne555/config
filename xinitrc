@@ -10,7 +10,7 @@ setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 xmodmap /home/ne555/.config/Xmodmap
 xbindkeys -f /home/ne555/.config/xbindkeysrc
 #fix monitor
-redshift -l 55.7:12.6 -t 5000:5000 -g 0.8 -m vidmode -v -o
+redshift -l 55.7:12.6 -t 5500:5500 -g 0.8 -m vidmode -v -o
 
 # exec gnome-session
 # exec startkde
@@ -21,4 +21,7 @@ redshift -l 55.7:12.6 -t 5000:5000 -g 0.8 -m vidmode -v -o
 exec ratpoison
 #exec fluxbox
 #exec pawm
+#exec fusion-icon
+
+#exec ck-launch-session compiz ccp
 
