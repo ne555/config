@@ -25,14 +25,6 @@ alias alpine='alpine -p ~/.config/pinerc'
 #PS1='[\u@\h \W]\$ '
 PS1='\h@\u:\W\$ '
 
-#autocomplete after command
-complete -cf sudo
-complete -cf man
-complete -cf whatis
-
-if [ -f /etc/bash_completion ]; then
-	. /etc/bash_completion
-fi
 
 export TERM=screen-256color
 #man pages with color
