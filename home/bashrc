@@ -16,6 +16,7 @@ alias pdfview='apvlv'
 # Using .config as config directory
 alias alpine='alpine -p ~/.config/pinerc'
 alias startx='startx ~/.config/xinitrc'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
