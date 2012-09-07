@@ -1,3 +1,5 @@
+set nowritebackup
+set noswapfile
 "set verbose=9
 "tab
 set autoindent
@@ -70,9 +72,6 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 "let $PAGER=''
 "nmap K :Man <C-R>=expand(\\"<cword>\\")<CR><CR> -\""
 
-"until I found why the default mapping C-T is not working
-map <C-p> :pop <Return> 
-
 runtime ftplugin/man.vim
 
 
@@ -89,3 +88,8 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 set path+=../header
 "open the #include file in a new vertical window
 map f :vertical botright sfind <cfile><CR>
+
+"open doc files
+autocmd BufReadPre *.doc set ro
+autocmd BufReadPre *.doc set hlsearch!
+autocmd BufReadPost *.doc %!antiword "%"
