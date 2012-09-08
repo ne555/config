@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<account version='1.0'>
+	<account>
+		<protocol>prpl-jabber</protocol>
+		<name>wbedrij@gmail.com/</name>
+		<statuses>
+			<status type='available' name='Available' active='true'>
+				<attributes/>
+			</status>
+			<status type='mood' name='Feeling' active='false'>
+				<attributes/>
+			</status>
+			<status type='freeforchat' name='Chatty' active='false'>
+				<attributes/>
+			</status>
+			<status type='away' name='Away' active='false'>
+				<attributes/>
+			</status>
+			<status type='extended_away' name='Extended away' active='false'>
+				<attributes/>
+			</status>
+			<status type='dnd' name='Do Not Disturb' active='false'>
+				<attributes/>
+			</status>
+			<status type='offline' name='Offline' active='false'>
+				<attributes/>
+			</status>
+		</statuses>
+		<userinfo>&lt;vCard xmlns=&apos;vcard-temp&apos;&gt;&lt;FN&gt;Aldo Bedrij&lt;/FN&gt;&lt;PHOTO&gt;&lt;TYPE&gt;image/jpeg&lt;/TYPE&gt;&lt;BINVAL&gt;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&lt;/BINVAL&gt;&lt;/PHOTO&gt;&lt;/vCard&gt;</userinfo>
+		<settings>
+			<setting name='custom_smileys' type='bool'>1</setting>
+			<setting name='port' type='int'>5222</setting>
+			<setting name='ft_proxies' type='string'>proxy.eu.jabber.org</setting>
+			<setting name='auth_plain_in_clear' type='bool'>0</setting>
+			<setting name='check-mail' type='bool'>0</setting>
+			<setting name='connection_security' type='string'>require_tls</setting>
+		</settings>
+		<settings ui='gnt-purple'>
+			<setting name='auto-login' type='bool'>1</setting>
+		</settings>
+		<current_error/>
+	</account>
+</account>
