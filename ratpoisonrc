@@ -11,6 +11,8 @@ bind j focusdown
 bind k focusup
 bind l focusright
 
+bind Escape abort
+
 escape Super_L
 bind t other
 
