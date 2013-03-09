@@ -1,3 +1,7 @@
 ncmpcpp_directory = "~/.local/share/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
 
+mpd_crossfade_time = 0
+playlist_disable_highlight_delay = 0
+
+
