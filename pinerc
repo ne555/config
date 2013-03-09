@@ -374,10 +374,10 @@ address-book=~/.config/addressbook
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=112.9
+last-time-prune-questioned=113.3
 
 # Set by Alpine; controls display of "new version" message.
-last-version-used=6.02
+last-version-used=6.03
 
 # This names the path to an alternative program, and any necessary arguments,
 # to be used in posting mail messages.  Example:
@@ -512,9 +512,9 @@ current-indexline-style=
 titlebar-color-style=
 
 # Choose: black, blue, green, cyan, red, magenta, yellow, or white.
-normal-foreground-color=174,174,174
+normal-foreground-color=255,255,255
 normal-background-color=000,000,000
-reverse-foreground-color=000,220,000
+reverse-foreground-color=000,000,000
 reverse-background-color=255,255,255
 title-foreground-color=000,000,000
 title-background-color=000,174,000
