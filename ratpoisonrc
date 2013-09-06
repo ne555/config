@@ -1,6 +1,5 @@
 #apps
 rudeness 4
-#bind c exec urxvt
 bind c exec termite
 unbind Q
 unbind k

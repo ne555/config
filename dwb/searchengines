@@ -1,0 +1,11 @@
+g http://www.google.com/search?q=_dwb_search_submit_
+cpp http://www.google.com/search?q=site%3Acplusplus.com%20_dwb_search_submit_&num=30
+gi http://images.google.com/images?q=_dwb_search_submit_&num=30
+wiki http://en.wikipedia.org/w/wiki.phtml?search=_dwb_search_submit_&go=Go
+imdb http://www.imdb.com/find?s=all&q=_dwb_search_submit_
+aur http://aur.archlinux.org/packages.php?O=0&L=0&detail=1&C=0&K=_dwb_search_submit_&SeB=nd&SB=n&SO=a&PP=30&do_Search=Go&setlang=en
+amdb http://www.animenewsnetwork.com/encyclopedia/search/name?q=_dwb_search_submit_
+rae http://lema.rae.es/drae/srv/search?key=_dwb_search_submit_
+y http://www.youtube.com/results?search_query=_dwb_search_submit_
+ddg http://duckduckgo.com/?q=_dwb_search_submit_
+iqdb http://www.iqdb.org/?url=_dwb_search_submit_
