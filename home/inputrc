@@ -1,0 +1,19 @@
+$include /etc/inputrc
+
+set show-all-if-amiguous on
+set bell-style none
+
+set editing-mode vi
+$if mode=vi
+	set keymap vi-command
+		"\e[A":history-search-backward
+		"\e[B":history-search-forward
+	set keymap vi-insert
+		"\e[A":history-search-backward
+		"\e[B":history-search-forward
+$endif
+
+#vim issues with HOME and END keys
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[3~": delete-char

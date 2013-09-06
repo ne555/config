@@ -1,0 +1,17 @@
+ncmpcpp_directory = "~/.local/share/ncmpcpp"
+lyrics_directory = "~/.local/share/lyrics"
+mpd_music_dir = "~/datos/musica/"
+
+mpd_crossfade_time = 0
+playlist_disable_highlight_delay = 0
+
+
+allow_physical_files_deletion = "yes"
+allow_physical_directories_deletion = "yes"
+
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "1"
+#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
