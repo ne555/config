@@ -10,7 +10,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias rename='perl-rename'
-alias tmux='tmux -2 -f ~/.config/tmux.conf'
+alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 alias pdfview='apvlv'
 alias emacs='emacs -nw'
 alias pacman='pacman --color always'
@@ -32,7 +32,7 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 fi
 
 #PS1='[\u@\h \W]\$ '
-PS1='\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") $PWD)\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
 
 
 export TERM=screen-256color
@@ -68,3 +68,26 @@ set -o vi
 export PAGER='less -X'
 
 export PATH=$PATH:~/bin
+
+
+function proxy(){
+	proxyserver=192.168.0.120
+	port=3128
+	export http_proxy="http://$username:$password@$proxyserver:$port"
+	export https_proxy=$http_proxy
+	export ftp_proxy=$http_proxy
+	export rsync_proxy=$http_proxy
+	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+	echo -e "\nProxy environment variable set."
+}
+function proxyoff(){
+	unset HTTP_PROXY
+	unset http_proxy
+	unset HTTPS_PROXY
+	unset https_proxy
+	unset FTP_PROXY
+	unset ftp_proxy
+	unset RSYNC_PROXY
+	unset rsync_proxy
+	echo -e "\nProxy environment variable removed."
+}
