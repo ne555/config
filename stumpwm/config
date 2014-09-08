@@ -1,0 +1,13 @@
+;; Read some doc
+(define-key *root-map* (kbd "a") "exec termite")
+
+
+;;(defparameter *shift-map* (make-sparse-keymap))
+;;(define-key *root-map* (kbd "Super_L") '*shift-map*)
+
+;; To map the help on C-t AltGr-q:
+;;(define-key *shift-map* (kbd "q") "help")
+
+(define-key *root-map* (kbd "Super_L c") "exec termite")
+
+
