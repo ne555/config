@@ -1,13 +1,28 @@
-;; Read some doc
-(define-key *root-map* (kbd "a") "exec termite")
+;; vim: set filetype=lisp:
+(in-package :stumpwm)
+(set-prefix-key (kbd "F20"))
+(define-key *root-map* (kbd "L") "loadrc")
+(define-key *root-map* (kbd "c") "exec termite")
+(define-key *root-map* (kbd "a") "time")
+;; battery
+;;(define-key *root-map* (kbd "b") "exec echo $(acpi -b)")
 
+(define-key *root-map* (kbd "o") "only")
+;; movement
+(define-key *root-map* (kbd "d") "delete-window")
+(define-key *root-map* (kbd "h") "move-focus left")
+(define-key *root-map* (kbd "j") "move-focus down")
+(define-key *root-map* (kbd "k") "move-focus up")
+(define-key *root-map* (kbd "l") "move-focus right")
+;; exchange
+(define-key *root-map* (kbd "C-Left") "exchange-direction left")
+(define-key *root-map* (kbd "C-Down") "exchange-direction down")
+(define-key *root-map* (kbd "C-Up") "exchange-direction up")
+(define-key *root-map* (kbd "C-Right") "exchange-direction right")
+;; workspaces
+(define-key *root-map* (kbd "M-Right") "gnext")
+(define-key *root-map* (kbd "M-Left") "gprev")
 
-;;(defparameter *shift-map* (make-sparse-keymap))
-;;(define-key *root-map* (kbd "Super_L") '*shift-map*)
+(define-key *root-map* (kbd "ESC") "abort")
 
-;; To map the help on C-t AltGr-q:
-;;(define-key *shift-map* (kbd "q") "help")
-
-(define-key *root-map* (kbd "Super_L c") "exec termite")
-
-
+(define-key *root-map* (kbd "I") "exec invert.bin")
