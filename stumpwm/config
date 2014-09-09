@@ -1,6 +1,8 @@
 ;; vim: set filetype=lisp:
 (in-package :stumpwm)
 (set-prefix-key (kbd "F20"))
+(define-key *root-map* (kbd ":") "colon")
+(define-key *root-map* (kbd ";") "eval-line")
 (define-key *root-map* (kbd "L") "loadrc")
 (define-key *root-map* (kbd "c") "exec termite")
 (define-key *root-map* (kbd "a") "time")
