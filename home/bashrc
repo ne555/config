@@ -7,23 +7,25 @@
 
 
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias rename='perl-rename'
-alias tmux='tmux -2 -f ~/.config/tmux.conf'
-alias pdfview='apvlv'
-alias emacs='emacs -nw'
-alias pacman='pacman --color always'
-alias gcc='gcc -fno-diagnostics-show-caret'
+alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias g++='g++ -fno-diagnostics-show-caret'
+alias gcc='gcc -fno-diagnostics-show-caret'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+#alias pacman='pacman --color always'
+alias pdfview='apvlv'
+alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias rename='perl-rename'
+alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 
 # Using .config as config directory
+alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
 alias alpine='alpine -p ~/.config/pinerc'
-alias mutt='mutt -F ~/.config/muttrc'
-alias startx='startx ~/.config/xinitrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
 alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
+alias mutt='mutt -F ~/.config/muttrc'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias startx='startx ~/.config/xinitrc'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
@@ -68,3 +70,30 @@ set -o vi
 export PAGER='less -X'
 
 export PATH=$PATH:~/bin
+
+#ignore hidden files in bash completion
+bind 'set match-hidden-files off'
+
+
+function proxy(){
+	proxyserver=192.168.0.120
+	port=3128
+	#export http_proxy="http://$username:$password@$proxyserver:$port"
+	export http_proxy="http://$proxyserver:$port"
+	export https_proxy=$http_proxy
+	export ftp_proxy=$http_proxy
+	export rsync_proxy=$http_proxy
+	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+	echo -e "\nProxy environment variable set."
+}
+function proxyoff(){
+	unset HTTP_PROXY
+	unset http_proxy
+	unset HTTPS_PROXY
+	unset https_proxy
+	unset FTP_PROXY
+	unset ftp_proxy
+	unset RSYNC_PROXY
+	unset rsync_proxy
+	echo -e "\nProxy environment variable removed."
+}
