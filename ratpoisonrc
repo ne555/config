@@ -20,6 +20,9 @@ bind t other
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
 bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
 
+#battery
+unbind b
+bind b exec ratpoison -c "echo $(acpi -b)"
 
 # This is a sample .ratpoisonrc file
 # Gets rid of that ugly crosshairs default cursor
