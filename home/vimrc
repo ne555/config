@@ -23,9 +23,7 @@ colorscheme desert
 set printoptions=paper:a4
 
 "compilar
-map <S-F9> :w <Bar> !clear && g++ -Wall --pedantic-error % <Return>
-"compilar y ejecutar
-map <F9> :w <Bar> !clear && g++ -Wall --pedantic-error % && ./a.out <Return>
+map <F9> :w <Bar> !clear && g++ -W{all,extra,pedantic} -ggdb -std=c++11 % <Return>
 
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.vim/skeletons/template.%:e
@@ -126,20 +124,19 @@ nmap <C-c>i
 	\:cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-c>d 
 	\:cs find d <C-R>=expand("<cword>")<CR><CR>
-" Hitting CTRL-space before the search type does a vertical split
-"inoremap <C-Space> <C-x><C-o>
-"inoremap <C-@> <C-Space>
-"nmap <C-Space>s 
-"	\:vert scs find s <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-Space>g 
-"	\:vert scs find g <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-Space>c 
-"	\:vert scs find c <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-Space>t 
-"	\:vert scs find t <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-Space>e 
-"	\:vert scs find e <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-Space>i 
-"	\:vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-"nmap <C-Space>d 
-"	\:vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
+"latex plugin
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+filetype indent on
+let g:tex_flavor='latex'
+
+let g:Tex_SmartKeyBS = 0
+let g:Tex_SmartKeyQuote = 0
+let g:Tex_SmartKeyDot = 0
+
+let g:Imap_UsePlaceHolders = 0
+
+let g:Tex_Leader = '`tex'
+let g:Tex_Leader2 = ',tex'
+
