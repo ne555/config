@@ -16,6 +16,7 @@ alias emacs='emacs -nw'
 alias pacman='pacman --color always'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias g++='g++ -fno-diagnostics-show-caret'
+alias rae="dict --host localhost"
 
 # Using .config as config directory
 alias alpine='alpine -p ~/.config/pinerc'
@@ -32,7 +33,7 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 fi
 
 #PS1='[\u@\h \W]\$ '
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") $PWD)\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
 
 
 export TERM=screen-256color
@@ -67,7 +68,10 @@ set -o vi
 #don't clear the screen on exit
 export PAGER='less -X'
 
-export PATH=$PATH:~/bin
+export PATH=$PATH:~/usr/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
+export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
 
 
 function proxy(){
