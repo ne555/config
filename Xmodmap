@@ -11,3 +11,7 @@ keycode 174 = XF86AudioStop
 keycode 180 = XF86HomePage
 keycode 232 = XF86MonBrightnessDown
 keycode 233 = XF86MonBrightnessUp
+
+!useless capslock
+keysym Caps_Lock = Escape
+clear lock
