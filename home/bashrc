@@ -5,10 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#diccionario de la rae
+alias rae='dict --host localhost'
+
 
 
 #alias pacman='pacman --color always'
-alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias grep='grep --color=auto'
@@ -21,13 +23,27 @@ alias rename='perl-rename'
 # Using .config as config directory
 alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
 alias alpine='alpine -p ~/.config/pinerc'
+alias amule='amule --config-dir=~/.config'
 alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias dgen='dgen -r ~/.config/dgenrc'
+alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
+alias lingot='lingot -c ~/.config/lingot'
 alias mutt='mutt -F ~/.config/muttrc'
 alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
+alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
+alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
+#alias vim='vim -u ~/.config/vimrc'
+##Variables to use XDG especification
+export GIMP2_DIRECTORY='~/.local/share/gimp/'
+#export GIMP2_DATADIR=
+#export GIMP2_LOCALEDIR=
+#export GIMP2_PLUGINDIR=
+export GIMP2_SYSCONFDIR='~/.config/gimp/'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then

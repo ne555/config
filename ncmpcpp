@@ -18,3 +18,4 @@ visualizer_sync_interval = "1"
 visualizer_type = "spectrum" (spectrum/wave)
 
 song_list_format = "$0%f{$R$7%t$9}"
+#song_list_format = "%f$R%l"

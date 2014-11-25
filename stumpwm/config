@@ -1,5 +1,18 @@
 ;; vim: set filetype=lisp:
+(defun shell-command (command)
+	(echo-string 
+		(current-screen)
+		(run-shell-command command t))
+)
+
+
 (in-package :stumpwm)
+(defcommand bateria () ()  
+	(run-shell-command "acpi -b" t)
+)
+
+
+;; key bindings
 (set-prefix-key (kbd "F20"))
 (define-key *root-map* (kbd ":") "colon")
 (define-key *root-map* (kbd ";") "eval-line")
@@ -8,6 +21,7 @@
 (define-key *root-map* (kbd "a") "time")
 ;; battery
 ;;(define-key *root-map* (kbd "b") "exec echo $(acpi -b)")
+(define-key *root-map* (kbd "b") "bateria")
 
 (define-key *root-map* (kbd "o") "only")
 ;; movement
@@ -28,3 +42,61 @@
 (define-key *root-map* (kbd "ESC") "abort")
 
 (define-key *root-map* (kbd "I") "exec invert.bin")
+
+
+;;; variables
+;; no robar el foco
+(setf *deny-map-request* t)
+(setf *deny-raise-request* t)
+;(push '(:transient) *deny-map-request*)
+;(push '(:class "Termite") *deny-map-request*)
+;(push '(:role "transient") *deny-map-request*)
+;(push '(:transient) *deny-raise-request*)
+
+
+;; java sucks
+(run-shell-command "wmname LG3D")
+
+
+;;mode-line
+(setf *mode-line-border-width* 0)
+(setf *mode-line-timeout* 60)
+(setf *mode-line-foreground-color* "White")
+(setf *mode-line-background-color* "Black")
+(setf *screen-mode-line-format*
+	;(list "[^B%n^b] %W^>"
+	(list
+		"%W^>"
+		'(:eval (run-shell-command "acpi -b | cut -d',' -f2" t))
+	)
+)
+;; Turn on the new mode line.
+(toggle-mode-line 
+	(current-screen)
+	(current-head)
+)
+(toggle-mode-line 
+	(current-screen)
+	(current-head)
+)
+
+;; windows
+(setf *window-format* "%m%n%s%c")
+(setf *normal-border-width* 0)
+
+
+(defun damn-java (current-window last-window)
+	(echo
+		(list 
+			current-window
+			last-window
+		)
+	)
+)
+
+(defun urgente ()
+	(echo "hola mundo feliz")
+)
+
+;(stumpwm:add-hook *focus-window-hook* 'damn-java)
+;(stumpwm:add-hook *urgent-window-hook* 'urgente)

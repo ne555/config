@@ -284,6 +284,7 @@ settings = {
     autolog_path = "~/.local/share/irssi/log/$tag/$0.log";
     autolog = "yes";
     autolog_colors = "no";
+    completion_strict = "yes";
   };
 };
 logs = { };
