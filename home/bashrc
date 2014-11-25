@@ -7,25 +7,27 @@
 
 
 
+#alias pacman='pacman --color always'
 alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
-#alias pacman='pacman --color always'
+alias pacman='pacman --color always'
 alias pdfview='apvlv'
-alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias rae="dict --host localhost"
 alias rename='perl-rename'
-alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 
 # Using .config as config directory
 alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
 alias alpine='alpine -p ~/.config/pinerc'
+alias apvlv='apvlv -c ~/.config/apvlv.rc'
 alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
 alias mutt='mutt -F ~/.config/muttrc'
 alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
 alias startx='startx ~/.config/xinitrc'
+alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
@@ -33,8 +35,7 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	startx 
 fi
 
-#PS1='[\u@\h \W]\$ '
-PS1='\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
 
 
 export TERM=screen-256color
@@ -69,10 +70,12 @@ set -o vi
 #don't clear the screen on exit
 export PAGER='less -X'
 
-export PATH=$PATH:~/bin
-
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
+export PATH=$PATH:~/usr/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
+export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
 
 
 function proxy(){

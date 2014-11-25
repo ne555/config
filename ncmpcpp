@@ -1,3 +1,4 @@
+# vim:set filetype=conf:
 ncmpcpp_directory = "~/.local/share/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
 mpd_music_dir = "~/datos/musica/"
@@ -15,3 +16,5 @@ visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "1"
 #visualizer_type = "wave" (spectrum/wave)
 visualizer_type = "spectrum" (spectrum/wave)
+
+song_list_format = "$0%f{$R$7%t$9}"

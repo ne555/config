@@ -18,5 +18,5 @@ clear mod4
 add mod4 = Super_R
 
 !useless capslock
-keycode 66 = Meta_L
+keysym Caps_Lock = Escape
 clear lock
