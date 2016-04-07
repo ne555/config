@@ -41,4 +41,4 @@ a.out
 *.sqlite
 
 
-# vim set filetype=conf
+#/* vim: set filetype=gitconfig : */

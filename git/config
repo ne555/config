@@ -1,4 +1,4 @@
-# vim: set filetype=gitconfig:
+#/* vim: set filetype=gitconfig:*/
 [core]
 	excludesfile = /home/ne555/.config/git/ignore
 [user]
@@ -6,7 +6,6 @@
 	name = aldo_bedrij
 [github]
 	user = ne555
-	token = b24f273448699f9706a387efd02490bf
 
 [diff]
 	tool = vimdiff
@@ -30,3 +29,5 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[merge]
