@@ -15,3 +15,7 @@ keycode 233 = XF86MonBrightnessUp
 !useless capslock
 keysym Caps_Lock = Escape
 clear lock
+
+!delete
+keycode 22 = BackSpace
+keycode 119 = Delete
