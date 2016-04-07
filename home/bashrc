@@ -5,26 +5,40 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias ping='ping -4'
 
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias rename='perl-rename'
-alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
-alias pdfview='apvlv'
 alias emacs='emacs -nw'
-alias pacman='pacman --color always'
-alias gcc='gcc -fno-diagnostics-show-caret'
 alias g++='g++ -fno-diagnostics-show-caret'
-alias rae="dict --host localhost"
+alias gcc='gcc -fno-diagnostics-show-caret'
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+#alias mupdf='mupdf-gl'
+alias nload='nload -u K -U K'
+alias octave='rlwrap octave-cli -q'
+alias pacman='pacman --color always'
+alias pdfview='apvlv'
+#alias rae='dict --host localhost'
+alias rename='perl-rename'
+alias st='st -f "Luxi Mono"'
+alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
+
+alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 # Using .config as config directory
 alias alpine='alpine -p ~/.config/pinerc'
-alias mutt='mutt -F ~/.config/muttrc'
-alias startx='startx ~/.config/xinitrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias amule='amule --config-dir=~/.config'
 alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
+alias mutt='mutt -F ~/.config/muttrc'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias startx='startx ~/.config/xinitrc'
+alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
+alias w3m='w3m -config ~/.config/w3m/config'
+
+#weird bugs
+#(clang_complete)
+alias vim="vim 2>/dev/null"
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
@@ -56,8 +70,9 @@ shopt -s histappend
 #export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
 #export HISTCONTROL=ignorespace:erasedups
 export HISTCONTROL=erasedups
-export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *"
+export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *"
 export HISTSIZE=10000
+export HISTFILESIZE=4000000
 
 d=~/.config/dircolors
 test -r $d && eval "$(dircolors $d)"
@@ -72,12 +87,19 @@ export PATH=$PATH:~/usr/bin
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
 export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/lib
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/lib/pkgconfig
+
+
+export PYTHONDONTWRITEBYTECODE="non empty string"
 
 
 function proxy(){
-	proxyserver=192.168.0.120
+	proxyserver=192.168.0.121
+	#proxyserver=10.0.2.3
 	port=3128
-	export http_proxy="http://$username:$password@$proxyserver:$port"
+	#export http_proxy="http://$username:$password@$proxyserver:$port"
+	export http_proxy="http://$proxyserver:$port"
 	export https_proxy=$http_proxy
 	export ftp_proxy=$http_proxy
 	export rsync_proxy=$http_proxy
@@ -95,3 +117,7 @@ function proxyoff(){
 	unset rsync_proxy
 	echo -e "\nProxy environment variable removed."
 }
+
+
+#no blocking the screen with <C-s>
+stty -ixon -ixoff
