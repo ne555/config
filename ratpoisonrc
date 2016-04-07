@@ -13,7 +13,10 @@ bind l focusright
 
 bind Escape abort
 
-escape Super_L
+#compatibilidad con stumpwm,
+#Super_L se mapea a F20 con xmodmap
+#escape Super_L
+escape F20
 bind t other
 
 #don't remove messages
@@ -22,6 +25,8 @@ msgwait 0
 #workspaces
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
 bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
+
+bind I exec ~/usr/bin/invert.bin
 
 #battery
 unbind b
@@ -52,3 +57,5 @@ bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 defborder 0
 set border 0
 addhook switchgroup exec /home/ne555/usr/bin/wallpaper.sh
+#java sucks
+exec wmname LG3D

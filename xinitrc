@@ -18,6 +18,7 @@ xbindkeys -f /home/ne555/.config/xbindkeysrc
 #exec ck-launch-session dbus-launch startfxce4
 #exec awesome
 exec ratpoison --file /home/ne555/.config/ratpoisonrc
+#exec stumpwm
 #exec fluxbox
 #exec pawm
 #exec fusion-icon

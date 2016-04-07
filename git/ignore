@@ -37,8 +37,9 @@ a.out
 # Logs and databases #
 ######################
 *.log
-*.sql
-*.sqlite
+*.db
+#*.sql
+#*.sqlite
 
 
 #/* vim: set filetype=gitconfig : */

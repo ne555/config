@@ -26,3 +26,4 @@ def_key "j"
 
 def_key "k"
   scroll_down
+>>>>>>> origin/master

@@ -6,9 +6,10 @@
 [[ $- != *i* ]] && return
 
 alias ping='ping -4'
-
-
 alias emacs='emacs -nw'
+#diccionario de la rae
+alias rae='dict --host localhost'
+#alias pacman='pacman --color always'
 alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias grep='grep --color=auto'
@@ -25,13 +26,6 @@ alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
-# Using .config as config directory
-alias alpine='alpine -p ~/.config/pinerc'
-alias amule='amule --config-dir=~/.config'
-alias finch='finch --config ~/.config/purple/'
-alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
-alias mutt='mutt -F ~/.config/muttrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
 alias startx='startx ~/.config/xinitrc'
 alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
 alias w3m='w3m -config ~/.config/w3m/config'
@@ -40,13 +34,37 @@ alias w3m='w3m -config ~/.config/w3m/config'
 #(clang_complete)
 alias vim="vim 2>/dev/null"
 
+# Using .config as config directory
+alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
+alias alpine='alpine -p ~/.config/pinerc'
+alias amule='amule --config-dir=~/.config'
+alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias dgen='dgen -r ~/.config/dgenrc'
+alias emacs='emacs -nw -l ~/.config/emacs.el'
+alias finch='finch --config ~/.config/purple/'
+alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
+alias lingot='lingot -c ~/.config/lingot'
+alias mutt='mutt -F ~/.config/muttrc'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
+alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
+alias snes9x='snes9x -conf ~/.config/snes9x'
+alias startx='startx ~/.config/xinitrc'
+alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
+#alias vim='vim -u ~/.config/vimrc'
+##Variables to use XDG especification
+export GIMP2_DIRECTORY='~/.local/share/gimp/'
+#export GIMP2_DATADIR=
+#export GIMP2_LOCALEDIR=
+#export GIMP2_PLUGINDIR=
+export GIMP2_SYSCONFDIR='~/.config/gimp/'
+
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	#startxfce4 
 	startx 
 fi
 
-#PS1='[\u@\h \W]\$ '
 PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
 
 
@@ -83,6 +101,8 @@ set -o vi
 #don't clear the screen on exit
 export PAGER='less -X'
 
+#ignore hidden files in bash completion
+bind 'set match-hidden-files off'
 export PATH=$PATH:~/usr/bin
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include

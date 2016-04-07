@@ -60,7 +60,6 @@ color tilde brightmagenta black
 color index blue black ~F
 color index red black "~N|~O"
 
-
 #viewing html
 set mailcap_path = ~/.local/share/mutt/mailcap
 

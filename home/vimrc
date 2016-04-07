@@ -1,4 +1,5 @@
 set nowritebackup
+set nobackup
 set noswapfile
 "set verbose=9
 "tab
@@ -41,7 +42,6 @@ map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
 map ]q :cprev <Return>
-"map <F9> :w <Bar> !clear && g++ -W{all,extra,pedantic} -ggdb -std=c++11 %  2>&1 \| tee error.log <Return>
 
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.vim/skeletons/template.%:e

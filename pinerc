@@ -374,7 +374,7 @@ address-book=~/.config/addressbook
 global-address-book=
 
 # Set by Alpine; controls beginning-of-month sent-mail pruning.
-last-time-prune-questioned=113.3
+last-time-prune-questioned=113.12
 
 # Set by Alpine; controls display of "new version" message.
 last-version-used=6.03
