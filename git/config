@@ -31,3 +31,5 @@
 	untracked = cyan
 
 [merge]
+	tool = vimdiff
+	conflictstyle=diff3
