@@ -7,6 +7,8 @@ set tabstop=4
 "set expandtab
 set shiftwidth=4
 
+set showcmd
+
 set nu "line numbers
 syntax on "highlighting
 if &diff
@@ -17,38 +19,53 @@ endif
 set t_Co=256
 
 colorscheme desert
-
-"set background=dark
-
 set printoptions=paper:a4
 
+"keycodes
+set <F1>=[M
+set <F2>=[N
+set <F3>=[O
+set <F4>=[P
+set <F5>=[Q
+set <F6>=[R
+set <F7>=[S
+set <F8>=[T
+set <F9>=[U
+set <F10>=[V
+set <F11>=[W
+set <F12>=[X
+
 "compilar
-map <F9> :w <Bar> !clear && g++ -W{all,extra,pedantic} -ggdb -std=c++11 % <Return>
+set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -ggdb\ -std=c++11\ %
+map <F9> :write <Return> :make <Return>
+"moverse por los errores
+map [q :cnext <Return>
+map ]q :cprev <Return>
+"map <F9> :w <Bar> !clear && g++ -W{all,extra,pedantic} -ggdb -std=c++11 %  2>&1 \| tee error.log <Return>
 
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.vim/skeletons/template.%:e
-
 autocmd! BufNewFile,BufRead *.tex set filetype=tex
 
 "autocomplete commands
 set wildmode=longest,list
 
+"open doc files
 autocmd BufReadPre *.doc set ro
-autocmd BufReadPre *.doc set hlsearch!
-autocmd BufReadPost *.doc %!antiword "%"
+autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 
-"for autocompletion of code
-set tags+=~/.vim/tags/cpp
-set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/wt
-"set tags+=~/.vim/tags/sfml
-"set tags+=~/.vim/tags/sfml-1.6
-"set tags+=~/.vim/tags/sdl
+"for autocompletion of code (clang)
+let g:clang_complete_auto = 0
+"parameters of functions
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'clang_complete'
+let g:clang_sort_algo='alpha'
 
+"identado (clang-format)
+set formatprg=clang-format\ 2>/dev/null
+"map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+"imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 
-" build tags of your own project with Ctrl-F12
-"map <C-F12> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
-map <F2> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q % <Return>
 
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
@@ -72,7 +89,6 @@ au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
 
 runtime ftplugin/man.vim
 
-
 function! s:insert_gates()
 	let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
 	execute "normal! i#ifndef " . gatename
@@ -87,10 +103,6 @@ set path+=../header
 "open the #include file in a new vertical window
 map f :vertical botright sfind <cfile><CR>
 
-"open doc files
-autocmd BufReadPre *.doc set ro
-autocmd BufReadPre *.doc set hlsearch!
-autocmd BufReadPost *.doc %!antiword "%"
 
 "cscope
 if has("cscope")
@@ -140,3 +152,32 @@ let g:Imap_UsePlaceHolders = 0
 let g:Tex_Leader = '`tex'
 let g:Tex_Leader2 = ',tex'
 
+
+"syntastic
+"let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": [], "passive_filetypes": ["cpp"] }
+let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": ["foo"], "passive_filetypes": ["cpp"] }
+
+let g:pydiction_location = '/usr/share/pydiction/complete-dict'
+
+"no analiza
+let g:syntastic_check_on_wq = 0
+
+
+"syntastic
+nmap ]l :lnext<CR>
+nmap [l :lprev<CR>
+nmap R :call Rae(expand("<cword>"))<CR><CR>
+
+function! Rae(palabra)
+	new
+	:exec printf('0read !rae %s | nocolor.sh', a:palabra)
+	0
+endfunction
+
+
+" Ignore Uppercase words when spell checking
+fun! IgnoreUppercaseSpell()
+  syn match Uppercase /\<[A-Z][a-z]*\>/ contains=@NoSpell transparent
+  syn cluster Spell add=Uppercase
+endfun
+"autocmd BufRead,BufNewFile * :call IgnoreUppercaseSpell()
