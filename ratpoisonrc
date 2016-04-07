@@ -1,6 +1,6 @@
 #apps
 rudeness 4
-bind c exec termite
+bind c exec urxvt
 unbind Q
 unbind k
 unbind l
@@ -15,6 +15,9 @@ bind Escape abort
 
 escape Super_L
 bind t other
+
+#don't remove messages
+msgwait 0
 
 #workspaces
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
@@ -47,4 +50,5 @@ bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 ###bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
 
 defborder 0
-
+set border 0
+addhook switchgroup exec /home/ne555/usr/bin/wallpaper.sh
