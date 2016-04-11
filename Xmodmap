@@ -20,3 +20,7 @@ add mod4 = Super_R
 !useless capslock
 keysym Caps_Lock = Escape
 clear lock
+
+!delete
+keycode 22 = BackSpace
+keycode 119 = Delete
