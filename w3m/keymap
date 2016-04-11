@@ -1,0 +1,26 @@
+#vim/dwb like
+keymap < BACK
+keymap , BACK
+keymap > NEXT
+keymap . NEXT
+keymap C-e UP
+keymap C-y DOWN
+keymap C-w CLOSE_TAB
+
+keymap gg BEGIN
+keymap gt NEXT_TAB
+keymap gT PREV_TAB
+keymap o GOTO
+keymap C-o OPTIONS
+
+keymap K PREV_LINK
+keymap J NEXT_LINK
+keymap SPC GOTO_LINK
+keymap f TAB_LINK
+
+keymap M-m MENU
+
+keymap zz CENTER_V
+
+keymap C-b PREV_PAGE
+keymap C-f NEXT_PAGE
