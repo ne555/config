@@ -181,3 +181,6 @@ fun! IgnoreUppercaseSpell()
   syn cluster Spell add=Uppercase
 endfun
 "autocmd BufRead,BufNewFile * :call IgnoreUppercaseSpell()
+
+"Gdiff open in vertical
+set diffopt=filler,vertical
