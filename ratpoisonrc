@@ -1,6 +1,6 @@
 #apps
 rudeness 4
-bind c exec termite
+bind c exec urxvt
 unbind Q
 unbind k
 unbind l
@@ -19,6 +19,8 @@ bind Escape abort
 escape F20
 bind t other
 
+#don't remove messages
+msgwait 0
 #workspaces
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
 bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
@@ -55,3 +57,5 @@ defborder 0
 
 #java sucks
 exec wmname LG3D
+set border 0
+addhook switchgroup exec /home/ne555/usr/bin/wallpaper.sh

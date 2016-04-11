@@ -38,6 +38,8 @@ alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
+alias w3m='w3m -config ~/.config/w3m'
+
 ##Variables to use XDG especification
 export GIMP2_DIRECTORY='~/.local/share/gimp/'
 #export GIMP2_DATADIR=
@@ -95,7 +97,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
 
 
 function proxy(){
-	proxyserver=192.168.0.120
+	proxyserver=192.168.0.121
 	port=3128
 	#export http_proxy="http://$username:$password@$proxyserver:$port"
 	export http_proxy="http://$proxyserver:$port"

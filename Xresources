@@ -4,16 +4,11 @@ URxvt*scrollBar: false
 
 URxvt.keysym.Home: \033[1~
 URxvt.keysym.End:  \033[4~
-URxvt.keysym.F1:   \033[M
-URxvt.keysym.F2:   \033[N
-URxvt.keysym.F3:   \033[O
-URxvt.keysym.F4:   \033[P
-URxvt.keysym.F5:   \033[Q
-URxvt.keysym.F6:   \033[R
-URxvt.keysym.F7:   \033[S
-URxvt.keysym.F8:   \033[T
-URxvt.keysym.F9:   \033[U
-URxvt.keysym.F10:  \033[V
-URxvt.keysym.F11:  \033[W
-URxvt.keysym.F12:  \033[X
 
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard-osc:copy
+URxvt.iso14755: False
+URxvt.iso14755_52: False
+URxvt.perl-ext-common: default,clipboard,clipboard-osc
+
+urxvt*internalBorder: 0
