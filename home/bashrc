@@ -52,7 +52,6 @@ alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
-alias w3m='w3m -config ~/.config/w3m'
 
 ##Variables to use XDG especification
 export GIMP2_DIRECTORY='~/.local/share/gimp/'
