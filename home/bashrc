@@ -37,7 +37,7 @@ alias vim="vim 2>/dev/null"
 # Using .config as config directory
 alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
 alias alpine='alpine -p ~/.config/pinerc'
-alias amule='amule --config-dir=~/.config'
+alias amule='amule --config-dir=~/.config/amule'
 alias apvlv='apvlv -c ~/.config/apvlv.rc'
 alias dgen='dgen -r ~/.config/dgenrc'
 alias emacs='emacs -nw -l ~/.config/emacs.el'
