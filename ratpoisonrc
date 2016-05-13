@@ -1,6 +1,6 @@
 #apps
 rudeness 4
-bind c exec urxvt
+bind c exec st
 unbind Q
 unbind k
 unbind l
