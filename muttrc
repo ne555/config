@@ -2,3 +2,17 @@ set imap_user = wbedrij@gmail.com
 set folder = imaps://imap.gmail.com:993
 set spoolfile = +INBOX
 set imap_check_subscribed
+
+#store locally to speed up
+set header_cache=~/.cache/mutt/headers
+set message_cachedir=~/.cache/mutt/bodies
+
+#borradores
+set postponed = +[Gmail]/Drafts
+
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+
+
+set imap_keepalive = 300
+set mail_check = 120
