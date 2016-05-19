@@ -30,11 +30,26 @@ set realname = "Aldo Bedrij"
 set use_from = yes
 set hostname = gmail.com
 
+#compose mails
+set editor = vim
 set edit_headers = yes
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
 
 #messages
 set sort = 'reverse-last-date-received'
 set send_charset="utf-8"
+
+#Key binding
+#backspace
+bind index,pager  previous-page
+#folds
+bind index za collapse-thread
+
+bind pager j next-line
+bind pager k previous-line
+
 
 # Palette for use with the Linux console.  Black background.
 color hdrdefault cyan black
