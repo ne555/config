@@ -40,7 +40,8 @@ bind editor ^T complete
 bind editor <space> noop
 
 #messages
-set sort = 'reverse-last-date-received'
+set sort = reverse-threads
+set sort_aux = last-date-received
 set send_charset="utf-8"
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
