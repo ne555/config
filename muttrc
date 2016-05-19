@@ -34,6 +34,7 @@ set hostname = gmail.com
 set editor = vim
 set edit_headers = yes
 set include
+set fast_reply = yes
 bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
@@ -41,6 +42,16 @@ bind editor <space> noop
 #messages
 set sort = 'reverse-last-date-received'
 set send_charset="utf-8"
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+
+#view html
+set mailcap_path = ~/.local/share/mutt/mailcap
+auto_view text/html
+
+
 
 #Key binding
 #backspace
