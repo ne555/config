@@ -28,3 +28,27 @@ set smtp_url = smtp://$my_user@smtp.gmail.com:587/
 set from = $my_email
 set realname = "Aldo Bedrij"
 set use_from = yes
+set hostname = gmail.com
+
+set edit_headers = yes
+
+#messages
+set sort = 'reverse-last-date-received'
+set send_charset="utf-8"
+
+# Palette for use with the Linux console.  Black background.
+color hdrdefault cyan black
+color quoted cyan black
+color signature cyan black
+color attachment red black
+color message brightwhite black
+color error brightred black
+color indicator black red
+color status brightgreen blue
+color tree white black
+color normal white black
+color markers red black
+color search white black
+color tilde brightmagenta black
+color index blue black ~F
+color index red black "~N|~O"
