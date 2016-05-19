@@ -33,6 +33,7 @@ set hostname = gmail.com
 #compose mails
 set editor = vim
 set edit_headers = yes
+set include
 bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
