@@ -21,10 +21,10 @@ alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
-alias st='st -f "Luxi Mono"'
-alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
+
+alias r='R --no-save --quiet'
 
 alias startx='startx ~/.config/xinitrc'
 alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
@@ -45,7 +45,7 @@ alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
 alias lingot='lingot -c ~/.config/lingot'
 alias mutt='mutt -F ~/.config/muttrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp --bindings ~/.config/ncmpcpp.bindings'
 alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
@@ -54,11 +54,11 @@ alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 
 ##Variables to use XDG especification
-export GIMP2_DIRECTORY='~/.local/share/gimp/'
+export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp/'
 #export GIMP2_DATADIR=
 #export GIMP2_LOCALEDIR=
 #export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR='~/.config/gimp/'
+export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp/'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
