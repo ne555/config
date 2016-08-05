@@ -37,7 +37,7 @@ set <F11>=[W
 set <F12>=[X
 
 "compilar
-set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -ggdb\ -std=c++11\ %
+set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -ggdb\ -std=c++17\ %
 map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
@@ -62,7 +62,7 @@ let g:clang_snippets_engine = 'clang_complete'
 let g:clang_sort_algo='alpha'
 
 "identado (clang-format)
-set formatprg=clang-format\ 2>/dev/null
+set formatprg=clang-format\ -style=file\ 2>/dev/null
 "map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 "imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 
@@ -94,6 +94,9 @@ set path+=../header
 "open the #include file in a new vertical window
 map f :vertical botright sfind <cfile><CR>
 
+"ctags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+"map <C-\> :vertical botright split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 "cscope
 if has("cscope")
@@ -149,6 +152,7 @@ let g:Tex_Leader2 = ',tex'
 let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": ["foo"], "passive_filetypes": ["cpp"] }
 
 let g:pydiction_location = '/usr/share/pydiction/complete-dict'
+set omnifunc=syntaxcomplete#Complete
 
 "no analiza
 let g:syntastic_check_on_wq = 0
@@ -157,7 +161,7 @@ let g:syntastic_check_on_wq = 0
 "syntastic
 nmap ]l :lnext<CR>
 nmap [l :lprev<CR>
-nmap R :call Rae(expand("<cword>"))<CR><CR>
+"nmap R :call Rae(expand("<cword>"))<CR><CR>
 
 function! Rae(palabra)
 	new
