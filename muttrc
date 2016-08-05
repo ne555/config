@@ -35,9 +35,9 @@ set editor = vim
 set edit_headers = yes
 set include
 set fast_reply = yes
-bind editor <Tab> complete-query
-bind editor ^T complete
-bind editor <space> noop
+#bind editor <Tab> complete-query
+#bind editor ^T complete
+#bind editor <space> noop
 
 #messages
 set sort = reverse-threads
@@ -51,6 +51,12 @@ hdr_order Date From To Cc
 #view html
 set mailcap_path = ~/.local/share/mutt/mailcap
 auto_view text/html
+
+
+#address-book
+set alias_file = "~/.config/addressbook.mutt"
+set sort_alias = alias
+source $alias_file
 
 
 
