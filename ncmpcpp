@@ -15,15 +15,3 @@ song_list_format = "$0%f{$R$7%t$9}"
 
 
 ask_before_clearing_playlists = no
-
-#def_key "up"
-#  scroll_up
-#
-#def_key "down"
-#  scroll_down
-def_key "j"
-  scroll_up
-
-def_key "k"
-  scroll_down
->>>>>>> origin/master
