@@ -62,7 +62,10 @@ let g:clang_snippets_engine = 'clang_complete'
 let g:clang_sort_algo='alpha'
 
 "identado (clang-format)
-set formatprg=clang-format\ -style=file\ 2>/dev/null
+augroup file_cpp
+	autocmd!
+	autocmd FileType cpp setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
+augroup END
 "map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 "imap <C-K> <c-o>:pyf /usr/share/clang/clang-format.py<cr>
 
@@ -179,3 +182,10 @@ endfun
 
 "Gdiff open in vertical
 set diffopt=filler,vertical
+
+
+"save cursor position
+augroup resCur
+  autocmd!
+  autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
