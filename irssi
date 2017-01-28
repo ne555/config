@@ -286,6 +286,7 @@ settings = {
     autolog_colors = "no";
     completion_strict = "yes";
   };
+  "perl/core/scripts" = { autoaway_timeout = "300"; };
 };
 logs = { };
 ignores = (
