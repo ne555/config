@@ -189,3 +189,12 @@ augroup resCur
   autocmd!
   autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
+
+
+"subtitles
+"{{{
+augroup subtitles
+	autocmd!
+	autocmd BufRead *.srt :setlocal nobomb fileencoding=utf8 fileformat=unix
+augroup END
+"}}}
