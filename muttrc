@@ -86,3 +86,14 @@ color search white black
 color tilde brightmagenta black
 color index blue black ~F
 color index red black "~N|~O"
+
+
+#thread collapse at the start
+folder-hook . 'push "<collapse-all>"'
+folder-hook . 'push ":set collapse\_unread=no<enter>"'
+
+macro index \R '<read-thread><collapse-thread><next-unread>' 'Mark the current thread as read'
+macro index '{' ':set my_oldcollapse_unread=$collapse_unread<enter>:set collapse_unread=yes<enter><collapse-thread>:set collapse_unread=$my_oldcollapse_unread<enter>' 'Collapse thread.'
+macro index '}' '{' '(Un)collapse thread.'
+
+set collapse_unread
