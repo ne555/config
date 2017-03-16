@@ -18,7 +18,8 @@ clear mod4
 add mod4 = Super_R
 
 !useless capslock
-keysym Caps_Lock = Escape
+keycode 66 = Escape
+
 clear lock
 
 !delete
