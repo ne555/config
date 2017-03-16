@@ -23,18 +23,19 @@ colorscheme desert
 set printoptions=paper:a4
 
 "keycodes
-set <F1>=[M
-set <F2>=[N
-set <F3>=[O
-set <F4>=[P
-set <F5>=[Q
-set <F6>=[R
-set <F7>=[S
-set <F8>=[T
-set <F9>=[U
-set <F10>=[V
-set <F11>=[W
-set <F12>=[X
+"press <C-v>Fn
+set <F1>=OP
+set <F2>=OQ
+set <F3>=OR
+set <F4>=OS
+set <F5>=[15~
+set <F6>=[17~
+set <F7>=[18~
+set <F8>=[19~
+set <F9>=[20~
+set <F10>=[21~
+set <F11>=[23~
+set <F12>=[24~
 
 "compilar
 set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -ggdb\ -std=c++17\ %
