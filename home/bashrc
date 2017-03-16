@@ -22,7 +22,7 @@ alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
 
-alias st='st -f "Liberation Mono:size=12"'
+alias st='st -f "Noto Mono:size=8"'
 
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
