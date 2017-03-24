@@ -107,11 +107,11 @@ export PAGER='less -X'
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
 export PATH=$PATH:~/usr/bin
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
-export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/lib
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/lib/pkgconfig
+#export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
+#export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
+#export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/lib
+#export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/lib/pkgconfig
 
 export PYTHONDONTWRITEBYTECODE="non empty string"
 
