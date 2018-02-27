@@ -38,7 +38,7 @@ set <F11>=[23~
 set <F12>=[24~
 
 "compilar
-set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -ggdb\ -std=c++17\ %
+set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
 map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
@@ -152,11 +152,12 @@ let g:Tex_Leader2 = ',tex'
 
 
 "syntastic
-"let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": [], "passive_filetypes": ["cpp"] }
-let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": ["foo"], "passive_filetypes": ["cpp"] }
+let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": ["foo"], "passive_filetypes": ["cpp", "python"] }
 
 let g:pydiction_location = '/usr/share/pydiction/complete-dict'
 set omnifunc=syntaxcomplete#Complete
+
+let g:syntastic_quiet_messages = {'regex': 'missing `\\@', 'level': 'warning'}
 
 "no analiza
 let g:syntastic_check_on_wq = 0
