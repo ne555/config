@@ -13,6 +13,9 @@ def_key "j"
 def_key "l"
   next_column
 
+def_key "ctrl-l"
+  show_lyrics
+
 def_key "h"
   previous_column
 
