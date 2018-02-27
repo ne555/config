@@ -16,14 +16,13 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 #alias mupdf='mupdf-gl'
 alias nload='nload -u K -U K'
-alias octave='rlwrap octave-cli -q'
+
+
 alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
-
 alias st='st -f "Noto Mono:size=8"'
-
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
@@ -31,6 +30,10 @@ alias r='R --no-save --quiet'
 alias startx='startx ~/.config/xinitrc'
 alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
 alias w3m='w3m -config ~/.config/w3m/config'
+
+#to have history en line editing
+alias octave='rlwrap octave-cli -q'
+alias youtube-viewer='rlwrap youtube-viewer -q'
 
 #weird bugs
 #(clang_complete)
@@ -138,6 +141,14 @@ function proxyoff(){
 	unset RSYNC_PROXY
 	unset rsync_proxy
 	echo -e "\nProxy environment variable removed."
+}
+
+function homeusr(){
+	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include
+	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include
+	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib
+	export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/local/lib/pkgconfig
 }
 
 
