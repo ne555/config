@@ -1,0 +1,3 @@
+#/* vim: set filetype=gdb : */
+source ~/.local/share/gdb/stl_views.gdb
+source ~/.local/share/gdb/opencv.gdb
