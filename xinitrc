@@ -4,7 +4,9 @@
 #mpd /home/ne555/.config/mpd.conf
 
 #keyboard layout
-setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
+setxkbmap -rules evdev -model evdev -layout us,ru -variant altgr-intl,ruu
+setxkbmap -option 'compose:menu'
+setxkbmap -option 'grp:shifts_toggle'
 #multimedia keys
 xmodmap /home/ne555/.config/Xmodmap
 #xbindkeys -f /home/ne555/.config/xbindkeysrc
