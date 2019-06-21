@@ -22,7 +22,7 @@ alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
-alias st='st -f "Noto Mono:size=8"'
+alias st='st -f "Noto Sans Mono:size=8"'
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
@@ -120,7 +120,8 @@ export PYTHONDONTWRITEBYTECODE="non empty string"
 
 
 function proxy(){
-	proxyserver=192.168.0.121
+	proxyserver=192.168.0.120
+	#proxyserver=192.168.0.121
 	#proxyserver=10.0.2.3
 	port=3128
 	#export http_proxy="http://$username:$password@$proxyserver:$port"
@@ -146,9 +147,10 @@ function proxyoff(){
 function homeusr(){
 	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include
 	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include
-	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib
-	export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/local/lib/pkgconfig
+	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
+	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
+	export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig
 }
 
 
