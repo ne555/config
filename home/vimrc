@@ -1,6 +1,7 @@
 set nowritebackup
 set nobackup
 set noswapfile
+set viminfo=
 "set verbose=9
 "tab
 set autoindent
@@ -37,8 +38,12 @@ set <F10>=[21~
 set <F11>=[23~
 set <F12>=[24~
 
+"macros
+nnoremap Q @@
+set lazyredraw
+
 "compilar
-set makeprg=clear\ &&\ g++\ -W{all,extra,pedantic}\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
+set makeprg=clear\ &&\ g++\ -fno-diagnostics-show-caret\ -W{all,extra,pedantic}\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
 map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
@@ -95,6 +100,7 @@ autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 
 
 set path+=../header
+set path+=~/usr/local/include
 "open the #include file in a new vertical window
 map f :vertical botright sfind <cfile><CR>
 
