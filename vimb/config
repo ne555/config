@@ -54,8 +54,27 @@ set default-zoom=120
 shortcut-add duck=https://duckduckgo.com/?q=$0
 shortcut-add d=http://dict.cc/?s=$0
 shortcut-add g=https://encrypted.google.com/search?q=$0
+shortcut-add gi=http://images.google.com/images?q=$0
 shortcut-add y=http://www.youtube.com/results?search_query=$0
 shortcut-add s=https://www.startpage.com/do/dsearch?query=$0
+
+shortcut-add amdb=http://www.animenewsnetwork.com/encyclopedia/search/name?q=$0
+shortcut-add anime=https://myanimelist.net/anime.php?q=$0
+shortcut-add arch=https://wiki.archlinux.org/?search=$0
+shortcut-add aur=http://aur.archlinux.org/packages.php?O=0&L=0&detail=1&C=0&K=$0&SeB=nd&SB=n&SO=a&PP=30&do_Search=Go&setlang=en
+shortcut-add cpp=http://www.google.com/search?q=site%3Acplusplus.com%20$0
+shortcut-add ddg=https://duckduckgo.com/?q=$0
+shortcut-add gi=http://images.google.com/images?q=$0
+shortcut-add i=https://duckduckgo.com/?q=$0&iax=images&ia=images
+shortcut-add imdb=http://www.imdb.com/find?s=all&q=$0
+shortcut-add iqdb=http://www.iqdb.org/?url=$0
+shortcut-add manga=http://www.mangaupdates.com/series.html?stype=title&search=$0
+shortcut-add rae=http://dle.rae.es/$0
+shortcut-add sin=http://www.wordreference.com/sinonimos/$0
+shortcut-add wes=http://es.wikipedia.org/w/wiki.phtml?search=$0&go=Go
+shortcut-add wiki=http://en.wikipedia.org/w/wiki.phtml?search=$0&go=Go
+shortcut-add wr=https://www.wordreference.com/es/en/translation.asp?spen=$0
+shortcut-add r=http://old.reddit.com/r/$0/new
 
 # Set the shortcut as the default, that is the shortcut to be used if no
 # shortcut is given and the string to open is not an URI.
@@ -70,6 +89,8 @@ nmap = zz
 #history back, forward
 nnoremap , <C-O>
 nnoremap . <C-I>
+
+#no clutter
 nnoremap s :eval! simplyread();<CR>
 
 # GUI color settings
@@ -82,3 +103,16 @@ set input-error-css=color:#f2777a;background-color:#393939;font:12pt DejaVu Sans
 set status-css=color:#ffcc66;background-color:#393939;font:12pt DejaVu Sans Mono;
 set status-ssl-css=color:#99cc99;background-color:#393939;font:12pt DejaVu Sans Mono;
 set status-ssl-invalid-css=color:#f2777a;background-color:#393939;font:12pt DejaVu Sans Mono;
+
+#4chan download
+nnoremap ;D :shellcmd! download_media.sh <C-R>%<CR>
+nnoremap ;d :shellcmd! download_media.sh <C-R>;<CR>
+#:set x-hint-command=:shellcmd! download_media.sh <C-R>;<CR> | ;x
+
+#using mpv
+#nnoremap ;v :normal ;x | :set x-hint-command=:shellcmd! mpv --pause <C-R>;<CR>
+set x-hint-command=:shellcmd! mpv --pause <C-R>;<CR>
+
+#tabs
+nnoremap gt :sh! xdotool key --window $VIMB_XID ctrl+shift+l<CR><Esc>
+nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+h<CR><Esc>
