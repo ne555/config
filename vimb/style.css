@@ -1,3 +1,29 @@
 body::-webkit-scrollbar {
     display: none;
 }
+
+/*
+*{
+	font-family:"Tex Gyre Pagella" !important;
+}
+*/
+@font-face { font-family: 'arial'; src: local("Helvetica World"); }
+@font-face { font-family: 'helvetica'; src: local("Helvetica World"); }
+
+
+span[vimbhint^='label'] {
+    background-color: #ffffdd !important;
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
+    font: bold 10pt monospace !important;
+    opacity: 1 !important;
+    padding: .1em .1em !important;
+}
+/*
+*[vimbhint='hint'] {
+    font: italic 12pt !important;
+}
+*[vimbhint='hint focus'] {
+    font: italic 12pt bold !important;
+}
+*/
