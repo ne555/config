@@ -68,7 +68,7 @@ function simplyread(nostyle, nolinks)
 		"h1{text-align:center;text-transform:uppercase}" +
 		"div#sr{width:34em; padding:8em; padding-top:2em;" +
 		"  background-color:white; margin:auto; line-height:1.4;" +
-		"  text-align:justify; font-family:serif; hyphens:auto;}";
+		"  text-align:left; font-family:serif; hyphens:auto;}";
 		/* text-rendering:optimizeLegibility; - someday this will work,
 		 *   but at present it just ruins justify, so is disabled */
 	
@@ -76,6 +76,7 @@ function simplyread(nostyle, nolinks)
 		"<style type=\"text/css\">" + (nostyle ? "" : srstyle) + "</style>" +
 		"<div id=\"sr\">" + "<h1>"+doc.title+"</h1>" + fresh.innerHTML + "</div>";
 
+	/*Download generated HTML*/
 	doc.body.innerHTML += "<a download=\"a.html\" href=\'#\' id=\"download_link\">Download generated HTML</a>" ;
 	var html_as_blob = new Blob([doc.body.innerHTML], {type:'text/plain'});
 	download_link.href = URL.createObjectURL(html_as_blob);
