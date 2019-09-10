@@ -76,5 +76,9 @@ function simplyread(nostyle, nolinks)
 		"<style type=\"text/css\">" + (nostyle ? "" : srstyle) + "</style>" +
 		"<div id=\"sr\">" + "<h1>"+doc.title+"</h1>" + fresh.innerHTML + "</div>";
 
+	doc.body.innerHTML += "<a download=\"a.html\" href=\'#\' id=\"download_link\">Download generated HTML</a>" ;
+	var html_as_blob = new Blob([doc.body.innerHTML], {type:'text/plain'});
+	download_link.href = URL.createObjectURL(html_as_blob);
+
 	return 0;
 }
