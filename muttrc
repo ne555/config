@@ -1,9 +1,9 @@
-set my_user = wbedrij
-set my_email = $my_user@gmail.com
+set my_user = aldo.jirdeb
+set my_email = $my_user@zoho.com
 
 #IMAP
 set imap_user = $my_email
-set folder = imaps://imap.gmail.com:993
+set folder = imaps://imap.zoho.com:993
 set spoolfile = +INBOX
 set imap_check_subscribed
 
@@ -12,7 +12,7 @@ set header_cache=~/.cache/mutt/headers
 set message_cachedir=~/.cache/mutt/bodies
 
 #borradores
-set postponed = +[Gmail]/Drafts
+#set postponed = +[Gmail]/Drafts
 
 # Allow Mutt to open new imap connection automatically.
 unset imap_passive
@@ -24,11 +24,15 @@ set mail_check = 120
 #SMTP
 #do not store sent mail
 unset record
-set smtp_url = smtp://$my_user@smtp.gmail.com:587/
+#set smtp_url = smtp://$my_user@smtp.gmail.com:587/
+#SSL
+#set smtp_url = smtp://$my_user@smtp.zoho.com:465
+#TLS
+set smtp_url = smtp://$my_user@smtp.zoho.com:587
 set from = $my_email
-set realname = "Aldo Bedrij"
+set realname = "Aldo Jirdeb"
 set use_from = yes
-set hostname = gmail.com
+set hostname = zoho.com
 
 #compose mails
 set editor = vim
