@@ -84,7 +84,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
 export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
 
-export EDITOR=vim
+export EDITOR=nvim
 
 shopt -s checkwinsize
 #Todas las screens comparten el mismo historial
@@ -109,12 +109,6 @@ export PAGER='less -X'
 
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
-export PATH=$PATH:~/usr/bin
-#export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/include
-#export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/include
-#export LIBRARY_PATH=$LIBRARY_PATH:~/usr/lib
-#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/lib
-#export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/lib/pkgconfig
 
 export PYTHONDONTWRITEBYTECODE="non empty string"
 
@@ -144,15 +138,34 @@ function proxyoff(){
 	echo -e "\nProxy environment variable removed."
 }
 
+export PATH=/usr/lib/ccache:$PATH:~/usr/bin:~/.local/bin
 function homeusr(){
-	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include
-	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include
+	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include:~/.local/include
+	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include:~/.local/include
 	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
 	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64
 	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
-	export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig
+	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
 }
-
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
+
+#most used directories
+. /usr/share/z/z.sh
+
+#nnn file manager
+export NNN_BMS="c:~/.config;d:~/datos/descargas;g:~/datos/programas/juegos/roms;i:~/datos/documentos/informatica;l:~/test/latex/libros;m:~/datos/musica;p:~/datos/documentos/bibliotheka/partituras;v:~/datos/videos;M:/mnt/"
+export NNN_USE_EDITOR=1
+#export NNN_PLUG="n:tmux"
+export NNN_CONTEXT_COLORS='2222'
+
+#dbus
+export $(dbus-launch)
+
+
+#to have Capslock = Escape in tty
+#sudo loadkeys .keystrings
+
+#prefered font
+#sudo setfont /usr/share/kbd/consolefonts/Lat2-Terminus16.psfu.gz
