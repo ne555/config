@@ -1,5 +1,5 @@
 # Homepage that vimb opens if started without a URI.
-set home-page=about:blank
+set home-page=duckduckgo.com
 
 # Path to the default download directory. If no download directory is set,
 # download will be written into current directory. The following pattern will
@@ -34,7 +34,8 @@ set default-zoom=100
 # additional parameters.
 shortcut-add duck=https://duckduckgo.com/?q=$0
 shortcut-add d=http://dict.cc/?s=$0
-shortcut-add g=https://encrypted.google.com/search?q=$0
+#shortcut-add g=https://encrypted.google.com/search?q=$0
+shortcut-add g=https://google.com/search?q=$0
 shortcut-add gi=http://images.google.com/images?q=$0
 shortcut-add y=http://www.youtube.com/results?search_query=$0
 shortcut-add s=https://www.startpage.com/do/dsearch?query=$0
@@ -43,7 +44,7 @@ shortcut-add amdb=http://www.animenewsnetwork.com/encyclopedia/search/name?q=$0
 shortcut-add anime=https://myanimelist.net/anime.php?q=$0
 shortcut-add arch=https://wiki.archlinux.org/?search=$0
 shortcut-add aur=http://aur.archlinux.org/packages.php?O=0&L=0&detail=1&C=0&K=$0&SeB=nd&SB=n&SO=a&PP=30&do_Search=Go&setlang=en
-shortcut-add cpp=http://www.google.com/search?q=site%3Acplusplus.com%20$0
+shortcut-add cpp=https://duckduckgo.com/?q=site%3Acplusplus.com%20$0
 shortcut-add ddg=https://duckduckgo.com/?q=$0
 shortcut-add gi=http://images.google.com/images?q=$0
 shortcut-add i=https://duckduckgo.com/?q=$0&iax=images&ia=images
@@ -93,14 +94,16 @@ nnoremap ;d :shellcmd! download_media.sh <C-R>;<CR>
 #using mpv
 #nnoremap ;v :normal ;x | :set x-hint-command=:shellcmd! mpv --pause <C-R>;<CR>
 set x-hint-command=:shellcmd! mpv --pause <C-R>;<CR>
+nnoremap x :shellcmd! mpv --pause <C-R>%<CR>
+
 
 #tabs
-nnoremap gt :sh! xdotool key --window $VIMB_XID ctrl+shift+l<CR><Esc>
-nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+h<CR><Esc>
+nnoremap gt :sh! xdotool key --window $VIMB_XID ctrl+shift+k<CR><Esc>
+nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+j<CR><Esc>
 
 #nsfw reddit
 :augroup reddit
-:  autocmd LoadFinished http{s,}://old.reddit.com/over18* normal ;ocon
+:  autocmd LoadFinished http{s,}://old.reddit.com/over18* normal ;ocontinue
 :augroup end
 
 #fonts
@@ -112,3 +115,18 @@ set sans-serif-font="Helvetica World"
 
 set monospace-font-size=13
 set font-size=16
+
+
+#queue
+nnoremap b :qpop<CR>
+nnoremap d ;p
+
+#restore closed tab
+nnoremap u :normal U<CR>
+
+#hints
+set hint-keys-same-length=true
+set hint-timeout=0
+#set hint-follow-last=false
+
+set prevent-newwindow=true

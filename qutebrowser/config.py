@@ -34,10 +34,10 @@ config.bind('F', 'hint all tab-bg')
 config.bind(';d', 'hint all spawn --detach download_media.sh {hint-url}')
 config.bind(';D', 'spawn --detach download_media.sh {url}')
 config.bind(';h', 'hint all hover')
-config.bind('x', 'spawn mpv --pause {url}')
-config.bind('X', 'spawn mpv --pause --ytdl-format=18 {url}')
-config.bind(';x', 'hint links spawn mpv --pause {hint-url}')
-config.bind(';X', 'hint links spawn mpv --pause --ytdl-format=18 {hint-url}')
+config.bind('x', 'spawn --detach mpv --pause {url}')
+config.bind('X', 'spawn --detach mpv --pause --ytdl-format=18 {url}')
+config.bind(';x', 'hint links spawn --detach mpv --pause {hint-url}')
+config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=18 {hint-url}')
 
 config.bind('h', 'scroll left')
 config.bind('j', 'scroll down')
@@ -825,6 +825,7 @@ c.content.javascript.enabled = False
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 # c.content.user_stylesheets = []
+c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 
 ## Enable WebGL.
 ## Type: Bool

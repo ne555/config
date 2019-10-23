@@ -62,7 +62,7 @@ function simplyread(nostyle, nolinks)
 		doc.styleSheets[i].disabled = true;
 	
 	srstyle =
-		"p{margin:0ex auto;} h1,h2,h3,h4{font-weight:normal}" +
+		"p{margin:0ex auto;} h1,h2,h3,h4{font-weight:normal; font-family:sans-serif}" +
 		"p+p{text-indent:2em;} body{background:#cccccc none}" +
 		"img{display:block; max-width: 32em; padding:1em; margin: auto}" +
 		"h1{text-align:center;text-transform:uppercase}" +

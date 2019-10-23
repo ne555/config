@@ -1,3 +1,5 @@
 #/* vim: set filetype=gdb : */
 source ~/.local/share/gdb/stl_views.gdb
 source ~/.local/share/gdb/opencv.gdb
+source ~/.local/share/gdb/eigen_gdb.py
+source ~/.local/share/gdb/eigen_printers.py

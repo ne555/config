@@ -206,3 +206,12 @@ augroup subtitles
 	autocmd BufRead *.srt :setlocal nobomb fileencoding=utf8 fileformat=unix
 augroup END
 "}}}
+
+
+" jump to line in pdf
+function! Synctex()
+        " remove 'silent' for debugging
+        execute "!zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+endfunction
+
+map <leader><Return> :call Synctex()<cr><cr>
