@@ -1,0 +1,21 @@
+keycode 58 = Escape
+
+altgr keycode  30 = aacute
+altgr keycode  18 = eacute
+altgr keycode  23 = iacute
+altgr keycode  24 = oacute
+altgr keycode  22 = uacute
+altgr keycode  21 = udiaeresis
+
+altgr shift keycode  30 = Aacute
+altgr shift keycode  18 = Eacute
+altgr shift keycode  23 = Iacute
+altgr shift keycode  24 = Oacute
+altgr shift keycode  22 = Uacute
+altgr shift keycode  21 = Udiaeresis
+
+altgr keycode  49 = ntilde
+altgr shift keycode  49 = Ntilde
+
+altgr keycode  53 = questiondown
+altgr keycode   2 = exclamdown

@@ -1,0 +1,11 @@
+map . navigate next
+map , navigate previous
+map i recolor
+
+set window-title-basename true
+set window-title-page true
+
+set selection-clipboard clipboard
+
+#no status bar, no scroll, no command
+set guioptions ''
