@@ -35,7 +35,7 @@ set use_from = yes
 set hostname = zoho.com
 
 #compose mails
-set editor = vim
+set editor = nvim
 set edit_headers = yes
 set include
 set fast_reply = yes
