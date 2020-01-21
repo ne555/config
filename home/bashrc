@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ping='ping -4'
+#alias ping='ping -4'
 alias emacs='emacs -nw'
 #diccionario de la rae
 alias rae='dict --host localhost'
@@ -59,11 +59,11 @@ alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 
 ##Variables to use XDG especification
-export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp/'
+export GIMP2_DIRECTORY='/home/walter/.local/share/gimp'
 #export GIMP2_DATADIR=
 #export GIMP2_LOCALEDIR=
 #export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp/'
+export GIMP2_SYSCONFDIR='/home/walter/.config/gimp'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
@@ -71,7 +71,7 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	startx 
 fi
 
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[44;1;32m\]\h@\u:$(basename $(dirname $(pwd)))/\W\$\[\033[00m\] '
 
 
 export TERM=screen-256color
@@ -138,21 +138,22 @@ function proxyoff(){
 	echo -e "\nProxy environment variable removed."
 }
 
-export PATH=/usr/lib/ccache:$PATH:~/usr/bin:~/.local/bin
+export PATH=/usr/lib/ccache:$PATH:~/usr/bin:~/.local/bin:~/deps/bin:
 function homeusr(){
 	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include:~/.local/include
 	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include:~/.local/include
 	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
-	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
-	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
+	export LIBRARY_PATH=$LIBRARY_PATH:~/deps/lib64:~/deps/lib:~/usr/local/lib:~/usr/local/lib64:~/deps/lib/cloudcompare
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/deps/lib64:~/deps/lib:~/usr/local/lib:~/usr/local/lib64:~/deps/lib/cloudcompare
+	export PKG_CONFIG_PATH=~/deps/lib/pkgconfig:~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
 }
+homeusr
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
 
 #most used directories
-. /usr/share/z/z.sh
+#. /usr/share/z/z.sh
 
 #nnn file manager
 export NNN_BMS="c:~/.config;d:~/datos/descargas;g:~/datos/programas/juegos/roms;i:~/datos/documentos/informatica;l:~/test/latex/libros;m:~/datos/musica;p:~/datos/documentos/bibliotheka/partituras;v:~/datos/videos;M:/mnt/"

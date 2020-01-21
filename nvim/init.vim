@@ -2,6 +2,9 @@ set nowritebackup
 set nobackup
 set noswapfile
 
+"avoid tabs, use buffers
+set hidden
+
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -44,6 +47,9 @@ map ]q :cprev <Return>
 augroup file_cpp
 	autocmd!
 	autocmd FileType cpp setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
+	autocmd FileType cpp setlocal foldmethod=syntax
+	autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
+	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
 
 
@@ -85,6 +91,6 @@ map <leader><Return> :call Synctex()<cr><cr>
 "plugins
 call plug#begin('~/.local/share/nvim/site/plugin')
 	Plug 'tpope/vim-fugitive'
-	Plug 'scrooloose/nerdtree'
-	Plug 'vim-syntastic/syntastic'
+	"Plug 'scrooloose/nerdtree'
+	"Plug 'vim-syntastic/syntastic'
 call plug#end()

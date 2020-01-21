@@ -13,9 +13,9 @@ keycode 232 = XF86MonBrightnessDown
 keycode 233 = XF86MonBrightnessUp
 
 !stumpwm fix for Super key
-keycode 133 = F20
-clear mod4
-add mod4 = Super_R
+!keycode 133 = F20
+!clear mod4
+!add mod4 = Super_R
 
 !useless capslock
 keycode 66 = Escape
