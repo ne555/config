@@ -46,8 +46,8 @@ map ]q :cprev <Return>
 "identado (clang-format)
 augroup file_cpp
 	autocmd!
-	autocmd FileType cpp setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
-	autocmd FileType cpp setlocal foldmethod=syntax
+	autocmd FileType cpp,c setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
+	autocmd FileType cpp,c setlocal foldmethod=syntax
 	autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
 	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
