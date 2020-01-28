@@ -1,6 +1,6 @@
 #apps
-rudeness 4
-bind c exec st
+set rudeness 4
+bind c exec st -f "Misc Fixed"
 unbind Q
 unbind k
 unbind l
@@ -17,16 +17,17 @@ bind Escape abort
 #Super_L se mapea a F20 con xmodmap
 #escape Super_L
 escape F20
-bind t other
+#bind t other
+bind t exec ratpoison -c "echo $(sensors -A coretemp-isa-0000 | grep Core | cut -d+ -f2 | cut -d' ' -f1)"
 
 #don't remove messages
-msgwait 0
+set msgwait 0
 
 #workspaces
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
 bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
 
-bind I exec ~/usr/bin/invert.bin
+bind I exec ~/.local/bin/invert.bin
 
 #battery
 unbind b
@@ -53,8 +54,12 @@ bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 ###bind M-numbersign exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
 ###bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
 
-defborder 0
 set border 0
-addhook switchgroup exec /home/ne555/usr/bin/wallpaper.sh
+addhook switchgroup exec /home/ne555/.local/bin/wallpaper.sh
 #java sucks
-exec wmname LG3D
+#exec wmname LG3D
+
+#feh -FZ bug
+#feh WARNING: Window Manager does not support MWM hints. To get a borderless
+#window I have to bypass your wm.
+exec xprop -root -f "_MOTIF_WM_HINTS" 32a -set "_MOTIF_WM_HINTS" 0
