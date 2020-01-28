@@ -250,6 +250,8 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.xpm
+        "\ {View in feh}
+        "\ feh -FZ --start-at %f %d %i &,
         \ {View in mcomix}
 		\ mcomix %f %i &,
         \ {View in sxiv}
@@ -485,6 +487,10 @@ nnoremap <f5> :copy<cr>
 nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
+
+"tabs
+nnoremap T :tabnew<cr>
+nnoremap <C-q> :tabclose<cr>
 
 " ------------------------------------------------------------------------------
 
