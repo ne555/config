@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#locale
+export LC_ALL=en_US.utf8
+
 alias ping='ping -4'
 alias emacs='emacs -nw'
 #diccionario de la rae
@@ -22,7 +25,7 @@ alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
-alias st='st -f "Noto Sans Mono:size=8"'
+alias st='st -f "Misc Fixed"'
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
@@ -59,11 +62,11 @@ alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 
 ##Variables to use XDG especification
-export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp/'
+export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp'
 #export GIMP2_DATADIR=
 #export GIMP2_LOCALEDIR=
 #export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp/'
+export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp'
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
@@ -71,10 +74,10 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	startx 
 fi
 
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[00;32m\]\h@\u:\W\$\[\033[00m\] '
-
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\$\[\033[00m\] '
 
 export TERM=screen-256color
+
 #man pages with color
 export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
 export LESS_TERMCAP_md=$'\E[01;37m' # begin bold
@@ -151,21 +154,5 @@ function homeusr(){
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
 
-#most used directories
-. /usr/share/z/z.sh
-
-#nnn file manager
-export NNN_BMS="c:~/.config;d:~/datos/descargas;g:~/datos/programas/juegos/roms;i:~/datos/documentos/informatica;l:~/test/latex/libros;m:~/datos/musica;p:~/datos/documentos/bibliotheka/partituras;v:~/datos/videos;M:/mnt/"
-export NNN_USE_EDITOR=1
-#export NNN_PLUG="n:tmux"
-export NNN_CONTEXT_COLORS='2222'
-
 #dbus
 export $(dbus-launch)
-
-
-#to have Capslock = Escape in tty
-#sudo loadkeys .keystrings
-
-#prefered font
-#sudo setfont /usr/share/kbd/consolefonts/Lat2-Terminus16.psfu.gz
