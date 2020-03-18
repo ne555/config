@@ -1,0 +1,23 @@
+browser "w3m -config ~/.config/w3m/config %u"
+
+#open video
+macro y set browser "mpv --pause --ytdl-format=worst %u"; open-in-browser ; set browser "w3m -config ~/.config/w3m/config %u"
+macro x set browser "mpv --pause %u"; open-in-browser ; set browser "w3m -config ~/.config/w3m/config %u"
+#open image
+macro i set browser "feh -FZ %u"; open-in-browser ; set browser "w3m -config ~/.config/w3m/config %u"
+
+#vi style
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
+#colorscheme
+include /usr/share/doc/newsboat/contrib/colorschemes/simple
