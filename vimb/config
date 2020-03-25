@@ -1,3 +1,8 @@
+#gf     Open the configured editor (`editor-command') with the current page's content.
+
+#disable javascript
+#set scripts=false
+
 # Homepage that vimb opens if started without a URI.
 set home-page=duckduckgo.com
 
