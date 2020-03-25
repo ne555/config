@@ -1,8 +1,15 @@
+let mapleader = ","
+let maplocalleader = "\\"
+filetype plugin on
+
+set hidden
+
 set nowritebackup
 set nobackup
 set noswapfile
 
 set autoindent
+set cindent
 set tabstop=4
 set shiftwidth=4
 
@@ -13,8 +20,11 @@ syntax on
 set nohlsearch
 set noincsearch
 
+"don't add comment character in new line (this should be after filetype
+"plugin)
+autocmd Filetype * setlocal formatoptions-=r
+
 colorscheme desert
-filetype plugin on
 
 "autocomplete commands
 set wildmode=longest,list
