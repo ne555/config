@@ -25,7 +25,6 @@ alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
-alias st='st -f "Misc Fixed"'
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
@@ -61,6 +60,10 @@ alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 
+#using .local/share as data directory
+alias sdcv="sdcv --data-dir ~/.local/share/"
+alias dictionary="sdcv --data-dir ~/.local/share/"
+
 ##Variables to use XDG especification
 export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp'
 #export GIMP2_DATADIR=
@@ -91,8 +94,6 @@ export EDITOR=nvim
 
 shopt -s checkwinsize
 #Todas las screens comparten el mismo historial
-HISTSIZE=1000
-HISTFILESIZE=2000
 shopt -s histappend
 #export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
 #export HISTCONTROL=ignorespace:erasedups
@@ -153,6 +154,3 @@ function homeusr(){
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
-
-#dbus
-export $(dbus-launch)
