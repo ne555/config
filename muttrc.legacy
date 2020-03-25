@@ -1,0 +1,10 @@
+set my_user = wbedrij
+set my_email = $my_user@gmail.com
+
+set folder = imaps://imap.gmail.com:993
+set smtp_url = smtp://$my_user@smtp.gmail.com:587/
+
+set hostname = gmail.com
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=wbedrij@gmail.com"

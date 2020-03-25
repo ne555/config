@@ -1,18 +1,15 @@
-set my_user = aldo.jirdeb
-set my_email = $my_user@zoho.com
-
+#account zoho
+source "~/.config/muttrc.current"
+#account gmail
+#source "~/.config/muttrc.legacy"
 #IMAP
 set imap_user = $my_email
-set folder = imaps://imap.zoho.com:993
 set spoolfile = +INBOX
 set imap_check_subscribed
 
 #store locally to speed up
 set header_cache=~/.cache/mutt/headers
 set message_cachedir=~/.cache/mutt/bodies
-
-#borradores
-#set postponed = +[Gmail]/Drafts
 
 # Allow Mutt to open new imap connection automatically.
 unset imap_passive
@@ -24,24 +21,15 @@ set mail_check = 120
 #SMTP
 #do not store sent mail
 unset record
-#set smtp_url = smtp://$my_user@smtp.gmail.com:587/
-#SSL
-#set smtp_url = smtp://$my_user@smtp.zoho.com:465
-#TLS
-set smtp_url = smtp://$my_user@smtp.zoho.com:587
 set from = $my_email
 set realname = "Aldo Jirdeb"
 set use_from = yes
-set hostname = zoho.com
 
 #compose mails
 set editor = nvim
 set edit_headers = yes
 set include
 set fast_reply = yes
-#bind editor <Tab> complete-query
-#bind editor ^T complete
-#bind editor <space> noop
 
 #messages
 set sort = reverse-threads
