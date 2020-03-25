@@ -1,6 +1,6 @@
 #apps
 set rudeness 4
-bind c exec st -f "Misc Fixed"
+bind c exec st
 unbind Q
 unbind k
 unbind l
@@ -13,9 +13,8 @@ bind l focusright
 
 bind Escape abort
 
-#compatibilidad con stumpwm,
 #Super_L se mapea a F20 con xmodmap
-#escape Super_L
+#funciona como toggle
 escape F20
 #bind t other
 bind t exec ratpoison -c "echo $(sensors -A coretemp-isa-0000 | grep Core | cut -d+ -f2 | cut -d' ' -f1)"
