@@ -94,7 +94,7 @@ disable_secret_security_check 0
 ftppasswd 
 ftppass_hostnamegen 1
 pre_form_file ~/.w3m/pre_form
-siteconf_file ~/.w3m/siteconf
+siteconf_file ~/.config/w3m/siteconfig
 user_agent 
 no_referer 0
 accept_language en;q=1.0
@@ -112,6 +112,7 @@ max_news 50
 use_proxy 0
 http_proxy http://192.168.0.120:3128
 https_proxy http://192.168.0.120:3128
+gopher_proxy 
 ftp_proxy http://192.168.0.120:3128
 no_proxy localhost,127.0.0.1,localaddress,.localdomain.com
 noproxy_netaddr 1
