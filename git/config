@@ -33,3 +33,6 @@
 [merge]
 	tool = vimdiff
 	conflictstyle=diff3
+
+[alias]
+    lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit --branches"
