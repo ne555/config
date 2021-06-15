@@ -2,6 +2,8 @@
 source "~/.config/muttrc.current"
 #account gmail
 #source "~/.config/muttrc.legacy"
+#account i2t
+#source "~/.config/muttrc.work"
 #IMAP
 set imap_user = $my_email
 set spoolfile = +INBOX
