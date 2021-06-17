@@ -71,14 +71,8 @@ export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp'
 #export GIMP2_PLUGINDIR=
 export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp'
 
-#start x at login
-if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
-	#startxfce4
-	startx
-fi
-
 source /usr/share/git/completion/git-prompt.sh
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;42m\]\h@\u:\W\[\033[36m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
+PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
 
 export TERM=screen-256color
 
@@ -155,3 +149,9 @@ function homeusr(){
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
+
+#start x at login
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
+	#startxfce4
+	startx
+fi
