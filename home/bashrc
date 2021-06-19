@@ -11,7 +11,11 @@ export LC_ALL=en_US.utf8
 alias ping='ping -4'
 alias emacs='emacs -nw'
 #diccionario de la rae
-alias rae='dict --host localhost'
+alias sdcv="sdcv --data-dir ~/.local/share/"
+alias dictionary="sdcv --color --data-dir ~/.local/share"
+alias eng="dictionary --use-dict dictd_www.dict.org_gcide --use-dict WordNet"
+alias rae="dictionary --use-dict LAROUSSE --use-dict 'DUE de Maria Moliner (Es-Es)'"
+alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
 #alias pacman='pacman --color always'
 alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
@@ -20,11 +24,14 @@ alias ls='ls --color=auto'
 #alias mupdf='mupdf-gl'
 alias nload='nload -u K -U K'
 
+#passing aliases
+alias sudo='sudo '
 
 alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
+alias st='st -f "Misc Fixed"'
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
@@ -42,7 +49,7 @@ alias youtube-viewer='rlwrap youtube-viewer -q'
 alias vim="vim 2>/dev/null"
 
 # Using .config as config directory
-alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.mutt'
+alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abook'
 alias alpine='alpine -p ~/.config/pinerc'
 alias amule='amule --config-dir=~/.config/amule'
 alias apvlv='apvlv -c ~/.config/apvlv.rc'
@@ -51,7 +58,7 @@ alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias finch='finch --config ~/.config/purple/'
 alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
 alias lingot='lingot -c ~/.config/lingot'
-alias mutt='mutt -F ~/.config/muttrc'
+alias mutt='mutt -F ~/.config/mutt/muttrc'
 alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp --bindings ~/.config/ncmpcpp.bindings'
 alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
@@ -59,6 +66,7 @@ alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
+alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 
 #using .local/share as data directory
 alias sdcv="sdcv --data-dir ~/.local/share/"
@@ -93,7 +101,7 @@ shopt -s histappend
 #export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
 #export HISTCONTROL=ignorespace:erasedups
 export HISTCONTROL=erasedups
-export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *"
+export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
 export HISTSIZE=10000
 export HISTFILESIZE=4000000
 
