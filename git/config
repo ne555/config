@@ -6,6 +6,8 @@
 	name = aldo_bedrij
 [github]
 	user = ne555
+[init]
+	defaultBranch = master
 
 [diff]
 	tool = vimdiff
