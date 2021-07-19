@@ -1,6 +1,6 @@
 #apps
 set rudeness 4
-bind c exec st
+bind c exec st -f "Deja Vu Sans Mono"
 unbind Q
 unbind k
 unbind l
@@ -54,9 +54,9 @@ bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 ###bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
 
 set border 0
-addhook switchgroup exec /home/ne555/.local/bin/wallpaper.sh
+addhook switchgroup exec ~/usr/bin/wallpaper.sh
 #java sucks
-#exec wmname LG3D
+exec wmname LG3D
 
 #feh -FZ bug
 #feh WARNING: Window Manager does not support MWM hints. To get a borderless
