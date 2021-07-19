@@ -54,6 +54,7 @@ confirm_qq 0
 close_tab_back 0
 mark 0
 emacs_like_lineedit 0
+space_autocomplete 0
 vi_prec_num 0
 mark_all_pages 0
 wrap_search 0
@@ -70,7 +71,7 @@ preserve_timestamp 1
 keymap_file ~/.config/w3m/keymap
 document_root 
 personal_document_root 
-cgi_bin 
+cgi_bin ~/.config/w3m/cgi-bin/
 index_file 
 mime_types ~/.mime.types, /usr/etc/mime.types
 mailcap ~/.w3m/mailcap, /usr/etc/w3m/mailcap
@@ -93,8 +94,8 @@ passwd_file ~/.w3m/passwd
 disable_secret_security_check 0
 ftppasswd 
 ftppass_hostnamegen 1
-pre_form_file ~/.w3m/pre_form
-siteconf_file ~/.config/w3m/siteconfig
+pre_form_file ~/.config/w3m/pre_form
+siteconf_file ~/.config/w3m/siteconf
 user_agent 
 no_referer 0
 accept_language en;q=1.0
