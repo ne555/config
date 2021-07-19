@@ -1,13 +1,31 @@
-#account zoho
-source "~/.config/muttrc.current"
-#account gmail
-#source "~/.config/muttrc.legacy"
-#account i2t
-#source "~/.config/muttrc.work"
-#IMAP
-set imap_user = $my_email
-set spoolfile = +INBOX
-set imap_check_subscribed
+#directory hooks
+folder-hook $folder 'source ~/.config/mutt/muttrc.current'
+folder-hook $folder 'source ~/.config/mutt/muttrc.legacy'
+folder-hook $folder 'source ~/.config/mutt/muttrc.another'
+folder-hook $folder 'source ~/.config/mutt/muttrc.and_another'
+folder-hook $folder 'source ~/.config/mutt/muttrc.work'
+
+
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.current<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
+macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.another<enter><change-folder>!<enter>'
+macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.and_another<enter><change-folder>!<enter>'
+macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.work<enter><change-folder>!<enter>'
+
+
+source ~/.config/mutt/muttrc.current
+#set folder = ~/mail/new/
+#set mbox_type = Maildir
+#set spoolfile = ~/mail
+#set folder = ~/correo
+#source ~/.config/mutt/muttrc.work
+#set smtp_url = smtp://aldo.jirdeb@smtp.zoho.com:587
+
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail
+
+#set imap_check_subscribed
 
 #store locally to speed up
 set header_cache=~/.cache/mutt/headers
@@ -23,8 +41,6 @@ set mail_check = 120
 #SMTP
 #do not store sent mail
 unset record
-set from = $my_email
-set realname = "Aldo Jirdeb"
 set use_from = yes
 
 #compose mails
