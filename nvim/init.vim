@@ -21,6 +21,9 @@ syntax on
 set nohlsearch
 set noincsearch
 
+"clipboard
+set clipboard=unnamedplus	
+
 "don't add comment character in new line (this should be after filetype
 "plugin)
 autocmd Filetype * setlocal formatoptions-=r
