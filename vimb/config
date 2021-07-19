@@ -14,7 +14,7 @@ set download-path=~/datos/descargas/
 # Command with placeholder '%s' called if form field is opened with $EDITOR to
 # spawn the editor-like `x-terminal-emulator -e vim %s'. To use Gvim as the
 # editor, it's necessary to call it with `-f' to run it in the foreground.
-set editor-command=st -f "Misc Fixed" nvim %s
+set editor-command=st nvim %s
 
 # If enabled the inputbox will be hidden whenever it contains no text.
 set input-autohide=true
@@ -34,6 +34,9 @@ set incsearch=false
 
 # Default Full-Content zoom level in percent. Default is 100.
 set default-zoom=100
+
+# no history
+set history-max-items=0
 
 # Shortcuts allow the opening of an URI built up from a named template with
 # additional parameters.
@@ -106,9 +109,11 @@ nnoremap x :shellcmd! mpv --pause <C-R>%<CR>
 nnoremap gt :sh! xdotool key --window $VIMB_XID ctrl+shift+k<CR><Esc>
 nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+j<CR><Esc>
 
-#nsfw reddit
 :augroup reddit
-:  autocmd LoadFinished http{s,}://old.reddit.com/over18* normal ;ocontinue
+#nsfw reddit
+:  autocmd LoadFinished http{s,}://old.reddit.com/over18* normal ;ocontinue 
+#old reddit
+:  autocmd LoadFinished http{s,}://www.reddit.com* eval! olddays()
 :augroup end
 
 #fonts
@@ -135,3 +140,7 @@ set hint-timeout=0
 #set hint-follow-last=false
 
 set prevent-newwindow=true
+
+set media-stream=false
+set mediasource=false
+set media-playback-allows-inline=false

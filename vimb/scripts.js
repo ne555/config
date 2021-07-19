@@ -2,8 +2,7 @@
 
 if(window.content && window.content.document && window.content.document.simplyread_original === undefined) window.content.document.simplyread_original = false;
 
-function simplyread(nostyle, nolinks)
-{
+function simplyread(nostyle, nolinks) {
 	/* count the number of <p> tags that are direct children of parenttag */
 	function count_p(parenttag)
 	{
@@ -82,4 +81,77 @@ function simplyread(nostyle, nolinks)
 	download_link.href = URL.createObjectURL(html_as_blob);
 
 	return 0;
+}
+
+function disable_css(){
+  /*
+	let styles = document.querySelectorAll('link[rel=stylesheet],style')
+	styles.forEach(element => element.parentNode.removeChild(element));
+  */
+}
+
+function olddays(){
+	//var uri = document.url
+	var uri = window.location.href
+	console.log(uri)
+	var result = uri.replace(/www/, 'old')
+	//window.location.href = result
+	window.location.replace(result) //don't appear on history
+	return 0
+}
+
+function clean_reddit(){
+  /*
+	let kill = [
+		'#hsts_pixel',
+		'.debuginfo',
+		'#header',
+		'.side',
+		'.infobar',
+		'.footer-parent',
+		'.expando',
+		'.expando-button',
+		'.likes',
+		'.dislikes',
+		'.rank',
+		'.domain',
+		'.entry > .flat-list',
+		'.flat-list li:not(:first-child)',
+		'.clearleft',
+		'.promoted',
+		'.promotedlink',
+		'.top-matter > .tagline',
+		'.thumbnail
+	];
+	kill.forEach((x) => {
+		$(x).parentNode.removeChild(x);
+	});
+  */
+}
+
+function bypass(){
+	var login = document.getElementsByClassName('RnEpo _Yhr4 ');
+	var l = login.length;
+	console.log(login);
+	for (var i = 0; i < l; i++){
+		var frameid = login[i];
+		frameid.parentNode.removeChild(frameid);
+	}
+}
+
+function bypass2(){
+	var login = document.getElementsByClassName("js-consent-banner");
+	var l = login.length;
+	console.log(login);
+	for (var i = 0; i < l; i++){
+		var frameid = login[i];
+		frameid.parentNode.removeChild(frameid);
+	}
+}
+
+function desktop(){
+	var uri = window.location.href
+	var result = uri.replace(/.m./, '.')
+	window.location.replace(result) //don't appear on history
+	return 0
 }
