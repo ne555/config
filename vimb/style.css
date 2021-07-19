@@ -27,3 +27,15 @@ span[vimbhint^='label'] {
     font: italic 12pt bold !important;
 }
 */
+
+/* Disable animations */
+*, ::before, ::after {
+	transition-property: none !important;
+	animation: none !important;
+}
+
+/* some ads */
+.promoted, .promotedlink {
+	display: none !important;
+	background-color: #ff0000 !important;
+}
