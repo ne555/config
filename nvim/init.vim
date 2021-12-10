@@ -16,6 +16,7 @@ set expandtab
 
 set showcmd
 set number
+set relativenumber
 
 syntax on
 set nohlsearch
@@ -26,9 +27,19 @@ set clipboard=unnamedplus
 
 "don't add comment character in new line (this should be after filetype
 "plugin)
+autocmd Filetype * setlocal formatoptions-=o
 autocmd Filetype * setlocal formatoptions-=r
 
 colorscheme desert
+"coc rompe
+highlight CocErrorSign ctermfg=white
+highlight CocWarningSign ctermfg=LightGray
+"highlight Pmenu ctermbg=green
+highlight PmenuSel ctermbg=black ctermfg=250
+"highlight PmenuSbar
+"highlight PmenuThumb
+"quickfix
+highlight Search ctermfg=white
 
 "autocomplete commands
 set wildmode=longest,list
@@ -49,7 +60,7 @@ autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 "TODO: open pdf files
 
 
-map <F9> :write <Return> :make <Return>
+"map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
 map ]q :cprev <Return>
@@ -73,7 +84,9 @@ augroup subtitles
 	autocmd!
 	autocmd BufRead *.srt :setlocal nobomb fileencoding=utf8 fileformat=unix
 	autocmd BufRead *.srt :nnoremap <buffer><Space> :SubPlay<cr>
+	autocmd BufRead *.srt :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
 	autocmd BufRead *.ass :nnoremap <buffer><Space> :SubPlay<cr>
+	autocmd BufRead *.ass :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
 augroup END
 "}}}
 
@@ -81,18 +94,56 @@ augroup END
 "TODO: latex
 "open pdfs with pdftotext
 function! Synctex()
-        " remove 'silent' for debugging
-        execute "!zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
+  " remove 'silent' for debugging
+  execute "!zathura --synctex-forward " . line('.') . ":" . col('.') . ":" . bufname('%') . " " . g:syncpdf
 endfunction
 map <leader><Return> :call Synctex()<cr><cr>
 
 
-"plugins
+"syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { "mode": "pasive", "active_filetypes": [], "passive_filetypes": ["cpp", "python", "tex"] }
 let g:syntastic_quiet_messages = {'regex': 'missing `\\@', 'level': 'warning'}
-nmap ]l :lnext<CR>
-nmap [l :lprev<CR>
+nmap ]g :lnext<CR>
+nmap [g :lprev<CR>
+
+" coc
+" Don't pass messages to |ins-completion-menu|
+set shortmess+=c
+" avoid text shifting when diagnostics appear/become resolved.
+set signcolumn=yes
+" Use space for trigger completion with characters ahead and navigate
+inoremap <silent><expr> <C-space> coc#refresh()
+" autoimport
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 " Cerrar buffers inactivos
 function! Wipeout()
@@ -127,3 +178,23 @@ function! Wipeout()
     execute 'tabnext' l:currentTab
   endtry
 endfunction
+
+"php
+if !exists('g:vdebug_options')
+  let g:vdebug_options = {}
+endif
+let g:vdebug_options.port = 9000
+let g:vdebug_options.path_maps = {'/var/www/html/': getcwd()}
+let g:vdebug_options.on_close = "detach"
+let g:vdebug_options.break_on_open = 1
+let g:vdebug_options.simplified_status = 0
+
+if !exists('g:vdebug_keymap')
+  let g:vdebug_keymap = {}
+endif
+let g:vdebug_keymap.run_to_cursor  = "<Left>"
+let g:vdebug_keymap.step_over  = "<Down>"
+let g:vdebug_keymap.step_into  = "<Right>"
+let g:vdebug_keymap.step_out  = "<Up>"
+" No subir a git
+"¿por qué?
