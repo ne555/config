@@ -26,7 +26,7 @@ set msgwait 0
 bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
 bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
 
-bind I exec ~/.local/bin/invert.bin
+bind I exec invert.bin
 
 #battery
 unbind b
