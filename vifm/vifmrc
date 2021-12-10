@@ -122,7 +122,7 @@ mark c ~/.config
 mark d ~/datos/descargas
 mark g ~/datos/programas/juegos/roms
 mark i ~/datos/documentos/informatica
-mark l ~/test/latex/libros
+mark l ~/test/libros/todo
 mark m ~/datos/musica
 mark p ~/datos/documentos/bibliotheka/partituras
 mark v ~/datos/videos
@@ -187,7 +187,8 @@ fileviewer *.pdf pdftotext -nopgbrk %c -
 filextype *.epub zathura %c %i &
 
 " cbz
-filextype *.cbz zathura %c %i &
+"filextype *.cbz zathura %c %i &
+filextype *.cbz mcomix %c %i &
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
@@ -199,7 +200,7 @@ filextype *.ps,*.eps,*.ps.gz
 " Djvu
 filextype *.djvu
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %c %i &,
         \ {View in apvlv}
         \ apvlv %f,
 
