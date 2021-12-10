@@ -45,7 +45,7 @@ shortcut-add d=http://dict.cc/?s=$0
 #shortcut-add g=https://encrypted.google.com/search?q=$0
 shortcut-add g=https://google.com/search?q=$0
 shortcut-add gi=http://images.google.com/images?q=$0
-shortcut-add y=http://www.youtube.com/results?search_query=$0
+shortcut-add y=http://www.iteroni.com/results?search_query=$0
 shortcut-add s=https://www.startpage.com/do/dsearch?query=$0
 
 shortcut-add amdb=http://www.animenewsnetwork.com/encyclopedia/search/name?q=$0
@@ -58,6 +58,7 @@ shortcut-add gi=http://images.google.com/images?q=$0
 shortcut-add i=https://duckduckgo.com/?q=$0&iax=images&ia=images
 shortcut-add imdb=http://www.imdb.com/find?s=all&q=$0
 shortcut-add iqdb=http://www.iqdb.org/?url=$0
+shortcut-add cdb=https://www.imcdb.org/movies.php?title=$0
 shortcut-add manga=http://www.mangaupdates.com/series.html?stype=title&search=$0
 shortcut-add rae=http://dle.rae.es/$0
 shortcut-add sin=http://www.wordreference.com/sinonimos/$0
@@ -114,6 +115,10 @@ nnoremap gT :sh! xdotool key --window $VIMB_XID ctrl+shift+j<CR><Esc>
 :  autocmd LoadFinished http{s,}://old.reddit.com/over18* normal ;ocontinue 
 #old reddit
 :  autocmd LoadFinished http{s,}://www.reddit.com* eval! olddays()
+:augroup end
+
+:augroup youtube
+:  autocmd LoadFinished http{s,}://www.youtube.com* eval! no_youtube()
 :augroup end
 
 #fonts
