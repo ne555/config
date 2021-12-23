@@ -1,8 +1,10 @@
 #/* vim: set filetype=gitconfig:*/
 [core]
   excludesfile = /home/ne555/.config/git/ignore
+
 [include]
   path = ~/.config/git/user
+
 [github]
   user = ne555
 
