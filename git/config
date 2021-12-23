@@ -4,34 +4,59 @@
 [include]
   path = ~/.config/git/user
 [github]
-	user = ne555
+  user = ne555
 
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [alias]
-	d = difftool
+  d = difftool
 [status]
-	showUntrackedFiles = no
+  showUntrackedFiles = no
 
 [color]
-	ui = true
+  ui = true
 [color "branch"]
-    current = green
+  current = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
-[merge]
-	tool = vimdiff
-	conflictstyle=diff3
 
 [alias]
-    lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit --branches"
+  lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit --branches"
+  subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
+  subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
+  subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
+
+  # Muestra el hash del primer punto de bifurcación entre las ramas
+  oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+  # diff contra ese punto
+  branchdiff = !bash -c 'git diff HEAD $(git oldest-ancestor HEAD "${1}")' -
+  # log contra ese punto
+  branchlog = !bash -c 'git log --graph --decorate --oneline $(git oldest-ancestor "${2:-HEAD}" "${1}").."${2-HEAD}"' -
+
+
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+#  cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
+  #cmd = echo "$MERGED"
+  cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+# set "nvim" as tool for merging
+[merge]
+  #tool = nvim
+  tool = nvim
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+  prompt = false
+
+
+[mergetool "fugitive"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
