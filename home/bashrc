@@ -113,6 +113,9 @@ set -o vi
 #don't clear the screen on exit
 export PAGER='less -X'
 
+# man in nvim
+export MANPAGER='nvim +Man!'
+
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
 
