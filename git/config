@@ -34,6 +34,8 @@
 
 [alias]
   lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit --branches"
+  graph="log --oneline --graph --decorate"
+  graphbranch="log --simplify-by-decoration --oneline --graph --decorate"
   subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
   subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
   subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
