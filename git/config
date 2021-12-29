@@ -47,17 +47,22 @@
   # log contra ese punto
   branchlog = !bash -c 'git log --graph --decorate --oneline $(git oldest-ancestor "${2:-HEAD}" "${1}").."${2-HEAD}"' -
 
+[merge]
+  tool = diffconflicts
+
+[mergetool]
+# automatically launch merge tool without displaying a prompt
+  prompt = false
+  keepBackup = false
+
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
-  cmd = nvim -d \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-
-# set "nvim" as tool for merging
-[merge]
-  tool = nvim
-
-# automatically launch merge tool without displaying a prompt
-[mergetool]
-  prompt = false
+  cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 
 [mergetool "fugitive"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+  cmd = nvim -c \"Gdiff!\" \"$MERGED\"
+  trustExitCode = true
+
+[mergetool "diffconflicts"]
+  cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
+  trustExitCode = true
