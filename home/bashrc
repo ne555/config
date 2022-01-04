@@ -109,6 +109,9 @@ set -o vi
 #don't clear the screen on exit
 export PAGER='less -X'
 
+# man in nvim
+export MANPAGER='nvim +Man!'
+
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
 
@@ -159,7 +162,7 @@ if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
 	startx
 fi
 
-# authentication ssh
+# ssh-keys git
 if [ $(pgrep -u $USER ssh-agent | wc -l) -eq 0 ]; then
     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi

@@ -27,6 +27,7 @@ set clipboard=unnamedplus
 
 "don't add comment character in new line (this should be after filetype
 "plugin)
+autocmd Filetype * setlocal formatoptions-=c
 autocmd Filetype * setlocal formatoptions-=o
 autocmd Filetype * setlocal formatoptions-=r
 
@@ -58,7 +59,6 @@ autocmd BufReadPre *.doc set ro
 autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 
 "TODO: open pdf files
-
 
 "map <F9> :write <Return> :make <Return>
 "moverse por los errores
