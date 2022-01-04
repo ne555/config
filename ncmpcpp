@@ -9,6 +9,7 @@ playlist_disable_highlight_delay = 0
 
 #allow_physical_files_deletion = "yes"
 #allow_physical_directories_deletion = "yes"
+allow_for_physical_item_deletion = "yes"
 
 
 song_list_format = "$0%f{$R$7%t$9}"

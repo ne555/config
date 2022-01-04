@@ -19,6 +19,7 @@ span[vimbhint^='label'] {
     opacity: 1 !important;
     padding: .1em .1em !important;
 }
+
 /*
 *[vimbhint='hint'] {
     font: italic 12pt !important;
@@ -39,3 +40,4 @@ span[vimbhint^='label'] {
 	display: none !important;
 	background-color: #ff0000 !important;
 }
+
