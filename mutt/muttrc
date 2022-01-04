@@ -7,10 +7,11 @@ folder-hook $folder 'source ~/.config/mutt/muttrc.work'
 
 
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.current<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.freedom<enter><change-folder>!<enter>'
 macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.another<enter><change-folder>!<enter>'
 macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.and_another<enter><change-folder>!<enter>'
 macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.work<enter><change-folder>!<enter>'
+macro index,pager <f7> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
 
 
 source ~/.config/mutt/muttrc.current
