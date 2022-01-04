@@ -143,15 +143,17 @@ function proxyoff(){
 	echo -e "\nProxy environment variable removed."
 }
 
-export PATH=/usr/lib/ccache:$PATH:~/usr/bin
+export PATH=$PATH:~/usr/bin:~/.local/bin
+
 function homeusr(){
 	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include:~/.local/include
 	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include:~/.local/include
 	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
-	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64
+	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64:
 	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
 	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
 }
+homeusr
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff

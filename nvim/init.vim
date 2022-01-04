@@ -69,12 +69,13 @@ map ]q :cprev <Return>
 "identado (clang-format)
 augroup file_cpp
 	autocmd!
-	autocmd FileType cpp setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
-	autocmd Filetype cpp setlocal foldmethod=syntax
+	autocmd FileType cpp,c setlocal formatprg=clang-format\ -style=file\ 2>/dev/null
+	autocmd Filetype cpp,c setlocal foldmethod=syntax
 	"compilar
 	autocmd Filetype cpp setlocal makeprg=clear\ &&\ clang++\ -W{all,extra,pedantic}\ -fno-caret-diagnostics\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
+	autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
+	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
-
 
 set completeopt=menuone,menu,longest
 
@@ -196,5 +197,3 @@ let g:vdebug_keymap.run_to_cursor  = "<Left>"
 let g:vdebug_keymap.step_over  = "<Down>"
 let g:vdebug_keymap.step_into  = "<Right>"
 let g:vdebug_keymap.step_out  = "<Up>"
-" No subir a git
-"¿por qué?
