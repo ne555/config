@@ -5,14 +5,12 @@ folder-hook $folder 'source ~/.config/mutt/muttrc.another'
 folder-hook $folder 'source ~/.config/mutt/muttrc.and_another'
 folder-hook $folder 'source ~/.config/mutt/muttrc.work'
 
-
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.current<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.freedom<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
 macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.another<enter><change-folder>!<enter>'
 macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.and_another<enter><change-folder>!<enter>'
 macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.work<enter><change-folder>!<enter>'
-macro index,pager <f7> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
-
+macro index,pager <f7> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.freedom<enter><change-folder>!<enter>'
 
 source ~/.config/mutt/muttrc.current
 #set folder = ~/mail/new/
@@ -20,8 +18,6 @@ source ~/.config/mutt/muttrc.current
 #set spoolfile = ~/mail
 #set folder = ~/correo
 #source ~/.config/mutt/muttrc.work
-#set smtp_url = smtp://aldo.jirdeb@smtp.zoho.com:587
-
 
 # Fetch mail shortcut
 bind index G imap-fetch-mail
@@ -37,7 +33,6 @@ unset imap_passive
 
 set imap_keepalive = 300
 set mail_check = 120
-
 
 #SMTP
 #do not store sent mail
@@ -63,13 +58,10 @@ hdr_order Date From To Cc
 set mailcap_path = ~/.local/share/mutt/mailcap
 auto_view text/html
 
-
 #address-book
 set alias_file = "~/.config/addressbook.mutt"
 set sort_alias = alias
 source $alias_file
-
-
 
 #Key binding
 #backspace
@@ -79,7 +71,6 @@ bind index za collapse-thread
 
 bind pager j next-line
 bind pager k previous-line
-
 
 # Palette for use with the Linux console.  Black background.
 color hdrdefault cyan black
@@ -97,7 +88,6 @@ color search white black
 color tilde brightmagenta black
 color index blue black ~F
 color index red black "~N|~O"
-
 
 #thread collapse at the start
 folder-hook . 'push "<collapse-all>"'

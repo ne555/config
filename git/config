@@ -36,6 +36,11 @@
   untracked = cyan
 
 [alias]
+  # %h -> hash
+  # %ar -> relative date
+  # %ad -> date
+  # %an -> author
+  # %s -> commit title
   lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit --branches"
   graph="log --oneline --graph --decorate"
   graphbranch="log --simplify-by-decoration --oneline --graph --decorate"

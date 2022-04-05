@@ -77,6 +77,8 @@ augroup file_cpp
 	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
 
+set foldlevelstart=99
+
 set completeopt=menuone,menu,longest
 
 "subtitles
@@ -197,3 +199,9 @@ let g:vdebug_keymap.run_to_cursor  = "<Left>"
 let g:vdebug_keymap.step_over  = "<Down>"
 let g:vdebug_keymap.step_into  = "<Right>"
 let g:vdebug_keymap.step_out  = "<Up>"
+
+" alineacion
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
