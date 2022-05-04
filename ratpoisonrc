@@ -1,64 +1,102 @@
-#apps
-set rudeness 4
-bind c exec st -f "Deja Vu Sans Mono"
-unbind Q
-unbind k
-unbind l
-bind o only
-bind d delete
-bind h focusleft
-bind j focusdown
-bind k focusup
-bind l focusright
+#/* vim:set foldmethod=marker:*/
 
-bind Escape abort
+#{{{ settings
+  #feh -FZ bug
+  #feh WARNING: Window Manager does not support MWM hints. To get a borderless
+  #window I have to bypass your wm.
+  exec xprop -root -f "_MOTIF_WM_HINTS" 32a -set "_MOTIF_WM_HINTS" 0
+  #java app issues
+  exec wmname LG3D
 
-#Super_L se mapea a F20 con xmodmap
-#funciona como toggle
-escape F20
-#bind t other
-bind t exec ratpoison -c "echo $(sensors -A coretemp-isa-0000 | grep Core | cut -d+ -f2 | cut -d' ' -f1)"
+  set rudeness 4
+  set winname title
+  set border 0
+  #don't remove messages
+  set msgwait 0
+  addhook switchgroup exec ~/usr/bin/wallpaper.sh
 
-#don't remove messages
-set msgwait 0
+  set framesels "jfkdls"
+#}}}
 
-#workspaces
-bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
-bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
+#{{{ bindings
+  #{{{ unbindings
+    unbind K
+    unbind Q
+    unbind b
+    unbind k
+    unbind l
+  #}}}
 
-bind I exec invert.bin
+  #{{{ apps
+    bind I exec invert.bin
+    #battery
+    #bind b exec ratpoison -c "echo $(acpi -b)"
+    bind c exec st -f "Deja Vu Sans Mono"
+    # send image to clipboard
+    bind i exec scrot --select - | xclip -selection clipboard -t image/png
+    # temperature
+    bind t exec ratpoison -c "echo $(sensors -A coretemp-isa-0000 | grep Core | cut -d+ -f2 | cut -d' ' -f1)"
+  #}}}
 
-#battery
-unbind b
-bind b exec ratpoison -c "echo $(acpi -b)"
+  #{{{ navigation
+    bind h focusleft
+    bind j focusdown
+    bind k focusup
+    bind l focusright
+    bind J exchangedown
+    bind H exchangeleft
+    bind K exchangeup
+    bind L exchangeright
+    bind M-Right exec ratpoison -c "gnext" && ratpoison -c "next"
+    bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
+    bind s vsplit
+    bind v hsplit
+  #}}}
 
-# This is a sample .ratpoisonrc file
-# Gets rid of that ugly crosshairs default cursor
-# and set the background to black
-#exec xsetroot -solid black -cursor_name left_ptr
+  #{{{ layouts
+    bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+    bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 
-set winname title
+    bind M-at exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
+    bind M-2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
 
-# bind M-! to store the current frame layout in slot #1
-bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
+    bind M-numbersign exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
+    bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+  #}}}
 
-#bind M-1 to restore the frame layout in slot #1
-bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
+  #{{{ operations
+    bind D kill
+    bind d delete
+    bind o only
+  #}}}
 
-# Do the same for slot #2 and bind it to M-@ and M-2, respectively.
-###bind M-at exec ratpoison -c "setenv fs2 `ratpoison -c 'fdump'`"
-###bind M-2 exec ratpoison -c "frestore `ratpoison -c 'getenv fs2'`"
+  #{{{ sound
+    newkmap music
+    definekey music N exec mpc prev
+    definekey music i exec ratpoison -c "echo $(mpc current)"
+    definekey music m exec pulsemixer --toggle-mute
+    definekey music n exec mpc next
+    definekey music p exec mpc toggle
+    definekey music question help music
+    definekey music r exec mpc random
+    definekey music s exec mpc stop
+    bind m readkey music
 
-# Give ourselves another slot on M-# and M-3, respectively.
-###bind M-numbersign exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
-###bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
+    definekey top M-Down exec pulsemixer --change-volume -5
+    definekey top M-Up exec pulsemixer --change-volume +5
+  #}}}
 
-set border 0
-addhook switchgroup exec ~/usr/bin/wallpaper.sh
-#java sucks
-exec wmname LG3D
+  bind Escape abort
+  #Super_L maps to F20 (xmodmap)
+  #escape Super_L
+  escape F20
 
-#feh -FZ bug
-#feh WARNING: Window Manager does not support MWM hints. To get a borderless
-#window I have to bypass your wm.
-exec xprop -root -f "_MOTIF_WM_HINTS" 32a -set "_MOTIF_WM_HINTS" 0
+  # Show last message
+  bind semicolon lastmsg
+
+  # Select frame
+  bind F fselect
+
+  # Give temporally control to openbox
+  bind grave tmpwm openbox
+#}}}
