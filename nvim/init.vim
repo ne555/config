@@ -86,6 +86,7 @@ set completeopt=menuone,menu,longest
 augroup subtitles
 	autocmd!
 	autocmd BufRead *.srt :setlocal nobomb fileencoding=utf8 fileformat=unix
+	autocmd BufRead *.srt :setlocal nocindent
 	autocmd BufRead *.srt :nnoremap <buffer><Space> :SubPlay<cr>
 	autocmd BufRead *.srt :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
 	autocmd BufRead *.ass :nnoremap <buffer><Space> :SubPlay<cr>
@@ -186,7 +187,7 @@ endfunction
 if !exists('g:vdebug_options')
   let g:vdebug_options = {}
 endif
-let g:vdebug_options.port = 9000
+let g:vdebug_options.port = 9005
 let g:vdebug_options.path_maps = {'/var/www/html/': getcwd()}
 let g:vdebug_options.on_close = "detach"
 let g:vdebug_options.break_on_open = 1
