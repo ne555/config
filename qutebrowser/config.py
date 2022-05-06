@@ -1,5 +1,5 @@
 #Load settings on autoconfig.yml
-config.load_autoconfig()
+config.load_autoconfig(False)
 
 #keybindings
 def bind_chained(key, *commands):
@@ -299,10 +299,11 @@ c.aliases['jd'] = 'set content.javascript.enabled False'
 ## for transparency.
 ## Type: QssColor
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
+c.colors.hints.bg = 'yellow'
 
 ## Font color for hints.
 ## Type: QssColor
-# c.colors.hints.fg = 'black'
+c.colors.hints.fg = 'black'
 
 ## Font color for the matched part of hints.
 ## Type: QssColor
@@ -825,7 +826,7 @@ c.content.javascript.enabled = False
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 # c.content.user_stylesheets = []
-c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
+c.content.user_stylesheets = ["global_style.css"]
 
 ## Enable WebGL.
 ## Type: Bool
@@ -1006,6 +1007,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ## CSS border value for hints.
 ## Type: String
 # c.hints.border = '1px solid #E3BE23'
+c.hints.border = '1px solid black'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
@@ -1020,7 +1022,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ## Valid values:
 ##   - javascript: Better but slower
 ##   - python: Slightly worse but faster
-# c.hints.find_implementation = 'python'
+c.hints.find_implementation = 'python'
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -1037,6 +1039,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ##   - letter: Use the characters in the `hints.chars` setting.
 ##   - word: Use hints words based on the html elements and the extra words.
 # c.hints.mode = 'letter'
+c.hints.mode = 'number'
 
 ## Comma-separated list of regular expressions to use for 'next' links.
 ## Type: List of Regex
