@@ -1,5 +1,5 @@
-#Load settings on autoconfig.yml
-config.load_autoconfig()
+#don't load settings on autoconfig.yml
+config.load_autoconfig(False)
 
 #keybindings
 def bind_chained(key, *commands):
@@ -35,9 +35,9 @@ config.bind(';d', 'hint all spawn --detach download_media.sh {hint-url}')
 config.bind(';D', 'spawn --detach download_media.sh {url}')
 config.bind(';h', 'hint all hover')
 config.bind('x', 'spawn --detach mpv --pause {url}')
-config.bind('X', 'spawn --detach mpv --pause --ytdl-format=18 {url}')
+config.bind('X', 'spawn --detach mpv --pause --ytdl-format=worst {url}')
 config.bind(';x', 'hint links spawn --detach mpv --pause {hint-url}')
-config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=18 {hint-url}')
+config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=worst {hint-url}')
 
 config.bind('h', 'scroll left')
 config.bind('j', 'scroll down')
@@ -139,7 +139,7 @@ c.url.searchengines = {
     'wiki' : 'http://en.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wr' : 'https://www.wordreference.com/es/en/translation.asp?spen={}',
     #'http://www.wordreference.com/es/translation.asp?tranword={}',
-    'y' : 'http://www.youtube.com/results?search_query={}',
+    'y' : 'http://www.iteroni.com/results?search_query={}',
     'r': 'http://old.reddit.com/r/{}/new'
 }
 
@@ -299,6 +299,7 @@ c.aliases['jd'] = 'set content.javascript.enabled False'
 ## for transparency.
 ## Type: QssColor
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
+c.colors.hints.bg = 'yellow'
 
 ## Font color for hints.
 ## Type: QssColor
@@ -825,7 +826,7 @@ c.content.javascript.enabled = False
 ## List of user stylesheet filenames to use.
 ## Type: List of File, or File
 # c.content.user_stylesheets = []
-c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
+c.content.user_stylesheets = ["~/.config/qutebrowser/global_style.css"]
 
 ## Enable WebGL.
 ## Type: Bool
@@ -1006,6 +1007,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ## CSS border value for hints.
 ## Type: String
 # c.hints.border = '1px solid #E3BE23'
+c.hints.border = '1px solid black'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
@@ -1020,7 +1022,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ## Valid values:
 ##   - javascript: Better but slower
 ##   - python: Slightly worse but faster
-# c.hints.find_implementation = 'python'
+c.hints.find_implementation = 'python'
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -1037,6 +1039,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ##   - letter: Use the characters in the `hints.chars` setting.
 ##   - word: Use hints words based on the html elements and the extra words.
 # c.hints.mode = 'letter'
+c.hints.mode = 'number'
 
 ## Comma-separated list of regular expressions to use for 'next' links.
 ## Type: List of Regex
@@ -1339,6 +1342,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ##   - first: At the beginning.
 ##   - last: At the end.
 # c.tabs.new_position.related = 'next'
+c.tabs.new_position.related = 'last'
 
 ## Position of new tabs which aren't opened from another tab.
 ## Type: NewTabPosition
@@ -1348,6 +1352,7 @@ c.content.user_stylesheets = ["~/.local/share/qutebrowser/global_style.css"]
 ##   - first: At the beginning.
 ##   - last: At the end.
 # c.tabs.new_position.unrelated = 'last'
+c.tabs.new_position.unrelated = 'last'
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
