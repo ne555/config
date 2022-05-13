@@ -724,7 +724,7 @@ config.bind('dC', 'download-clear')
 config.bind('dd', 'download')
 #}}}
 
-bind_multiple(['~', 'gf'], 'view-source')
+bind_multiple(['~', 'gf'], 'view-source -e')
 
 config.bind('i', 'mode-enter insert')
 config.bind('q', 'macro-record')
