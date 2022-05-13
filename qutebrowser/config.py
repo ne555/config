@@ -708,11 +708,11 @@ config.bind('yT', 'yank title -s')
 #}}}
 
 #{{{
-config.bind('Sq', 'bookmark-list')
-config.bind('Sb', 'bookmark-list --jump')
-config.bind('Sh', 'history')
-config.bind('Ss', 'set')
-config.bind('St', 'set-cmd-text -sr :tab-focus')
+config.bind('sq', 'bookmark-list')
+config.bind('sb', 'bookmark-list --jump')
+config.bind('sh', 'history')
+config.bind('ss', 'set')
+config.bind('st', 'set-cmd-text -sr :tab-focus')
 #}}}
 
 config.bind('v', 'mode-enter caret')
