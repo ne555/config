@@ -27,6 +27,7 @@ alias nload='nload -u K -U K'
 #passing aliases
 alias sudo='sudo '
 
+alias yay='yay --color always'
 alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
@@ -67,13 +68,14 @@ alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
+export IPYTHONDIR='~/.config/ipython/'
 
 ##Variables to use XDG especification
-export GIMP2_DIRECTORY='/home/ne555/.local/share/gimp'
+export GIMP2_DIRECTORY='~/.local/share/gimp'
 #export GIMP2_DATADIR=
 #export GIMP2_LOCALEDIR=
 #export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR='/home/ne555/.config/gimp'
+export GIMP2_SYSCONFDIR='~/.config/gimp'
 
 source /usr/share/git/completion/git-prompt.sh
 PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
