@@ -162,7 +162,7 @@ c.colors.tabs.selected.odd.fg = 'white'
 c.colors.webpage.bg = 'white'
 c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
 c.colors.webpage.darkmode.contrast = 0.0
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.grayscale.all = False
 c.colors.webpage.darkmode.grayscale.images = 0.0
 c.colors.webpage.darkmode.policy.images = 'never'
@@ -647,12 +647,14 @@ bind_multiple(['.', '>'], 'forward')
 config.bind('<Ctrl-Alt-p>', 'print')
 
 #{{{ Scroll
-config.bind('<Ctrl-B>', 'scroll-page 0 -1')
-config.bind('<Ctrl-F>', 'scroll-page 0 1')
+bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 1')
+bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -1')
 config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
-config.bind('gg', 'scroll-to-perc 0')
-config.bind('G', 'scroll-to-perc')
+config.bind('<Ctrl-E>', 'scroll-px 0 20')
+config.bind('<Ctrl-Y>', 'scroll-px 0 -20')
+bind_multiple(['<Home>', 'gg'], 'scroll-to-perc 0')
+bind_multiple(['<End>', 'G'], 'scroll-to-perc')
 config.bind('^', 'scroll-to-perc --horizontal 0')
 config.bind('$', 'scroll-to-perc --horizontal')
 config.bind('`', 'mode-enter set_mark')
@@ -675,8 +677,8 @@ config.bind('u', 'undo')
 config.bind('<Ctrl-Shift-N>', 'open -p')
 config.bind('o', 'set-cmd-text -s :open')
 config.bind('O', 'set-cmd-text :open {url}')
-config.bind('to', 'set-cmd-text -s :open --bg')
-config.bind('tO', 'set-cmd-text :open --bg {url}')
+config.bind('to', 'set-cmd-text -s :open -b')
+config.bind('tO', 'set-cmd-text :open -b {url}')
 #}}}
 
 #{{{ Bookmark
