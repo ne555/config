@@ -602,6 +602,11 @@ config.bind(';h', 'hint all hover')
 config.bind(';i', 'hint inputs')
 config.bind(';o', 'hint links fill :open {hint-url}')
 config.bind(';y', 'hint links yank')
+#}}}
+
+#{{{ Video
+config.bind('x', 'spawn --detach mpv --pause {url}')
+config.bind('X', 'spawn --detach mpv --pause --ytdl-format=worst {url}')
 config.bind(';x', 'hint links spawn --detach mpv --pause {hint-url}')
 config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=worst {hint-url}')
 #}}}
@@ -648,6 +653,8 @@ config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
 config.bind('gg', 'scroll-to-perc 0')
 config.bind('G', 'scroll-to-perc')
+config.bind('^', 'scroll-to-perc --horizontal 0')
+config.bind('$', 'scroll-to-perc --horizontal')
 config.bind('`', 'mode-enter set_mark')
 config.bind("'", 'mode-enter jump_mark')
 config.bind('h', 'scroll left')
@@ -717,8 +724,7 @@ config.bind('dC', 'download-clear')
 config.bind('dd', 'download')
 #}}}
 
-config.bind('gf', 'view-source')
-
+bind_multiple(['~', 'gf'], 'view-source')
 
 config.bind('i', 'mode-enter insert')
 config.bind('q', 'macro-record')
