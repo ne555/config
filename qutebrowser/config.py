@@ -675,8 +675,8 @@ config.bind('u', 'undo')
 config.bind('<Ctrl-Shift-N>', 'open -p')
 config.bind('o', 'set-cmd-text -s :open')
 config.bind('O', 'set-cmd-text :open {url}')
-config.bind('to', 'set-cmd-text -s :open -t')
-config.bind('tO', 'set-cmd-text :open -t {url}')
+config.bind('to', 'set-cmd-text -s :open --bg')
+config.bind('tO', 'set-cmd-text :open --bg {url}')
 #}}}
 
 #{{{ Bookmark
