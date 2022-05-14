@@ -79,7 +79,7 @@ c.colors.downloads.system.bg = 'none'
 c.colors.downloads.system.fg = 'none'
 #}}}
 
-#{{{  Hints
+#{{{ Hints
 c.colors.hints.bg = 'yellow'
 c.colors.hints.fg = 'black'
 c.colors.hints.match.fg = 'green'
@@ -88,7 +88,7 @@ c.colors.keyhint.fg = 'white'
 c.colors.keyhint.suffix.fg = 'orange'
 #}}}
 
-#{{{  Messages
+#{{{ Messages
 c.colors.messages.error.bg = 'red'
 c.colors.messages.error.border = 'red'
 c.colors.messages.error.fg = 'white'
@@ -100,7 +100,7 @@ c.colors.messages.warning.border = 'orange'
 c.colors.messages.warning.fg = 'black'
 #}}}
 
-#{{{  Prompts
+#{{{ Prompts
 c.colors.prompts.bg = 'black'
 c.colors.prompts.border = '1px solid gray'
 c.colors.prompts.fg = 'white'
@@ -108,7 +108,7 @@ c.colors.prompts.selected.bg = 'grey'
 c.colors.prompts.selected.fg = 'white'
 #}}}
 
-#{{{  Status bar
+#{{{ Status bar
 c.colors.statusbar.caret.bg = 'purple'
 c.colors.statusbar.caret.fg = 'white'
 c.colors.statusbar.caret.selection.bg = 'blueviolet'
@@ -134,7 +134,7 @@ c.colors.statusbar.url.success.https.fg = 'white'
 c.colors.statusbar.url.warn.fg = 'yellow'
 #}}}
 
-#{{{  Tab bar
+#{{{ Tab bar
 c.colors.tabs.bar.bg = '#333'
 c.colors.tabs.even.bg = 'black'
 c.colors.tabs.even.fg = 'white'
@@ -158,7 +158,7 @@ c.colors.tabs.selected.odd.bg = 'darkgreen'
 c.colors.tabs.selected.odd.fg = 'white'
 #}}}
 
-#{{{  Webpage
+#{{{ Webpage
 c.colors.webpage.bg = 'white'
 c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
 c.colors.webpage.darkmode.contrast = 0.0
@@ -195,7 +195,7 @@ c.completion.web_history.max_items = 0
 c.confirm_quit = ['never']
 c.content.autoplay = False
 
-#{{{  Blocking
+#{{{ Blocking
 c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
@@ -215,18 +215,18 @@ c.content.fullscreen.overlay_timeout = 3000
 c.content.fullscreen.window = False
 c.content.geolocation = False
 
-#{{{  headers
+#{{{ Headers
 c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
-c.content.headers.referer = 'never' # 'same-domain'
+c.content.headers.referer = 'same-domain'
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
 #}}}
 
 c.content.hyperlink_auditing = False
 c.content.images = True
 
-#{{{  javascript
+#{{{ Javascript
 c.content.javascript.alert = False
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_open_tabs_automatically = False
