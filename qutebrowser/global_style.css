@@ -36,8 +36,11 @@ span[vimbhint^='label'] {
 }
 
 /* some ads */
-.promoted, .promotedlink, .listingsignupbar, .premium-banner{
+.promoted, .promotedlink, .listingsignupbar, .premium-banner,
+.maex, .exo_wrapper, ._1iX3k,
+/* accept cookies prompt */
+.js-consent-banner
+{
 	display: none !important;
 	background-color: #ff0000 !important;
 }
-
