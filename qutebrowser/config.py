@@ -12,7 +12,9 @@ c.aliases = {
         'wqa': 'quit --save'}
 c.aliases.update({
     'je': 'set content.javascript.enabled True',
-    'jd': 'set content.javascript.enabled False'})
+    'jd': 'set content.javascript.enabled False',
+    'cd': 'jseval -q -f change_domain.js',
+    })
 
 ## Time between auto-saves of config/cookies/etc. (in milliseconds)
 c.auto_save.interval = 30000
@@ -574,6 +576,9 @@ bind_chained('<Escape>', 'clear-keychain', 'search', 'fullscreen --leave')
 config.bind('<Ctrl-R>', 'config-source')
 
 #{{{ Normal mode
+#{{{ Scripts
+#}}}
+
 #{{{ Zoom
 config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
