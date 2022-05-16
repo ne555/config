@@ -14,6 +14,7 @@ c.aliases.update({
     'je': 'set content.javascript.enabled True',
     'jd': 'set content.javascript.enabled False',
     'cd': 'jseval -q -f change_domain.js',
+    'np': 'jseval -q -f no_popup.js',
     })
 
 ## Time between auto-saves of config/cookies/etc. (in milliseconds)
@@ -664,10 +665,10 @@ config.bind('^', 'scroll-to-perc --horizontal 0')
 config.bind('$', 'scroll-to-perc --horizontal')
 config.bind('`', 'mode-enter set_mark')
 config.bind("'", 'mode-enter jump_mark')
-config.bind('h', 'scroll left')
-config.bind('j', 'scroll down')
-config.bind('k', 'scroll up')
-config.bind('l', 'scroll right')
+bind_multiple(['<Left>', 'h'], 'scroll left')
+bind_multiple(['<Down>', 'j'], 'scroll down')
+bind_multiple(['<Up>', 'k'], 'scroll up')
+bind_multiple(['<Right>', 'l'], 'scroll right')
 #}}}
 
 config.bind('r', 'reload')
