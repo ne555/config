@@ -27,6 +27,7 @@ alias nload='nload -u K -U K'
 #passing aliases
 alias sudo='sudo '
 
+alias yay='yay --color always'
 alias pacman='pacman --color always'
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
