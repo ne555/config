@@ -50,6 +50,12 @@ set lazyredraw
 "general mappings
 noremap <C-q> :tabclose <Return>
 
+"terminal
+:tnoremap <Esc> <C-\><C-n>
+:tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+luafile $HOME/.config/nvim/plugins.lua
+
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.local/share/nvim/skeletons/template.%:e
 autocmd! BufNewFile,BufRead *.tex set filetype=tex
