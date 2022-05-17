@@ -30,6 +30,7 @@
   #{{{ apps
     bind I exec invert.bin
     #battery
+    #bind b exec ratpoison -c "echo $(acpi -b)"
     bind c exec st -f "Deja Vu Sans Mono"
     # send image to clipboard
     bind i exec scrot --select - | xclip -selection clipboard -t image/png
@@ -92,6 +93,7 @@
 
   # Hide mouse
   bind b banish
+
   # Show last message
   bind semicolon lastmsg
 

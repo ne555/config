@@ -12,7 +12,10 @@ c.aliases = {
         'wqa': 'quit --save'}
 c.aliases.update({
     'je': 'set content.javascript.enabled True',
-    'jd': 'set content.javascript.enabled False'})
+    'jd': 'set content.javascript.enabled False',
+    'cd': 'jseval -q -f change_domain.js',
+    'np': 'jseval -q -f no_popup.js',
+    })
 
 ## Time between auto-saves of config/cookies/etc. (in milliseconds)
 c.auto_save.interval = 30000
@@ -79,7 +82,7 @@ c.colors.downloads.system.bg = 'none'
 c.colors.downloads.system.fg = 'none'
 #}}}
 
-#{{{  Hints
+#{{{ Hints
 c.colors.hints.bg = 'yellow'
 c.colors.hints.fg = 'black'
 c.colors.hints.match.fg = 'green'
@@ -88,7 +91,7 @@ c.colors.keyhint.fg = 'white'
 c.colors.keyhint.suffix.fg = 'orange'
 #}}}
 
-#{{{  Messages
+#{{{ Messages
 c.colors.messages.error.bg = 'red'
 c.colors.messages.error.border = 'red'
 c.colors.messages.error.fg = 'white'
@@ -100,7 +103,7 @@ c.colors.messages.warning.border = 'orange'
 c.colors.messages.warning.fg = 'black'
 #}}}
 
-#{{{  Prompts
+#{{{ Prompts
 c.colors.prompts.bg = 'black'
 c.colors.prompts.border = '1px solid gray'
 c.colors.prompts.fg = 'white'
@@ -108,7 +111,7 @@ c.colors.prompts.selected.bg = 'grey'
 c.colors.prompts.selected.fg = 'white'
 #}}}
 
-#{{{  Status bar
+#{{{ Status bar
 c.colors.statusbar.caret.bg = 'purple'
 c.colors.statusbar.caret.fg = 'white'
 c.colors.statusbar.caret.selection.bg = 'blueviolet'
@@ -134,7 +137,7 @@ c.colors.statusbar.url.success.https.fg = 'white'
 c.colors.statusbar.url.warn.fg = 'yellow'
 #}}}
 
-#{{{  Tab bar
+#{{{ Tab bar
 c.colors.tabs.bar.bg = '#333'
 c.colors.tabs.even.bg = 'black'
 c.colors.tabs.even.fg = 'white'
@@ -158,11 +161,11 @@ c.colors.tabs.selected.odd.bg = 'darkgreen'
 c.colors.tabs.selected.odd.fg = 'white'
 #}}}
 
-#{{{  Webpage
+#{{{ Webpage
 c.colors.webpage.bg = 'white'
 c.colors.webpage.darkmode.algorithm = 'lightness-hsl'
 c.colors.webpage.darkmode.contrast = 0.0
-c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.grayscale.all = False
 c.colors.webpage.darkmode.grayscale.images = 0.0
 c.colors.webpage.darkmode.policy.images = 'never'
@@ -195,7 +198,7 @@ c.completion.web_history.max_items = 0
 c.confirm_quit = ['never']
 c.content.autoplay = False
 
-#{{{  Blocking
+#{{{ Blocking
 c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt']
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
@@ -215,18 +218,18 @@ c.content.fullscreen.overlay_timeout = 3000
 c.content.fullscreen.window = False
 c.content.geolocation = False
 
-#{{{  headers
+#{{{ Headers
 c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
-c.content.headers.referer = 'never' # 'same-domain'
+c.content.headers.referer = 'same-domain'
 c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
 #}}}
 
 c.content.hyperlink_auditing = False
 c.content.images = True
 
-#{{{  javascript
+#{{{ Javascript
 c.content.javascript.alert = False
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_open_tabs_automatically = False
@@ -574,6 +577,9 @@ bind_chained('<Escape>', 'clear-keychain', 'search', 'fullscreen --leave')
 config.bind('<Ctrl-R>', 'config-source')
 
 #{{{ Normal mode
+#{{{ Scripts
+#}}}
+
 #{{{ Zoom
 config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
@@ -647,20 +653,22 @@ bind_multiple(['.', '>'], 'forward')
 config.bind('<Ctrl-Alt-p>', 'print')
 
 #{{{ Scroll
-config.bind('<Ctrl-B>', 'scroll-page 0 -1')
-config.bind('<Ctrl-F>', 'scroll-page 0 1')
+bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 1')
+bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -1')
 config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
-config.bind('gg', 'scroll-to-perc 0')
-config.bind('G', 'scroll-to-perc')
+config.bind('<Ctrl-E>', 'scroll-px 0 20')
+config.bind('<Ctrl-Y>', 'scroll-px 0 -20')
+bind_multiple(['<Home>', 'gg'], 'scroll-to-perc 0')
+bind_multiple(['<End>', 'G'], 'scroll-to-perc')
 config.bind('^', 'scroll-to-perc --horizontal 0')
 config.bind('$', 'scroll-to-perc --horizontal')
 config.bind('`', 'mode-enter set_mark')
 config.bind("'", 'mode-enter jump_mark')
-config.bind('h', 'scroll left')
-config.bind('j', 'scroll down')
-config.bind('k', 'scroll up')
-config.bind('l', 'scroll right')
+bind_multiple(['<Left>', 'h'], 'scroll left')
+bind_multiple(['<Down>', 'j'], 'scroll down')
+bind_multiple(['<Up>', 'k'], 'scroll up')
+bind_multiple(['<Right>', 'l'], 'scroll right')
 #}}}
 
 config.bind('r', 'reload')
@@ -675,8 +683,8 @@ config.bind('u', 'undo')
 config.bind('<Ctrl-Shift-N>', 'open -p')
 config.bind('o', 'set-cmd-text -s :open')
 config.bind('O', 'set-cmd-text :open {url}')
-config.bind('to', 'set-cmd-text -s :open --bg')
-config.bind('tO', 'set-cmd-text :open --bg {url}')
+config.bind('to', 'set-cmd-text -s :open -b')
+config.bind('tO', 'set-cmd-text :open -b {url}')
 #}}}
 
 #{{{ Bookmark
@@ -706,11 +714,11 @@ config.bind('yT', 'yank title -s')
 #}}}
 
 #{{{
-config.bind('Sq', 'bookmark-list')
-config.bind('Sb', 'bookmark-list --jump')
-config.bind('Sh', 'history')
-config.bind('Ss', 'set')
-config.bind('St', 'set-cmd-text -sr :tab-focus')
+config.bind('sq', 'bookmark-list')
+config.bind('sb', 'bookmark-list --jump')
+config.bind('sh', 'history')
+config.bind('ss', 'set')
+config.bind('st', 'set-cmd-text -sr :tab-focus')
 #}}}
 
 config.bind('v', 'mode-enter caret')
@@ -724,7 +732,7 @@ config.bind('dC', 'download-clear')
 config.bind('dd', 'download')
 #}}}
 
-bind_multiple(['~', 'gf'], 'view-source')
+bind_multiple(['~', 'gf'], 'view-source -e')
 
 config.bind('i', 'mode-enter insert')
 config.bind('q', 'macro-record')
