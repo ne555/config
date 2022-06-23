@@ -91,6 +91,8 @@
   #escape Super_L
   escape F20
 
+  bind b banish
+
   # Show last message
   bind semicolon lastmsg
 

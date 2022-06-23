@@ -92,11 +92,11 @@ function disable_css(){
 
 function olddays(){
   //var uri = document.url
-  let uri = window.location.href
-  let result = uri.replace(/www/, 'old')
+  let uri = window.location.href;
+  let result = uri.replace(/www/, 'old');
   //window.location.href = result
-  window.location.replace(result) //don't appear on history
-  return 0
+  window.location.replace(result); //don't appear on history
+  return 0;
 }
 
 function change_domain(url, viejo, nuevo){
@@ -154,6 +154,8 @@ function bypass(){
     let frameid = login[i];
     frameid.parentNode.removeChild(frameid);
   }
+
+  document.body.style.overflow="auto";
 }
 
 function bypass2(){
