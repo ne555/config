@@ -22,8 +22,10 @@ syntax on
 set nohlsearch
 set noincsearch
 
+set colorcolumn+=80
+
 "clipboard
-set clipboard=unnamedplus	
+set clipboard=unnamedplus
 
 "don't add comment character in new line (this should be after filetype
 "plugin)
@@ -49,6 +51,9 @@ set lazyredraw
 
 "general mappings
 noremap <C-q> :tabclose <Return>
+
+"fuzzy search
+noremap <C-p> :FZF <Return>
 
 "terminal
 :tnoremap <Esc> <C-\><C-n>
@@ -212,3 +217,6 @@ let g:vdebug_keymap.step_out  = "<Up>"
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 " nmap ga <Plug>(EasyAlign)
+
+
+let g:python3_host_prog = "/usr/bin/python3"
