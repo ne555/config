@@ -1,6 +1,6 @@
 #/* vim: set filetype=gitconfig:*/
 [core]
-  excludesfile = /home/ne555/.config/git/ignore
+  excludesfile = ~/.config/git/ignore
 
 [include]
   path = ~/.config/git/user
