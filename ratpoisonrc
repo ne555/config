@@ -35,7 +35,7 @@
     # send image to clipboard
     bind i exec scrot --select - | xclip -selection clipboard -t image/png
     # temperature
-    bind t exec ratpoison -c "echo $(sensors -A coretemp-isa-0000 | grep Core | cut -d+ -f2 | cut -d' ' -f1)"
+    bind t exec ratpoison -c "echo $(temperature.sh)"
   #}}}
 
   #{{{ navigation
@@ -68,6 +68,7 @@
     bind D kill
     bind d delete
     bind o only
+    bind C-j exec killall java
   #}}}
 
   #{{{ sound
@@ -101,5 +102,5 @@
   bind F fselect
 
   # Give temporally control to openbox
-  bind grave tmpwm openbox
+  bind asciitilde tmpwm openbox
 #}}}
