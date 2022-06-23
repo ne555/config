@@ -55,7 +55,7 @@ ignore "DKIM-Signature:"
 hdr_order Date From To Cc
 
 #view html
-set mailcap_path = ~/.local/share/mutt/mailcap
+set mailcap_path = ~/.config/mutt/mailcap
 auto_view text/html
 
 #address-book
