@@ -10,13 +10,13 @@ export LC_ALL=en_US.utf8
 
 alias ping='ping -4'
 alias emacs='emacs -nw'
+alias time='env time'
 #diccionarios
 alias sdcv="sdcv --data-dir ~/.local/share/"
 alias dictionary="sdcv --color --data-dir ~/.local/share"
 alias eng="dictionary --use-dict dictd_www.dict.org_gcide --use-dict WordNet"
 alias rae="dictionary --use-dict LAROUSSE --use-dict 'DUE de Maria Moliner (Es-Es)'"
 alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
-#alias pacman='pacman --color always'
 alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias grep='grep --color=auto'
@@ -29,6 +29,7 @@ alias sudo='sudo '
 
 alias yay='yay --color always'
 alias pacman='pacman --color always'
+alias pac="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
@@ -68,6 +69,7 @@ alias startx='startx ~/.config/xinitrc'
 alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
 #alias vim='vim -u ~/.config/vimrc'
 alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
+export IPYTHONDIR='~/.config/ipython/'
 
 ##Variables to use XDG especification
 export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
@@ -90,6 +92,7 @@ export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
 
 export EDITOR=nvim
+export VISUAL=nvim
 
 shopt -s checkwinsize
 #Todas las screens comparten el mismo historial

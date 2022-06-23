@@ -22,8 +22,10 @@ syntax on
 set nohlsearch
 set noincsearch
 
+set colorcolumn+=80
+
 "clipboard
-set clipboard=unnamedplus	
+set clipboard=unnamedplus
 
 "don't add comment character in new line (this should be after filetype
 "plugin)
@@ -49,6 +51,15 @@ set lazyredraw
 
 "general mappings
 noremap <C-q> :tabclose <Return>
+
+"fuzzy search
+noremap <C-p> :FZF <Return>
+
+"terminal
+:tnoremap <Esc> <C-\><C-n>
+:tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+luafile $HOME/.config/nvim/plugins.lua
 
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.local/share/nvim/skeletons/template.%:e
@@ -205,4 +216,7 @@ let g:vdebug_keymap.step_out  = "<Up>"
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+" nmap ga <Plug>(EasyAlign)
+
+
+let g:python3_host_prog = "/usr/bin/python3"
