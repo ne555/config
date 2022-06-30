@@ -30,6 +30,7 @@ alias sudo='sudo '
 alias yay='yay --color always'
 alias pacman='pacman --color always'
 alias pac="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pip-list="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}'"
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
