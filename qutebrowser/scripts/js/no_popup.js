@@ -24,4 +24,7 @@ function remove_tag(tag_name){
 remove_class('RnEpo _Yhr4 ')
 remove_class('ml-webforms-popup-overlay')
 remove_tag('iframe')
+remove_element(() => {
+    return document.querySelectorAll('div[role="dialog"]')
+})
 document.body.style.overflow="auto";
