@@ -9,9 +9,8 @@ set nobackup
 set noswapfile
 
 set autoindent
-set cindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 set showcmd
@@ -37,8 +36,10 @@ colorscheme desert
 "coc rompe
 highlight CocErrorSign ctermfg=white
 highlight CocWarningSign ctermfg=LightGray
-"highlight Pmenu ctermbg=green
+highlight Pmenu ctermbg=Brown
 highlight PmenuSel ctermbg=black ctermfg=250
+highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
+highlight FgCocHintFloatBgCocFloating ctermfg=black
 "highlight PmenuSbar
 "highlight PmenuThumb
 "quickfix
@@ -132,7 +133,7 @@ set signcolumn=yes
 " Use space for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <C-space> coc#refresh()
 " autoimport
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>"
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
