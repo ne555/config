@@ -29,8 +29,10 @@ alias sudo='sudo '
 
 alias yay='yay --color always'
 alias pacman='pacman --color always'
-alias pac="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pac-install="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pac-remove="pacman -Qqe | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 alias pip-list="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}'"
+alias pip-remove="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}' | xargs -ro pip uninstall"
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
@@ -73,11 +75,11 @@ alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 export IPYTHONDIR='~/.config/ipython/'
 
 ##Variables to use XDG especification
-export GIMP2_DIRECTORY='~/.local/share/gimp'
+export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
 #export GIMP2_DATADIR=
 #export GIMP2_LOCALEDIR=
 #export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR='~/.config/gimp'
+export GIMP2_SYSCONFDIR="$HOME/.config/gimp"
 
 source /usr/share/git/completion/git-prompt.sh
 PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
@@ -151,12 +153,12 @@ function proxyoff(){
 export PATH=$PATH:~/usr/bin:~/.local/bin
 
 function homeusr(){
-	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include:~/.local/include
-	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include:~/.local/include
-	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
-	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64:
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
-	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
+	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/.local/include
+	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/.local/include
+	export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
+	export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib:~/.local/lib64:
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/.local/lib:~/.local/lib64
+	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
 }
 homeusr
 
@@ -180,3 +182,5 @@ fi
 when
 #tarda demasiado
 #todo
+
+source "$HOME/.config/fzf.config"
