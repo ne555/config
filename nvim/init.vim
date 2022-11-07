@@ -33,11 +33,18 @@ autocmd Filetype * setlocal formatoptions-=o
 autocmd Filetype * setlocal formatoptions-=r
 
 colorscheme desert
+highlight Search ctermbg=Blue
+highlight RedrawDebugClear ctermfg=black
+highlight NvimInternalError ctermfg=black
+highlight QuickFixLine ctermbg=blue
 "coc rompe
 highlight CocErrorSign ctermfg=white
 highlight CocWarningSign ctermfg=LightGray
+highlight CocInfoSign ctermbg=Black
+highlight CocInfoFloat ctermbg=Black
 highlight Pmenu ctermbg=Brown
 highlight PmenuSel ctermbg=black ctermfg=250
+highlight PmenuThumb ctermbg=black ctermfg=250
 highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
 highlight FgCocHintFloatBgCocFloating ctermfg=black
 "highlight PmenuSbar
@@ -161,6 +168,12 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
+" disable coc on diff
+augroup disableCocInDiff
+  autocmd!
+  autocmd DiffUpdated * let b:coc_enabled=0
+augroup END
+
 " Cerrar buffers inactivos
 function! Wipeout()
   " list of *all* buffer numbers
@@ -221,3 +234,14 @@ xmap ga <Plug>(EasyAlign)
 
 
 let g:python3_host_prog = "/usr/bin/python3"
+
+" tests
+nmap <silent> <leader>t :TestNearest --info <CR>
+nmap <silent> <leader>C :TestClass --info <CR>
+nmap <silent> <leader>T :TestFile --info <CR>
+nmap <silent> <leader>a :TestSuite --info <CR>
+nmap <silent> <leader>l :TestLast --info <CR>
+nmap <silent> <leader>g :TestVisit --info <CR>
+
+" debug
+let g:vimspector_enable_mappings = 'HUMAN'
