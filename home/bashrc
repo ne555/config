@@ -183,4 +183,6 @@ when
 #tarda demasiado
 #todo
 
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
 source "$HOME/.config/fzf.config"
