@@ -543,7 +543,7 @@ c.url.searchengines = {
     'wes' : 'http://es.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wiki' : 'http://en.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wr' : 'https://www.wordreference.com/es/en/translation.asp?spen={}',
-    'y' : 'http://www.iteroni.com/results?search_query={}',
+    'y' : 'http://yewtu.be/results?search_query={}',
     'r': 'http://old.reddit.com/r/{}/new'
 }
 c.url.start_pages = ['https://start.duckduckgo.com']
@@ -699,8 +699,8 @@ config.bind('<Ctrl-s>', 'stop')
 #{{{ Clipboard
 config.bind('pp', 'open -- {clipboard}')
 config.bind('pP', 'open -- {primary}')
-config.bind('Pp', 'open -t -- {clipboard}')
-config.bind('PP', 'open -t -- {primary}')
+config.bind('Pp', 'open -b -- {clipboard}')
+config.bind('PP', 'open -b -- {primary}')
 config.bind('yy', 'yank')
 config.bind('yY', 'yank -s')
 config.bind('yd', 'yank domain')
