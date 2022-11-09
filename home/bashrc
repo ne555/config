@@ -112,15 +112,14 @@ test -r $d && eval "$(dircolors $d)"
 
 #vi bindings
 set -o vi
+#ignore hidden files in bash completion
+bind 'set match-hidden-files off'
 
 #don't clear the screen on exit
 export PAGER='less -X'
 
 # man in nvim
 export MANPAGER='nvim +Man!'
-
-#ignore hidden files in bash completion
-bind 'set match-hidden-files off'
 
 export PYTHONDONTWRITEBYTECODE="non empty string"
 
@@ -149,18 +148,6 @@ function proxyoff(){
 	unset rsync_proxy
 	echo -e "\nProxy environment variable removed."
 }
-
-export PATH=$PATH:~/usr/bin:~/.local/bin
-
-function homeusr(){
-	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/.local/include
-	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/.local/include
-	export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
-	export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib:~/.local/lib64:
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/.local/lib:~/.local/lib64
-	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
-}
-homeusr
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff

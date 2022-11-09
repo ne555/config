@@ -1,0 +1,7 @@
+export PATH=$PATH:~/usr/bin:~/.local/bin
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/.local/include
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/.local/include
+export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
+export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib:~/.local/lib64:
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/.local/lib:~/.local/lib64
+export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
