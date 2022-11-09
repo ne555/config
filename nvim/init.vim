@@ -59,6 +59,7 @@ set lazyredraw
 
 "general mappings
 noremap <C-q> :tabclose <Return>
+noremap <C-w>n :tab split <Return>
 
 "fuzzy search
 noremap <C-p> :FZF <Return>
@@ -79,7 +80,6 @@ autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 
 "TODO: open pdf files
 
-"map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
 map ]q :cprev <Return>
