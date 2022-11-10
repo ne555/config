@@ -31,7 +31,6 @@ c.bindings.key_mappings = {
         '<Ctrl-[>': '<Escape>',
         '<Ctrl-6>': '<Ctrl-^>',
         '<Ctrl-M>': '<Return>',
-        '<Ctrl-J>': '<Return>',
         '<Ctrl-I>': '<Tab>',
         '<Shift-Return>': '<Return>',
         '<Enter>': '<Return>',
@@ -813,6 +812,8 @@ config.bind('<Return>', 'command-accept', mode='command')
 config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 config.bind('<Tab>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-K>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-J>', 'completion-item-focus next', mode='command')
 config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
 #}}}
 
