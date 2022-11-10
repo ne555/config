@@ -826,6 +826,9 @@ config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
 config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
+config.bind('<Ctrl-M>', 'fake-key <Return>', mode='insert')
+config.bind('<Ctrl-H>', 'fake-key <Backspace>', mode='insert')
+config.bind('<Ctrl-W>', 'fake-key <Ctrl-Backspace>', mode='insert')
 #}}}
 
 #{{{ Bindings for passthrough mode
