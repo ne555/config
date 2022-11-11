@@ -9,9 +9,8 @@ set nobackup
 set noswapfile
 
 set autoindent
-set cindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 set showcmd
@@ -34,11 +33,20 @@ autocmd Filetype * setlocal formatoptions-=o
 autocmd Filetype * setlocal formatoptions-=r
 
 colorscheme desert
+highlight Search ctermbg=Blue
+highlight RedrawDebugClear ctermfg=black
+highlight NvimInternalError ctermfg=black
+highlight QuickFixLine ctermbg=blue
 "coc rompe
 highlight CocErrorSign ctermfg=white
 highlight CocWarningSign ctermfg=LightGray
-"highlight Pmenu ctermbg=green
+highlight CocInfoSign ctermbg=Black
+highlight CocInfoFloat ctermbg=Black
+highlight Pmenu ctermbg=Brown
 highlight PmenuSel ctermbg=black ctermfg=250
+highlight PmenuThumb ctermbg=black ctermfg=250
+highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
+highlight FgCocHintFloatBgCocFloating ctermfg=black
 "highlight PmenuSbar
 "highlight PmenuThumb
 "quickfix
@@ -51,6 +59,7 @@ set lazyredraw
 
 "general mappings
 noremap <C-q> :tabclose <Return>
+noremap <C-w>n :tab split <Return>
 
 "fuzzy search
 noremap <C-p> :FZF <Return>
@@ -58,8 +67,6 @@ noremap <C-p> :FZF <Return>
 "terminal
 :tnoremap <Esc> <C-\><C-n>
 :tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
-
-luafile $HOME/.config/nvim/plugins.lua
 
 "usar templates segun extension del archivo
 autocmd! BufNewFile * silent! 0r ~/.local/share/nvim/skeletons/template.%:e
@@ -71,7 +78,6 @@ autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 
 "TODO: open pdf files
 
-"map <F9> :write <Return> :make <Return>
 "moverse por los errores
 map [q :cnext <Return>
 map ]q :cprev <Return>
@@ -132,7 +138,7 @@ set signcolumn=yes
 " Use space for trigger completion with characters ahead and navigate
 inoremap <silent><expr> <C-space> coc#refresh()
 " autoimport
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>"
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -159,6 +165,12 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" disable coc on diff
+augroup disableCocInDiff
+  autocmd!
+  autocmd DiffUpdated * let b:coc_enabled=0
+augroup END
 
 " Cerrar buffers inactivos
 function! Wipeout()
@@ -220,3 +232,14 @@ xmap ga <Plug>(EasyAlign)
 
 
 let g:python3_host_prog = "/usr/bin/python3"
+
+" tests
+nmap <silent> <leader>t :TestNearest --info <CR>
+nmap <silent> <leader>C :TestClass --info <CR>
+nmap <silent> <leader>T :TestFile --info <CR>
+nmap <silent> <leader>a :TestSuite --info <CR>
+nmap <silent> <leader>l :TestLast --info <CR>
+nmap <silent> <leader>g :TestVisit --info <CR>
+
+" debug
+let g:vimspector_enable_mappings = 'HUMAN'

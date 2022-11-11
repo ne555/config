@@ -29,7 +29,10 @@ alias sudo='sudo '
 
 alias yay='yay --color always'
 alias pacman='pacman --color always'
-alias pac="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pac-install="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pac-remove="pacman -Qqe | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+alias pip-list="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}'"
+alias pip-remove="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}' | xargs -ro pip uninstall"
 alias pdfview='apvlv'
 #alias rae='dict --host localhost'
 alias rename='perl-rename'
@@ -66,8 +69,6 @@ alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
-alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
-#alias vim='vim -u ~/.config/vimrc'
 alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 export IPYTHONDIR='~/.config/ipython/'
 
@@ -109,15 +110,14 @@ test -r $d && eval "$(dircolors $d)"
 
 #vi bindings
 set -o vi
+#ignore hidden files in bash completion
+bind 'set match-hidden-files off'
 
 #don't clear the screen on exit
 export PAGER='less -X'
 
 # man in nvim
 export MANPAGER='nvim +Man!'
-
-#ignore hidden files in bash completion
-bind 'set match-hidden-files off'
 
 export PYTHONDONTWRITEBYTECODE="non empty string"
 
@@ -133,7 +133,7 @@ function proxy(){
 	export ftp_proxy=$http_proxy
 	export rsync_proxy=$http_proxy
 	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-	echo -e "\nProxy environment variable set."
+	echo "Proxy environment variable set."
 }
 function proxyoff(){
 	unset HTTP_PROXY
@@ -144,20 +144,8 @@ function proxyoff(){
 	unset ftp_proxy
 	unset RSYNC_PROXY
 	unset rsync_proxy
-	echo -e "\nProxy environment variable removed."
+	echo "Proxy environment variable removed."
 }
-
-export PATH=$PATH:~/usr/bin:~/.local/bin
-
-function homeusr(){
-	export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/usr/local/include:~/.local/include
-	export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/usr/local/include:~/.local/include
-	export PYTHONPATH=$PYTHONPATH:~/usr/local/lib/python
-	export LIBRARY_PATH=$LIBRARY_PATH:~/usr/local/lib:~/usr/local/lib64:
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/usr/local/lib:~/usr/local/lib64
-	export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/usr/local/lib/pkgconfig:~/usr/local/lib64/pkgconfig:${PKG_CONFIG_PATH}
-}
-homeusr
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
@@ -177,5 +165,7 @@ if [[ ! $SSH_AUTH_SOCK ]]; then
 fi
 
 when
-#tarda demasiado
-#todo
+
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
+source "$HOME/.config/fzf.config"
