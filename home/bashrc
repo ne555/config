@@ -69,8 +69,6 @@ alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
-alias tmux='tmux -u -2 -f ~/.config/tmux.conf'
-#alias vim='vim -u ~/.config/vimrc'
 alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 export IPYTHONDIR='~/.config/ipython/'
 
@@ -135,7 +133,7 @@ function proxy(){
 	export ftp_proxy=$http_proxy
 	export rsync_proxy=$http_proxy
 	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-	echo -e "\nProxy environment variable set."
+	echo "Proxy environment variable set."
 }
 function proxyoff(){
 	unset HTTP_PROXY
@@ -146,7 +144,7 @@ function proxyoff(){
 	unset ftp_proxy
 	unset RSYNC_PROXY
 	unset rsync_proxy
-	echo -e "\nProxy environment variable removed."
+	echo "Proxy environment variable removed."
 }
 
 #no blocking the screen with <C-s>
@@ -165,10 +163,6 @@ fi
 if [[ ! $SSH_AUTH_SOCK ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
-
-when
-#tarda demasiado
-#todo
 
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
