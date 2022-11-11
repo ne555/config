@@ -223,7 +223,7 @@ c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
 c.content.headers.referer = 'same-domain'
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:101.0) Gecko/20100101 Firefox/101.0'
 #}}}
 
 c.content.hyperlink_auditing = False
@@ -231,7 +231,7 @@ c.content.images = True
 
 #{{{ Javascript
 c.content.javascript.alert = False
-c.content.javascript.can_access_clipboard = False
+c.content.javascript.clipboard = 'none'
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.enabled = True
 c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
@@ -543,7 +543,7 @@ c.url.searchengines = {
     'wes' : 'http://es.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wiki' : 'http://en.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wr' : 'https://www.wordreference.com/es/en/translation.asp?spen={}',
-    'y' : 'http://www.iteroni.com/results?search_query={}',
+    'y' : 'http://yewtu.be/search?q={}',
     'r': 'http://old.reddit.com/r/{}/new'
 }
 c.url.start_pages = ['https://start.duckduckgo.com']

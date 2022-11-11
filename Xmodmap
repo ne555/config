@@ -24,3 +24,10 @@ clear lock
 !delete
 keycode 22 = BackSpace
 keycode 119 = Delete
+
+!numeric enter
+keycode 104 = Return
+!right ctrl
+keycode 105 = Return
+!right shift
+keycode 62 = Return

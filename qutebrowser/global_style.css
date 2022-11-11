@@ -44,3 +44,8 @@ span[vimbhint^='label'] {
 	display: none !important;
 	background-color: #ff0000 !important;
 }
+
+div[aria-label='Anuncios']{
+	display: none !important;
+	background-color: #ff0000 !important;
+}

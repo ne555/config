@@ -16,7 +16,7 @@ function remove_ssl(url){
 }
 
 function no_youtube(){
-  let result = change_domain(remove_ssl(window.location.href), 'youtube', 'iteroni');
+  let result = change_domain(remove_ssl(window.location.href), 'www.youtube.com', 'yewtu.be');
   window.location.replace(result) //don't appear on history
   return 0;
 }
