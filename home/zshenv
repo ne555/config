@@ -1,4 +1,7 @@
-export PATH=$PATH:~/usr/bin:~/.local/bin
+typeset -U path PATH
+path=(~/usr/bin ~/.local/bin $path)
+export PATH
+
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/.local/include
 export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/.local/include
 export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
