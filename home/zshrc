@@ -7,6 +7,10 @@ zstyle :compinstall filename '$HOME/.config/home/zshrc'
 autoload -Uz compinit
 compinit
 
+setopt nohup
+
+source /usr/share/git/completion/git-prompt.sh
+setopt PROMPT_SUBST
+PS1='%B%K{blue}%F{green}%m@%n:%1~%F{magenta}$(__git_ps1 " (%s)")%F{green}%(#.#.$)%k%f%b '
 
 alias startx='startx ~/.config/xinitrc'
-setopt nohup
