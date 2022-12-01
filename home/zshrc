@@ -1,0 +1,11 @@
+HISTFILE=~/.local/share/zsh/history
+HISTSIZE=10000
+SAVEHIST=10000
+bindkey -v
+zstyle :compinstall filename '$HOME/.config/home/zshrc'
+
+autoload -Uz compinit
+compinit
+
+
+alias startx='startx ~/.config/xinitrc'
