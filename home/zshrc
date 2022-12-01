@@ -9,3 +9,4 @@ compinit
 
 
 alias startx='startx ~/.config/xinitrc'
+setopt nohup
