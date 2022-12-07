@@ -154,9 +154,9 @@ c.colors.tabs.pinned.selected.even.bg = 'darkgreen'
 c.colors.tabs.pinned.selected.even.fg = 'white'
 c.colors.tabs.pinned.selected.odd.bg = 'darkgreen'
 c.colors.tabs.pinned.selected.odd.fg = 'white'
-c.colors.tabs.selected.even.bg = 'darkgreen'
+c.colors.tabs.selected.even.bg = 'green'
 c.colors.tabs.selected.even.fg = 'white'
-c.colors.tabs.selected.odd.bg = 'darkgreen'
+c.colors.tabs.selected.odd.bg = 'green'
 c.colors.tabs.selected.odd.fg = 'white'
 #}}}
 
@@ -528,7 +528,7 @@ c.url.searchengines = {
     'amdb' : 'http://www.animenewsnetwork.com/encyclopedia/search/name?q={}',
     'anime' : 'https://myanimelist.net/anime.php?q={}',
     'arch' : 'https://wiki.archlinux.org/?search={}',
-    'aur' : 'http://aur.archlinux.org/packages.php?O=0&L=0&detail=1&C=0&K={}&SeB=nd&SB=n&SO=a&PP=30&do_Search=Go&setlang=en',
+    'aur' : 'https://aur.archlinux.org/packages/?K={}',
     'cpp' : 'http://www.google.com/search?q=site%3Acplusplus.com%20{}',
     'ddg' : 'https://duckduckgo.com/?q={}',
     'g' : 'https://google.com/search?q={}',
