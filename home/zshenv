@@ -8,3 +8,14 @@ export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
 export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib:~/.local/lib64:
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/.local/lib:~/.local/lib64
 export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
+
+export LC_ALL=en_US.utf8
+
+export IPYTHONDIR='~/.config/ipython/'
+export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
+export GIMP2_SYSCONFDIR="$HOME/.config/gimp"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+export MANPAGER='nvim +Man!'
