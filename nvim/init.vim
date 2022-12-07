@@ -51,9 +51,11 @@ highlight link FgCocHintFloatBgCocFloating DiagnosticHint
 "quickfix
 highlight Search ctermfg=white
 
-highlight Normal ctermbg=black
+highlight Normal ctermbg=black ctermfg=white
 highlight NonText ctermbg=black
 highlight Conceal cterm=underline ctermfg=white
+highlight Visual ctermfg=DarkRed ctermbg=Green
+highlight TabLineSel ctermbg=DarkGreen cterm=bold
 
 "autocomplete commands
 set wildmode=longest,list
@@ -237,12 +239,12 @@ xmap ga <Plug>(EasyAlign)
 let g:python3_host_prog = "/usr/bin/python3"
 
 " tests
-nmap <silent> <leader>t :TestNearest --info <CR>
-nmap <silent> <leader>C :TestClass --info <CR>
-nmap <silent> <leader>T :TestFile --info <CR>
-nmap <silent> <leader>a :TestSuite --info <CR>
-nmap <silent> <leader>l :TestLast --info <CR>
-nmap <silent> <leader>g :TestVisit --info <CR>
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>C :TestClass<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 " debug
 let g:vimspector_enable_mappings = 'HUMAN'
