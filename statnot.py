@@ -1,3 +1,5 @@
+# statnot ~/.config/statnot.py
+
 # Default time a notification is show, unless specified in notification
 # ratpoison is configured to not clear messages
 DEFAULT_NOTIFY_TIMEOUT = 0 # milliseconds
