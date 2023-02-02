@@ -24,3 +24,6 @@ clear lock
 !delete
 keycode 22 = BackSpace
 keycode 119 = Delete
+
+!R_control -> Enter
+keycode 105 = Return
