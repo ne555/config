@@ -41,7 +41,6 @@ alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 
 alias r='R --no-save --quiet'
 
-alias startx='startx ~/.config/xinitrc'
 alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
 alias w3m='w3m -config ~/.config/w3m/config'
 
@@ -58,6 +57,7 @@ alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abo
 alias alpine='alpine -p ~/.config/pinerc'
 alias amule='amule --config-dir=~/.config/amule'
 alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 alias dgen='dgen -r ~/.config/dgenrc'
 alias emacs='emacs -nw -l ~/.config/emacs.el'
 alias finch='finch --config ~/.config/purple/'
@@ -69,7 +69,6 @@ alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
-alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
 export IPYTHONDIR='~/.config/ipython/'
 
 ##Variables to use XDG especification

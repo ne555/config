@@ -1,21 +1,23 @@
 typeset -U path PATH
-path=(~/usr/bin ~/.local/bin $path)
+path=(${HOME}/usr/bin ${HOME}/.local/bin $path)
 export PATH
 
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:~/.local/include
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:~/.local/include
-export PYTHONPATH=$PYTHONPATH:~/.local/lib/python3.10/
-export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib:~/.local/lib64:
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:~/.local/lib:~/.local/lib64
-export PKG_CONFIG_PATH=~/.local/lib/pkgconfig:~/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
+export C_INCLUDE_PATH=${HOME}/.local/include:${C_INCLUDE_PATH}
+export CPLUS_INCLUDE_PATH=${HOME}/.local/include:${CPLUS_INCLUDE_PATH}
+export PYTHONPATH=${HOME}/.local/lib/python3.10/:${PYTHONPATH}
+export LIBRARY_PATH=${HOME}/.local/lib:${HOME}/.local/lib64::${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${HOME}/.local/lib:${HOME}/.local/lib64:${LD_LIBRARY_PATH}
+export PKG_CONFIG_PATH=${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
 
 export LC_ALL=en_US.utf8
 
-export IPYTHONDIR='~/.config/ipython/'
-export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
-export GIMP2_SYSCONFDIR="$HOME/.config/gimp"
+export IPYTHONDIR="${HOME}/.config/ipython/"
+export GIMP2_DIRECTORY="${HOME}/.local/share/gimp"
+export GIMP2_SYSCONFDIR="${HOME}/.config/gimp"
 
 export EDITOR=nvim
 export VISUAL=nvim
 
 export MANPAGER='nvim +Man!'
+export PYTHONDONTWRITEBYTECODE="non empty string"
+export PYTHONPATH="${HOME}/usr/lib/python/:${PYTHONPATH}"
