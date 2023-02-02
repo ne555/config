@@ -1,0 +1,6 @@
+# vim: set filetype=zsh
+alias pacman='pacman --color always'
+alias startx='startx ~/.config/xinitrc'
+alias sudo='sudo '
+alias time='/usr/bin/time'
+alias yay='yay --color always'
