@@ -1,8 +1,7 @@
 ZSH=/usr/share/oh-my-zsh
 ZSH_THEME="lukerandall"
-plugins=(dotnet extract fzf gpg-agent universalarchive vi-mode)
+plugins=(dotnet extract fzf gpg-agent ssh-agent universalarchive vi-mode)
 source "$HOME/.config/fzf.config"
 source $ZSH/oh-my-zsh.sh
 
 source "$HOME/.config/zsh/alias"
-eval "$(dircolors $HOME/.config/dircolors)"
