@@ -11,8 +11,10 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '^[[A' history-beginning-search-backward-end
+bindkey '^[[B' history-beginning-search-forward-end
+bindkey -M vicmd 'k' history-beginning-search-backward-end
+bindkey -M vicmd 'j' history-beginning-search-forward-end
