@@ -18,6 +18,7 @@ autoload -U colors && colors
 eval "$(dircolors $HOME/.config/dircolors)"
 PROMPT="%{$bg[blue]$fg_bold[cyan]%}%n:%2~%(!.#.$)%{$reset_color%} "
 
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 autoload -Uz compinit && compinit
 
 when
