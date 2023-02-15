@@ -1,7 +1,23 @@
-ZSH=/usr/share/oh-my-zsh
-ZSH_THEME="lukerandall"
-plugins=(dotnet extract fzf gpg-agent ssh-agent universalarchive vi-mode)
+#plugins=(dotnet extract fzf gpg-agent universalarchive vi-mode)
+
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 source "$HOME/.config/fzf.config"
-source $ZSH/oh-my-zsh.sh
 
 source "$HOME/.config/zsh/alias"
+source "$HOME/.config/zsh/history"
+
+setopt rm_star_silent
+# vi mode
+bindkey -v
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+autoload -U colors && colors
+eval "$(dircolors $HOME/.config/dircolors)"
+PROMPT="%{$bg[blue]$fg_bold[cyan]%}%n:%2~%(!.#.$)%{$reset_color%} "
+
+autoload -Uz compinit && compinit
+
+when

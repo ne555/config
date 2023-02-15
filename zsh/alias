@@ -3,6 +3,7 @@ alias pacman='pacman --color always'
 alias sudo='sudo '
 alias time='/usr/bin/time'
 alias yay='yay --color always'
+alias ls='ls --color=always'
 
 # Using .config as config directory
 alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abook'

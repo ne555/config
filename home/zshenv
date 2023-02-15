@@ -1,13 +1,13 @@
 typeset -U path PATH
-path=(${HOME}/usr/bin ${HOME}/.local/bin $path)
+path=($path ${HOME}/usr/bin ${HOME}/.local/bin)
 export PATH
 
-export C_INCLUDE_PATH=${HOME}/.local/include:${C_INCLUDE_PATH}
-export CPLUS_INCLUDE_PATH=${HOME}/.local/include:${CPLUS_INCLUDE_PATH}
-export PYTHONPATH=${HOME}/.local/lib/python3.10/:${PYTHONPATH}
-export LIBRARY_PATH=${HOME}/.local/lib:${HOME}/.local/lib64::${LIBRARY_PATH}
-export LD_LIBRARY_PATH=${HOME}/.local/lib:${HOME}/.local/lib64:${LD_LIBRARY_PATH}
-export PKG_CONFIG_PATH=${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig:${PKG_CONFIG_PATH}
+export C_INCLUDE_PATH=${C_INCLUDE_PATH}:${HOME}/.local/include
+export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${HOME}/.local/include
+export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
+export LIBRARY_PATH=${LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64:
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig
 
 export LC_ALL=en_US.utf8
 
@@ -20,4 +20,3 @@ export VISUAL=nvim
 
 export MANPAGER='nvim +Man!'
 export PYTHONDONTWRITEBYTECODE="non empty string"
-export PYTHONPATH="${HOME}/usr/lib/python/:${PYTHONPATH}"
