@@ -5,6 +5,6 @@ source /usr/share/git/completion/git-prompt.sh
 COLOR1="%{$bg[blue]$fg_bold[cyan]%}"
 COLOR2="%{$fg[yellow]%}"
 DIRECTORY="%2~"
-GITINFO='$(__git_ps1 "(%s)")'
+GITINFO='$(__git_ps1 "|%s")'
 setopt PROMPT_SUBST ;
-PS1="${COLOR1}${DIRECTORY} ${COLOR2}${GITINFO}${COLOR1}%(!.#.$)%{$reset_color%} "
+PS1="${COLOR1}${DIRECTORY}${COLOR2}${GITINFO}${COLOR1}%(!.#.$)%{$reset_color%} "
