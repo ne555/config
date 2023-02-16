@@ -1,4 +1,24 @@
 #/* vim:set foldmethod=marker:*/
+from qutebrowser.api import interceptor
+
+
+def ends_with(string, suffix_list):
+    for suffix in suffix_list:
+        if string.endswith(suffix):
+            return True
+
+
+def intercept(request: interceptor.Request):
+    url = request.request_url
+    host = url.host()
+    path = url.path()
+    if ends_with(path, ['.woff', '.woff2', '.ttf']) \
+            and '/fa-' not in path \
+            and host not in ['allowed-domain.com', 'allowed-domain2.com']:
+        request.block()
+
+
+interceptor.register(intercept) 
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
