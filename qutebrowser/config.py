@@ -8,7 +8,8 @@ def ends_with(string, suffix_list):
             return True
 
 
-def intercept(request: interceptor.Request):
+def reject_fonts(request: interceptor.Request):
+    """Don't load extern fonts"""
     url = request.request_url
     host = url.host()
     path = url.path()
@@ -18,7 +19,7 @@ def intercept(request: interceptor.Request):
         request.block()
 
 
-interceptor.register(intercept) 
+interceptor.register(reject_fonts)
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
