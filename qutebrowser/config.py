@@ -8,7 +8,8 @@ def ends_with(string, suffix_list):
             return True
 
 
-def intercept(request: interceptor.Request):
+def reject_fonts(request: interceptor.Request):
+    """Don't load extern fonts"""
     url = request.request_url
     host = url.host()
     path = url.path()
@@ -18,7 +19,7 @@ def intercept(request: interceptor.Request):
         request.block()
 
 
-interceptor.register(intercept) 
+interceptor.register(reject_fonts)
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
@@ -318,7 +319,7 @@ c.fonts.completion.entry = 'default_size default_family'
 c.fonts.contextmenu = None
 c.fonts.debug_console = 'default_size default_family'
 c.fonts.default_family = []
-c.fonts.default_size = '10pt'
+c.fonts.default_size = '9pt'
 c.fonts.downloads = 'default_size default_family'
 c.fonts.hints = 'bold default_size default_family'
 c.fonts.keyhint = 'default_size default_family'
@@ -335,7 +336,7 @@ c.fonts.web.family.fixed = 'Liberation Mono'
 c.fonts.web.family.sans_serif = 'Helvetica World'
 c.fonts.web.family.serif = 'TeX Gyre Pagella'
 c.fonts.web.family.standard = ''
-c.fonts.web.size.default = 16
+c.fonts.web.size.default = 14
 c.fonts.web.size.default_fixed = 13
 c.fonts.web.size.minimum = 0
 c.fonts.web.size.minimum_logical = 6
@@ -646,7 +647,8 @@ config.bind('<Alt-6>', 'tab-focus 6')
 config.bind('<Alt-7>', 'tab-focus 7')
 config.bind('<Alt-8>', 'tab-focus 8')
 config.bind('<Alt-9>', 'tab-focus 9')
-config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Alt-0>', 'tab-focus -1')
+config.bind('<Ctrl-t>', 'tab-focus last')
 bind_multiple(['J', 'gt'], 'tab-next')
 bind_multiple(['K', 'gT'], 'tab-prev')
 config.bind('gm', 'tab-move')
