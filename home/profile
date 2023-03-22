@@ -36,11 +36,5 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
 export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
 
-# history
-export HISTCONTROL=erasedups
-export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
-export HISTSIZE=10000
-export HISTFILESIZE=4000000
-
 #don't clear the screen on exit
 export PAGER='less -X'

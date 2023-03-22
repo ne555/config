@@ -6,55 +6,27 @@
 [[ $- != *i* ]] && return
 
 source "$HOME/.config/bash/alias"
+source "$HOME/.config/bash/functions"
+source "$HOME/.config/bash/history"
+source "$HOME/.config/bash/prompt"
 
-source /usr/share/git/completion/git-prompt.sh
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
 shopt -s checkwinsize
-#Todas las screens comparten el mismo historial
-shopt -s histappend
-#export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
-#export HISTCONTROL=ignorespace:erasedups
 
-d=~/.config/dircolors
+# custom ls colors
+d=$HOME/.config/dircolors
 test -r $d && eval "$(dircolors $d)"
 
-#vi bindings
+# vi bindings
 set -o vi
-#ignore hidden files in bash completion
+
+# ignore hidden files in bash completion
 bind 'set match-hidden-files off'
-
-
-function proxy(){
-	proxyserver=192.168.0.120
-	#proxyserver=192.168.0.121
-	#proxyserver=10.0.2.3
-	port=3128
-	#export http_proxy="http://$username:$password@$proxyserver:$port"
-	export http_proxy="http://$proxyserver:$port"
-	export https_proxy=$http_proxy
-	export ftp_proxy=$http_proxy
-	export rsync_proxy=$http_proxy
-	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-	echo "Proxy environment variable set."
-}
-function proxyoff(){
-	unset HTTP_PROXY
-	unset http_proxy
-	unset HTTPS_PROXY
-	unset https_proxy
-	unset FTP_PROXY
-	unset ftp_proxy
-	unset RSYNC_PROXY
-	unset rsync_proxy
-	echo "Proxy environment variable removed."
-}
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
-	#startxfce4
 	startx
 fi
 
@@ -66,6 +38,7 @@ if [[ ! $SSH_AUTH_SOCK ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
+# fzf
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 source "$HOME/.config/fzf.config"

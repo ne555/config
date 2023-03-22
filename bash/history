@@ -1,0 +1,8 @@
+#/* vim: set filetype=sh : */
+#Todas las screens comparten el mismo historial
+shopt -s histappend
+
+export HISTCONTROL=erasedups
+export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
+export HISTSIZE=10000
+export HISTFILESIZE=4000000
