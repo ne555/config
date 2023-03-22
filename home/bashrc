@@ -75,8 +75,6 @@ shopt -s histappend
 #export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
 #export HISTCONTROL=ignorespace:erasedups
 
-
-
 d=~/.config/dircolors
 test -r $d && eval "$(dircolors $d)"
 
@@ -84,7 +82,6 @@ test -r $d && eval "$(dircolors $d)"
 set -o vi
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
-
 
 
 function proxy(){

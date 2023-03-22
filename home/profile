@@ -1,22 +1,30 @@
 #/* vim: set filetype=sh : */
+
+# paths
 export C_INCLUDE_PATH=${C_INCLUDE_PATH}:${HOME}/.local/include
 export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${HOME}/.local/include
-export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
 export LIBRARY_PATH=${LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64:
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig
+export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
 
+# locale
 export LC_ALL=en_US.utf8
 
-export IPYTHONDIR="${HOME}/.config/ipython/"
+# terminal
+export TERM=tmux-256color
+
+# don't create .pyc files
 export PYTHONDONTWRITEBYTECODE="non empty string"
 
+# xdg directories
 export GIMP2_DIRECTORY="${HOME}/.local/share/gimp"
 export GIMP2_SYSCONFDIR="${HOME}/.config/gimp"
+export IPYTHONDIR="${HOME}/.config/ipython/"
 
+# using nvim
 export EDITOR=nvim
 export VISUAL=nvim
-
 export MANPAGER='nvim +Man!'
 
 #man pages with color
@@ -28,9 +36,7 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
 export LESS_TERMCAP_ue=$'\E[0m' # end underline
 export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
 
-export TERM=tmux-256color
-
-
+# history
 export HISTCONTROL=erasedups
 export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
 export HISTSIZE=10000
