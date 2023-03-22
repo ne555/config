@@ -1,0 +1,26 @@
+"/* vim: set filetype=vim : */
+
+" {{{settings
+set autoscrolldoc=no
+set commandtimeout=1000
+set content=no
+set continuous=yes
+set continuouspad=0
+set fullscreen=yes
+set noinfo=yes
+set scrollbar=no
+set visualmode=no
+set wrapscan=yes
+set zoom=fitwidth
+" }}}
+
+" {{{mappings
+" zoom
+map + zi
+map - zo
+map H :zoom fitheight
+map W :zoom fitwidth
+" movement
+map . <C-f>
+map , <C-b>
+" }}}

@@ -5,67 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ping='ping -4'
-alias emacs='emacs -nw'
-alias time='/usr/bin/time'
-#diccionarios
-alias sdcv="sdcv --data-dir ~/.local/share/"
-alias dictionary="sdcv --color --data-dir ~/.local/share"
-alias eng="dictionary --use-dict dictd_www.dict.org_gcide --use-dict WordNet"
-alias rae="dictionary --use-dict LAROUSSE --use-dict 'DUE de Maria Moliner (Es-Es)'"
-alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
-alias g++='g++ -fno-diagnostics-show-caret'
-alias gcc='gcc -fno-diagnostics-show-caret'
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-#alias mupdf='mupdf-gl'
-alias nload='nload -u K -U K'
-
-#passing aliases
-alias sudo='sudo '
-
-alias yay='yay --color always'
-alias pacman='pacman --color always'
-alias pac-install="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-alias pac-remove="pacman -Qqe | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
-alias pip-list="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}'"
-alias pip-remove="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}' | xargs -ro pip uninstall"
-alias pdfview='apvlv'
-#alias rae='dict --host localhost'
-alias rename='perl-rename'
-alias st='st -f "Deja Vu Sans Mono"'
-alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
-
-alias r='R --no-save --quiet'
-
-alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
-alias w3m='w3m -config ~/.config/w3m/config'
-
-#to have history en line editing
-alias octave='rlwrap octave-cli -q'
-alias youtube-viewer='rlwrap youtube-viewer -q'
-
-#weird bugs
-#(clang_complete)
-alias vim="vim 2>/dev/null"
-
-# Using .config as config directory
-alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abook'
-alias alpine='alpine -p ~/.config/pinerc'
-alias amule='amule --config-dir=~/.config/amule'
-alias apvlv='apvlv -c ~/.config/apvlv.rc'
-alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
-alias dgen='dgen -r ~/.config/dgenrc'
-alias emacs='emacs -nw -l ~/.config/emacs.el'
-alias finch='finch --config ~/.config/purple/'
-alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
-alias lingot='lingot -c ~/.config/lingot'
-alias mutt='mutt -F ~/.config/mutt/muttrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp --bindings ~/.config/ncmpcpp.bindings'
-alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
-alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
-alias snes9x='snes9x -conf ~/.config/snes9x'
-alias startx='startx ~/.config/xinitrc'
+source "$HOME/.config/bash/alias"
 
 source /usr/share/git/completion/git-prompt.sh
 PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
