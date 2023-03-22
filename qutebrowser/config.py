@@ -253,7 +253,11 @@ c.content.images = True
 c.content.javascript.alert = False
 c.content.javascript.can_access_clipboard = False
 c.content.javascript.can_open_tabs_automatically = False
-c.content.javascript.enabled = True
+config.set('content.javascript.enabled', True, 'https://www.smn.gob.ar/*')
+config.set('content.javascript.enabled', True, 'https://web.telegram.org/z/*')
+config.set('content.javascript.enabled', True, 'https://web.whatsapp.com/*')
+config.set('content.javascript.enabled', True, 'https://*.slack.com/*')
+c.content.javascript.enabled = False
 c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
 c.content.javascript.modal_dialog = False
 c.content.javascript.prompt = True

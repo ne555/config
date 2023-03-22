@@ -1,0 +1,28 @@
+# vim: set filetype=zsh:
+alias pacman='pacman --color always'
+alias sudo='sudo '
+alias time='/usr/bin/time'
+alias yay='yay --color always'
+alias ls='ls --color=always'
+
+# Using .config as config directory
+alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abook'
+alias alpine='alpine -p ~/.config/pinerc'
+alias amule='amule --config-dir=~/.config/amule'
+alias apvlv='apvlv -c ~/.config/apvlv.rc'
+alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
+alias dgen='dgen -r ~/.config/dgenrc'
+alias emacs='emacs -nw -l ~/.config/emacs.el'
+alias finch='finch --config ~/.config/purple/'
+alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
+alias lingot='lingot -c ~/.config/lingot'
+alias mutt='mutt -F ~/.config/mutt/muttrc'
+alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp --bindings ~/.config/ncmpcpp.bindings'
+alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
+alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
+alias snes9x='snes9x -conf ~/.config/snes9x'
+alias startx='startx ~/.config/xinitrc'
+alias w3m='w3m -config ~/.config/w3m/config'
+
+# others
+alias rename='perl-rename'

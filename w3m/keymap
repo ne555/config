@@ -26,4 +26,5 @@ keymap zz CENTER_V
 keymap C-b PREV_PAGE
 keymap C-f NEXT_PAGE
 
-keymap	u	PEEK_LINK
+keymap u PEEK_LINK
+keymap yy EXTERN

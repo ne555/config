@@ -1,0 +1,30 @@
+#plugins=(dotnet extract fzf gpg-agent universalarchive vi-mode)
+autoload -U colors && colors
+eval "$(dircolors $HOME/.config/dircolors)"
+
+source "/usr/share/fzf/completion.zsh"
+source "/usr/share/fzf/key-bindings.zsh"
+source "$HOME/.config/fzf.config"
+
+source "$HOME/.config/zsh/alias"
+source "$HOME/.config/zsh/history"
+source "$HOME/.config/zsh/prompt"
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+autoload -Uz compinit && compinit
+
+setopt rm_star_silent
+
+# vi mode
+bindkey -v
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'v' edit-command-line
+
+
+#start x at login
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
+	startx
+fi
+
+when

@@ -6,5 +6,7 @@ setxkbmap -option 'compose:menu'
 setxkbmap -option 'grp:shifts_toggle'
 #multimedia keys
 xmodmap ~/.config/Xmodmap
+#desktop notifications
+statnot ~/.config/statnot.py &
 
 exec ratpoison --file ~/.config/ratpoisonrc

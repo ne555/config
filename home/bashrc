@@ -5,154 +5,28 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#locale
-export LC_ALL=en_US.utf8
-
-alias ping='ping -4'
-alias emacs='emacs -nw'
-alias time='/usr/bin/time'
-#diccionarios
-alias sdcv="sdcv --data-dir ~/.local/share/"
-alias dictionary="sdcv --color --data-dir ~/.local/share"
-alias eng="dictionary --use-dict dictd_www.dict.org_gcide --use-dict WordNet"
-alias rae="dictionary --use-dict LAROUSSE --use-dict 'DUE de Maria Moliner (Es-Es)'"
-alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
-alias g++='g++ -fno-diagnostics-show-caret'
-alias gcc='gcc -fno-diagnostics-show-caret'
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-#alias mupdf='mupdf-gl'
-alias nload='nload -u K -U K'
-
-#passing aliases
-alias sudo='sudo '
-
-alias yay='yay --color always'
-alias pacman='pacman --color always'
-alias pac-install="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
-alias pac-remove="pacman -Qqe | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
-alias pip-list="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}'"
-alias pip-remove="pip list | cut -f1 -d' ' | tail -n+3 | fzf --exact --multi --preview 'pip show {1}' | xargs -ro pip uninstall"
-alias pdfview='apvlv'
-#alias rae='dict --host localhost'
-alias rename='perl-rename'
-alias st='st -f "Deja Vu Sans Mono"'
-alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
-
-alias r='R --no-save --quiet'
-
-alias startx='startx ~/.config/xinitrc'
-alias stellarium='stellarium --config-file ~/.config/stellarium.ini --user-dir ~/.local/share/stellarium'
-alias w3m='w3m -config ~/.config/w3m/config'
-
-#to have history en line editing
-alias octave='rlwrap octave-cli -q'
-alias youtube-viewer='rlwrap youtube-viewer -q'
-
-#weird bugs
-#(clang_complete)
-alias vim="vim 2>/dev/null"
-
-# Using .config as config directory
-alias abook='abook --config ~/.config/abook --datafile ~/.config/addressbook.abook'
-alias alpine='alpine -p ~/.config/pinerc'
-alias amule='amule --config-dir=~/.config/amule'
-alias apvlv='apvlv -c ~/.config/apvlv.rc'
-alias dgen='dgen -r ~/.config/dgenrc'
-alias emacs='emacs -nw -l ~/.config/emacs.el'
-alias finch='finch --config ~/.config/purple/'
-alias irssi='irssi --config ~/.config/irssi --home=~/.local/share/irssi'
-alias lingot='lingot -c ~/.config/lingot'
-alias mutt='mutt -F ~/.config/mutt/muttrc'
-alias ncmpcpp='ncmpcpp --config ~/.config/ncmpcpp --bindings ~/.config/ncmpcpp.bindings'
-alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
-alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
-alias snes9x='snes9x -conf ~/.config/snes9x'
-alias startx='startx ~/.config/xinitrc'
-alias bitlbee='bitlbee -c ~/.config/bitlbee.conf -d ~/.local/share/bitlbee'
-export IPYTHONDIR='~/.config/ipython/'
-
-##Variables to use XDG especification
-export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
-#export GIMP2_DATADIR=
-#export GIMP2_LOCALEDIR=
-#export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR="$HOME/.config/gimp"
-
-source /usr/share/git/completion/git-prompt.sh
-PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
-export TERM=tmux-256color
-
-#man pages with color
-export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
-export LESS_TERMCAP_md=$'\E[01;37m' # begin bold
-export LESS_TERMCAP_me=$'\E[0m' # end mode
-export LESS_TERMCAP_se=$'\E[0m' # end stand-out mode
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
-export LESS_TERMCAP_ue=$'\E[0m' # end underline
-export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
-
-export EDITOR=nvim
-export VISUAL=nvim
+source "$HOME/.config/bash/alias"
+source "$HOME/.config/bash/functions"
+source "$HOME/.config/bash/history"
+source "$HOME/.config/bash/prompt"
 
 shopt -s checkwinsize
-#Todas las screens comparten el mismo historial
-shopt -s histappend
-#export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
-#export HISTCONTROL=ignorespace:erasedups
-export HISTCONTROL=erasedups
-export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
-export HISTSIZE=10000
-export HISTFILESIZE=4000000
 
-d=~/.config/dircolors
+# custom ls colors
+d=$HOME/.config/dircolors
 test -r $d && eval "$(dircolors $d)"
 
-#vi bindings
+# vi bindings
 set -o vi
-#ignore hidden files in bash completion
+
+# ignore hidden files in bash completion
 bind 'set match-hidden-files off'
-
-#don't clear the screen on exit
-export PAGER='less -X'
-
-# man in nvim
-export MANPAGER='nvim +Man!'
-
-export PYTHONDONTWRITEBYTECODE="non empty string"
-
-
-function proxy(){
-	proxyserver=192.168.0.120
-	#proxyserver=192.168.0.121
-	#proxyserver=10.0.2.3
-	port=3128
-	#export http_proxy="http://$username:$password@$proxyserver:$port"
-	export http_proxy="http://$proxyserver:$port"
-	export https_proxy=$http_proxy
-	export ftp_proxy=$http_proxy
-	export rsync_proxy=$http_proxy
-	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-	echo "Proxy environment variable set."
-}
-function proxyoff(){
-	unset HTTP_PROXY
-	unset http_proxy
-	unset HTTPS_PROXY
-	unset https_proxy
-	unset FTP_PROXY
-	unset ftp_proxy
-	unset RSYNC_PROXY
-	unset rsync_proxy
-	echo "Proxy environment variable removed."
-}
 
 #no blocking the screen with <C-s>
 stty -ixon -ixoff
 
 #start x at login
 if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
-	#startxfce4
 	startx
 fi
 
@@ -164,6 +38,7 @@ if [[ ! $SSH_AUTH_SOCK ]]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
+# fzf
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 source "$HOME/.config/fzf.config"

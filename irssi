@@ -208,31 +208,6 @@ statusbar = {
   default = {
     # the "default statusbar" to be displayed at the bottom of the window.
     # contains all the normal items.
-    window = {
-      disabled = "no";
-
-      # window, root
-      type = "window";
-      # top, bottom
-      placement = "bottom";
-      # number
-      position = "1";
-      # active, inactive, always
-      visible = "active";
-
-      # list of items in statusbar in the display order
-      items = {
-        barstart = { priority = "100"; };
-        time = { };
-        user = { };
-        window = { };
-        window_empty = { };
-        lag = { priority = "-1"; };
-        act = { priority = "10"; };
-        more = { priority = "-1"; alignment = "right"; };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
 
     # statusbar to use in inactive split windows
     window_inact = {
@@ -288,8 +263,14 @@ settings = {
     autolog = "yes";
     autolog_colors = "no";
     completion_strict = "yes";
+    theme = "default";
   };
-  "perl/core/scripts" = { autoaway_timeout = "300"; };
+  "perl/core/scripts" = {
+    autoaway_timeout = "300";
+    awl_shared_sbar = "OFF";
+    awl_block = "-18";
+    awl_viewer = "yes";
+  };
 };
 logs = { };
 ignores = (

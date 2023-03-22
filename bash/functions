@@ -1,0 +1,25 @@
+#/* vim: set filetype=sh : */
+
+function proxy(){
+	proxyserver=192.168.0.120
+	port=3128
+	#export http_proxy="http://$username:$password@$proxyserver:$port"
+	export http_proxy="http://$proxyserver:$port"
+	export https_proxy=$http_proxy
+	export ftp_proxy=$http_proxy
+	export rsync_proxy=$http_proxy
+	export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+	echo "Proxy environment variable set."
+}
+
+function proxyoff(){
+	unset HTTP_PROXY
+	unset http_proxy
+	unset HTTPS_PROXY
+	unset https_proxy
+	unset FTP_PROXY
+	unset ftp_proxy
+	unset RSYNC_PROXY
+	unset rsync_proxy
+	echo "Proxy environment variable removed."
+}
