@@ -2,7 +2,18 @@
 source /usr/share/git/completion/git-prompt.sh
 tmux_directory=$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")
 
-prompt_color='\[\033[1;44;1;32m\]'
-git_color='\[\033[35m\]'
-reset_color='\[\033[00m\]'
+fg=3
+bg=4
+black=0
+red=1
+green=2
+yellow=3
+blue=4
+purple=5
+cyan=6
+grey=7
+
+prompt_color="\[\033[1;${fg}${green};${bg}${blue}m\]"
+git_color="\[\033[${fg}${yellow}m\]"
+reset_color="\[\033[00m\]"
 PS1="${prompt_color}\W${git_color}"'$(__git_ps1 " (%s)")'"${prompt_color}\$${reset_color} "
