@@ -23,3 +23,6 @@ alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
 alias w3m='w3m -config ~/.config/w3m/config'
+
+# others
+alias rename='perl-rename'

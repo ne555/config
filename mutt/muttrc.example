@@ -2,12 +2,13 @@ set my_user = ne555
 set hostname = mail.com
 set my_email = $my_user@$hostname
 set imap_user = $my_email
-set imap_pass = "`pass show mail/example`"
+set my_pass = "`pass show mail/example`"
+set imap_pass = $my_pass
+set smtp_pass = $my_pass
 
 set folder = imaps://imap.$hostname:993
 set smtp_url = smtp://$my_user@smtp.$hostname:587/
 #set smtp_url = smtps://$my_email@smtp.$hostname:465/
-set smtp_pass = "`pass show mail/example`"
 
 set spoolfile = +INBOX
 set from = $my_email

@@ -22,4 +22,9 @@ zle -N edit-command-line
 bindkey -M vicmd 'v' edit-command-line
 
 
+#start x at login
+if [ "$(tty)" = "/dev/tty1" -o "$(tty)" = "/dev/vc/1" ]; then
+	startx
+fi
+
 when
