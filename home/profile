@@ -1,6 +1,7 @@
 #/* vim: set filetype=sh : */
 
 # paths
+export PATH=${PATH}:${HOME}/usr/bin:${HOME}/.local/bin
 export C_INCLUDE_PATH=${C_INCLUDE_PATH}:${HOME}/.local/include
 export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${HOME}/.local/include
 export LIBRARY_PATH=${LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64:
