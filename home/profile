@@ -1,0 +1,40 @@
+#/* vim: set filetype=sh : */
+export C_INCLUDE_PATH=${C_INCLUDE_PATH}:${HOME}/.local/include
+export CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}:${HOME}/.local/include
+export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
+export LIBRARY_PATH=${LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64:
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig
+
+export LC_ALL=en_US.utf8
+
+export IPYTHONDIR="${HOME}/.config/ipython/"
+export PYTHONDONTWRITEBYTECODE="non empty string"
+
+export GIMP2_DIRECTORY="${HOME}/.local/share/gimp"
+export GIMP2_SYSCONFDIR="${HOME}/.config/gimp"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+export MANPAGER='nvim +Man!'
+
+#man pages with color
+export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
+export LESS_TERMCAP_md=$'\E[01;37m' # begin bold
+export LESS_TERMCAP_me=$'\E[0m' # end mode
+export LESS_TERMCAP_se=$'\E[0m' # end stand-out mode
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
+export LESS_TERMCAP_ue=$'\E[0m' # end underline
+export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
+
+export TERM=tmux-256color
+
+
+export HISTCONTROL=erasedups
+export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
+export HISTSIZE=10000
+export HISTFILESIZE=4000000
+
+#don't clear the screen on exit
+export PAGER='less -X'

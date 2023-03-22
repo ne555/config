@@ -5,9 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#locale
-export LC_ALL=en_US.utf8
-
 alias ping='ping -4'
 alias emacs='emacs -nw'
 alias time='/usr/bin/time'
@@ -69,40 +66,16 @@ alias pcsx2='pcsx2 --cfg=~/.config/pcsx2'
 alias pcsxr='pcsxr -cfg=~/.config/pcsxr'
 alias snes9x='snes9x -conf ~/.config/snes9x'
 alias startx='startx ~/.config/xinitrc'
-export IPYTHONDIR='~/.config/ipython/'
-
-##Variables to use XDG especification
-export GIMP2_DIRECTORY="$HOME/.local/share/gimp"
-#export GIMP2_DATADIR=
-#export GIMP2_LOCALEDIR=
-#export GIMP2_PLUGINDIR=
-export GIMP2_SYSCONFDIR="$HOME/.config/gimp"
 
 source /usr/share/git/completion/git-prompt.sh
 PS1='$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD")\[\033[1;44;1;32m\]\h@\u:\W\[\033[35m\]$(__git_ps1 " (%s)")\[\033[32m\]\$\[\033[00m\] '
-export TERM=tmux-256color
-
-#man pages with color
-export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
-export LESS_TERMCAP_md=$'\E[01;37m' # begin bold
-export LESS_TERMCAP_me=$'\E[0m' # end mode
-export LESS_TERMCAP_se=$'\E[0m' # end stand-out mode
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin stand-out mode - info box
-export LESS_TERMCAP_ue=$'\E[0m' # end underline
-export LESS_TERMCAP_us=$'\E[00;32m' # begin underline
-
-export EDITOR=nvim
-export VISUAL=nvim
-
 shopt -s checkwinsize
 #Todas las screens comparten el mismo historial
 shopt -s histappend
 #export PROMPT_COMMAND="$PROMPT_COMMAND:history -a: history -n"
 #export HISTCONTROL=ignorespace:erasedups
-export HISTCONTROL=erasedups
-export HISTIGNORE="clear:exit:[bf]g:ls:cd:ls *:cd *:  *:mkdir *:rae *:wr *:eng *:drae.sh *:flashplayer *"
-export HISTSIZE=10000
-export HISTFILESIZE=4000000
+
+
 
 d=~/.config/dircolors
 test -r $d && eval "$(dircolors $d)"
@@ -112,13 +85,6 @@ set -o vi
 #ignore hidden files in bash completion
 bind 'set match-hidden-files off'
 
-#don't clear the screen on exit
-export PAGER='less -X'
-
-# man in nvim
-export MANPAGER='nvim +Man!'
-
-export PYTHONDONTWRITEBYTECODE="non empty string"
 
 
 function proxy(){
