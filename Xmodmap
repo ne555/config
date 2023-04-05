@@ -29,5 +29,3 @@ keycode 119 = Delete
 keycode 104 = Return
 !right ctrl
 keycode 105 = Return
-!right shift
-keycode 62 = Return

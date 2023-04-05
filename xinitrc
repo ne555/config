@@ -8,4 +8,7 @@ setxkbmap -option 'grp:shifts_toggle'
 #multimedia keys
 xmodmap $HOME/.config/Xmodmap
 
+#desktop notifications
+statnot $HOME/.config/statnot.py &
+
 exec ratpoison --file $HOME/.config/ratpoisonrc
