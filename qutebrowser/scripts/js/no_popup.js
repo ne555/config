@@ -22,6 +22,7 @@ function remove_tag(tag_name){
 }
 
 remove_class('RnEpo _Yhr4 ')
+remove_class('_a3wf _-kb')
 remove_class('ml-webforms-popup-overlay')
 remove_tag('iframe')
 remove_element(() => {
