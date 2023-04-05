@@ -47,7 +47,7 @@ highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
 highlight Pmenu ctermbg=Brown
 highlight PmenuSel ctermbg=black ctermfg=250
 highlight PmenuThumb ctermbg=black ctermfg=250
-highlight FgCocHintFloatBgCocFloating ctermfg=black
+highlight link FgCocHintFloatBgCocFloating DiagnosticHint
 "quickfix
 highlight Search ctermfg=white
 
