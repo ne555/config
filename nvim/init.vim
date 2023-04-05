@@ -39,18 +39,21 @@ highlight NvimInternalError ctermfg=black
 highlight QuickFixLine ctermbg=blue
 "coc rompe
 highlight CocErrorSign ctermfg=white
-highlight CocWarningSign ctermfg=LightGray
-highlight CocInfoSign ctermbg=Black
 highlight CocInfoFloat ctermbg=Black
+highlight CocInfoSign ctermbg=Black
+highlight CocMenuSel ctermbg=Grey
+highlight CocWarningSign ctermfg=LightGrey
+highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
 highlight Pmenu ctermbg=Brown
 highlight PmenuSel ctermbg=black ctermfg=250
 highlight PmenuThumb ctermbg=black ctermfg=250
-highlight FgCocErrorFloatBgCocFloating cterm=bold ctermfg=white
 highlight FgCocHintFloatBgCocFloating ctermfg=black
-"highlight PmenuSbar
-"highlight PmenuThumb
 "quickfix
 highlight Search ctermfg=white
+
+highlight Normal ctermbg=black
+highlight NonText ctermbg=black
+highlight Conceal cterm=underline ctermfg=white
 
 "autocomplete commands
 set wildmode=longest,list
