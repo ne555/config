@@ -222,7 +222,7 @@ c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
 c.content.headers.referer = 'same-domain'
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:101.0) Gecko/20100101 Firefox/101.0'
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux i686; rv:111.0) Gecko/20100101 Firefox/111.0'
 #}}}
 
 c.content.hyperlink_auditing = False
@@ -611,9 +611,9 @@ config.bind(';y', 'hint links yank')
 
 #{{{ Video
 config.bind('x', 'spawn --detach mpv --pause {url}')
-config.bind('X', 'spawn --detach mpv --pause --ytdl-format=worst {url}')
+config.bind('X', 'spawn --detach mpv --pause --ytdl-format=18 {url}')
 config.bind(';x', 'hint links spawn --detach mpv --pause {hint-url}')
-config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=worst {hint-url}')
+config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=18 {hint-url}')
 #}}}
 
 #{{{ Tabs
@@ -652,8 +652,8 @@ bind_multiple(['.', '>'], 'forward')
 config.bind('<Ctrl-Alt-p>', 'print')
 
 #{{{ Scroll
-bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 1')
-bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -1')
+bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 0.5')
+bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -0.5')
 config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
 config.bind('<Ctrl-E>', 'scroll-px 0 20')
