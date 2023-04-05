@@ -248,3 +248,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 " debug
 let g:vimspector_enable_mappings = 'HUMAN'
+
+" iron repl
+runtime plugins.lua
