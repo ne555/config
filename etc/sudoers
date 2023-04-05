@@ -1,6 +1,7 @@
 Defaults passwd_timeout=0
 Defaults passprompt="[sudo] password for %p: "
 Defaults timestamp_timeout=0
+Defaults env_keep += "HOME"
 
 root ALL=(ALL:ALL) ALL
 %wheel ALL=(ALL:ALL) ALL
