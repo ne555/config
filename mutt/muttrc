@@ -9,20 +9,12 @@ macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/muttr
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.legacy<enter><change-folder>!<enter>'
 macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.degoogle<enter><change-folder>!<enter>'
 macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.and_another<enter><change-folder>!<enter>'
-macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.work<enter><change-folder>!<enter>'
 macro index,pager <f7> '<sync-mailbox><enter-command>source ~/.config/mutt/muttrc.freedom<enter><change-folder>!<enter>'
 
 source ~/.config/mutt/muttrc.current
-#set folder = ~/mail/new/
-#set mbox_type = Maildir
-#set spoolfile = ~/mail
-#set folder = ~/correo
-#source ~/.config/mutt/muttrc.work
 
 # Fetch mail shortcut
 bind index G imap-fetch-mail
-
-#set imap_check_subscribed
 
 #store locally to speed up
 set header_cache=~/.cache/mutt/headers
@@ -73,7 +65,7 @@ bind pager j next-line
 bind pager k previous-line
 
 #set status_format=                    "status_format"
-set status_format = "%f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?B? Back:%B?%?l? %l?] (%s/%?T?%T/?%S)   [2:current 3:legacy 6:work]%> (%P)"
+set status_format = "%f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?B? Back:%B?%?l? %l?] (%s/%?T?%T/?%S)   [2:current 3:legacy 4:degoogle]%> (%P)"
 
 # Palette for use with the Linux console.  Black background.
 color hdrdefault cyan black
