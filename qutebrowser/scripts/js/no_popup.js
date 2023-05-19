@@ -21,10 +21,21 @@ function remove_tag(tag_name){
   });
 }
 
-remove_class('RnEpo _Yhr4 ')
-remove_class('ml-webforms-popup-overlay')
-remove_tag('iframe')
+remove_class('RnEpo _Yhr4 ');
+remove_class('ml-webforms-popup-overlay');
+remove_class('modal-container');
+remove_class('haas-cookie-dialog');
+remove_tag('iframe');
 remove_element(() => {
-    return document.querySelectorAll('div[role="dialog"]')
-})
+    return [document.getElementById('haas-container')];
+});
+remove_element(() => {
+    return document.querySelectorAll('div[role="dialog"]');
+});
+remove_element(() => {
+    return document.querySelectorAll('div[data-object="overlay"]');
+});
+remove_element(() => {
+    return document.querySelectorAll('div[data-object="modal"]');
+});
 document.body.style.overflow="auto";
