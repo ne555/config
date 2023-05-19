@@ -180,11 +180,11 @@ command! reload :write | restart
 " program.
 
 " Pdf
-filextype *.pdf zathura %c %i &, mupdf %c &, apvlv %c, xpdf %c
+filextype *.pdf mupdf %c %i &, zathura %c %i &, apvlv %c %i, xpdf %c %i
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 "epub
-filextype *.epub zathura %c %i &
+filextype *.epub mupdf %c %i &, *.epub zathura %c %i &
 
 " cbz
 "filextype *.cbz zathura %c %i &
@@ -193,7 +193,7 @@ filextype *.cbz mcomix %c %i &
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura %f %i,
         \ {View in gv}
         \ gv %c %i &,
 
@@ -202,14 +202,14 @@ filextype *.djvu
         \ {View in zathura}
         \ zathura %c %i &,
         \ {View in apvlv}
-        \ apvlv %f,
+        \ apvlv %f %i,
 
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
        \ {Play using ffplay}
-       \ ffplay -nodisp -autoexit %c,
+       \ ffplay -nodisp -autoexit %c %i,
        \ {Play using MPlayer}
-       \ mplayer %f,
+       \ mplayer %f %i,
 fileviewer *.mp3 mp3info
 fileviewer *.flac soxi
 
@@ -232,6 +232,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 " Web
 filextype *.html,*.htm
+        \ qutebrowser %f %i &,
         \ {Open with vimb}
         \ vimb %f %i &,
         "\ {Open with dwb}
