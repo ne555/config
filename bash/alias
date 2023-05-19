@@ -20,8 +20,9 @@ alias rae="dictionary --use-dict LAROUSSE --use-dict 'DUE de Maria Moliner (Es-E
 alias sdcv="sdcv --data-dir ~/.local/share/"
 alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
 
-#passing aliases
-alias sudo='sudo '
+#passing aliases and using user environment
+
+alias sudo='sudo -E '
 
 # pacman functions
 alias pac-install="pacman -Slq | fzf --exact --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
