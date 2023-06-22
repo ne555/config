@@ -13,7 +13,10 @@ purple=5
 cyan=6
 grey=7
 
-prompt_color="\[\033[1;${fg}${green};${bg}${blue}m\]"
-git_color="\[\033[${fg}${yellow}m\]"
-reset_color="\[\033[00m\]"
+GIT_PS1_SHOWDIRTYSTATE='show'
+
+prompt_color="$(tput bold setaf $green setab $blue)"
+git_color="$(tput setaf $yellow)"
+reset_color="$(tput sgr0)"
+
 PS1="${prompt_color}\W${git_color}"'$(__git_ps1 " (%s)")'"${prompt_color}\$${reset_color} "
