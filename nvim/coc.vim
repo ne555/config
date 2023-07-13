@@ -38,3 +38,6 @@ augroup disableCocInDiff
   autocmd!
   autocmd DiffUpdated * let b:coc_enabled=0
 augroup END
+
+let g:coc_start_at_startup=0
+nmap <leader>cc :<C-u>CocStart<CR>
