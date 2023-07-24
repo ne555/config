@@ -439,7 +439,7 @@ c.input.insert_mode.plugins = False
 c.input.links_included_in_focus_chain = True
 c.input.match_counts = True
 c.input.media_keys = False
-c.input.mode_override = 'normal'
+c.input.mode_override = None
 c.input.mouse.back_forward_buttons = False
 c.input.mouse.rocker_gestures = False
 c.input.partial_timeout = 0
@@ -646,7 +646,7 @@ config.bind('<Alt-6>', 'tab-focus 6')
 config.bind('<Alt-7>', 'tab-focus 7')
 config.bind('<Alt-8>', 'tab-focus 8')
 config.bind('<Alt-9>', 'tab-focus 9')
-config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Alt-0>', 'tab-focus -1')
 bind_multiple(['J', 'gt'], 'tab-next')
 bind_multiple(['K', 'gT'], 'tab-prev')
 config.bind('gm', 'tab-move')
