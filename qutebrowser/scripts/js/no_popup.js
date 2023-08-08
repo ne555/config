@@ -25,9 +25,13 @@ remove_class('RnEpo _Yhr4 ');
 remove_class('ml-webforms-popup-overlay');
 remove_class('modal-container');
 remove_class('haas-cookie-dialog');
+remove_class('fEy1Z2XT');
 remove_tag('iframe');
 remove_element(() => {
-    return [document.getElementById('haas-container')];
+    with_id = document.getElementById('haas-container');
+    if (with_id != null)
+        return [with_id];
+    return [];
 });
 remove_element(() => {
     return document.querySelectorAll('div[role="dialog"]');
