@@ -37,6 +37,8 @@
     bind S exec scrot - | xclip -selection clipboard -t image/png
     # temperature
     bind t exec ratpoison -c "echo $(temperature.sh)"
+    # lock
+    bind Z exec physlock -s
   #}}}
 
   #{{{ navigation
