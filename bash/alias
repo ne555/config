@@ -6,6 +6,7 @@ alias g++='g++ -fno-diagnostics-show-caret'
 alias gcc='gcc -fno-diagnostics-show-caret'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias netbeans='netbeans --nosplash'
 alias nload='nload -u K -U K'
 alias pacman='pacman --color always'
 alias ping='ping -4'
@@ -21,7 +22,6 @@ alias sdcv="sdcv --data-dir ~/.local/share/"
 alias wr="dictionary --use-dict 'I2E Spanish-English' --use-dict 'I2E English-Spanish'"
 
 #passing aliases and using user environment
-
 alias sudo='sudo -E '
 
 # pacman functions
@@ -37,6 +37,7 @@ alias pdfview='apvlv'
 alias rename='perl-rename'
 alias openfoam='source /opt/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc'
 alias r='R --no-save --quiet'
+alias suspend='systemctl suspend'
 
 #to have history in line editing
 alias octave='rlwrap octave-cli -q'
