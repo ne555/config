@@ -1,4 +1,23 @@
 #/* vim:set foldmethod=marker:*/
+from qutebrowser.api import interceptor
+
+
+def ends_with(string, suffix_list):
+    for suffix in suffix_list:
+        if string.endswith(suffix):
+            return True
+
+
+def intercept(request: interceptor.Request):
+    url = request.request_url
+    host = url.host()
+    path = url.path()
+    if ends_with(path, ['.woff', '.woff2', '.ttf']) \
+            and '/fa-' not in path \
+            and host not in ['allowed-domain.com', 'allowed-domain2.com']:
+        request.block()
+
+interceptor.register(intercept)
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
@@ -31,7 +50,6 @@ c.bindings.key_mappings = {
         '<Ctrl-[>': '<Escape>',
         '<Ctrl-6>': '<Ctrl-^>',
         '<Ctrl-M>': '<Return>',
-        '<Ctrl-J>': '<Return>',
         '<Ctrl-I>': '<Tab>',
         '<Shift-Return>': '<Return>',
         '<Enter>': '<Return>',
@@ -155,9 +173,9 @@ c.colors.tabs.pinned.selected.even.bg = 'darkgreen'
 c.colors.tabs.pinned.selected.even.fg = 'white'
 c.colors.tabs.pinned.selected.odd.bg = 'darkgreen'
 c.colors.tabs.pinned.selected.odd.fg = 'white'
-c.colors.tabs.selected.even.bg = 'darkgreen'
+c.colors.tabs.selected.even.bg = 'green'
 c.colors.tabs.selected.even.fg = 'white'
-c.colors.tabs.selected.odd.bg = 'darkgreen'
+c.colors.tabs.selected.odd.bg = 'green'
 c.colors.tabs.selected.odd.fg = 'white'
 #}}}
 
@@ -223,7 +241,7 @@ c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
 c.content.headers.referer = 'same-domain'
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0'
+c.content.headers.user_agent = 'autofill'
 #}}}
 
 c.content.hyperlink_auditing = False
@@ -231,7 +249,7 @@ c.content.images = True
 
 #{{{ Javascript
 c.content.javascript.alert = False
-c.content.javascript.can_access_clipboard = False
+c.content.javascript.clipboard = 'none'
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.enabled = True
 c.content.javascript.log = {'unknown': 'debug', 'info': 'debug', 'warning': 'debug', 'error': 'debug'}
@@ -306,15 +324,15 @@ c.fonts.keyhint = 'default_size default_family'
 c.fonts.messages.error = 'default_size default_family'
 c.fonts.messages.info = 'default_size default_family'
 c.fonts.messages.warning = 'default_size default_family'
-c.fonts.prompts = 'default_size sans-serif'
+c.fonts.prompts = 'default_size default_family'
 c.fonts.statusbar = 'default_size default_family'
 c.fonts.tabs.selected = 'default_size default_family'
 c.fonts.tabs.unselected = 'default_size default_family'
 c.fonts.web.family.cursive = ''
 c.fonts.web.family.fantasy = ''
-c.fonts.web.family.fixed = ''
-c.fonts.web.family.sans_serif = ''
-c.fonts.web.family.serif = ''
+c.fonts.web.family.fixed = 'Liberation Mono'
+c.fonts.web.family.sans_serif = 'Helvetica World'
+c.fonts.web.family.serif = 'TeX Gyre Pagella'
 c.fonts.web.family.standard = ''
 c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 13
@@ -420,7 +438,7 @@ c.input.insert_mode.plugins = False
 c.input.links_included_in_focus_chain = True
 c.input.match_counts = True
 c.input.media_keys = False
-c.input.mode_override = 'normal'
+c.input.mode_override = None
 c.input.mouse.back_forward_buttons = False
 c.input.mouse.rocker_gestures = False
 c.input.partial_timeout = 0
@@ -529,7 +547,7 @@ c.url.searchengines = {
     'amdb' : 'http://www.animenewsnetwork.com/encyclopedia/search/name?q={}',
     'anime' : 'https://myanimelist.net/anime.php?q={}',
     'arch' : 'https://wiki.archlinux.org/?search={}',
-    'aur' : 'http://aur.archlinux.org/packages.php?O=0&L=0&detail=1&C=0&K={}&SeB=nd&SB=n&SO=a&PP=30&do_Search=Go&setlang=en',
+    'aur' : 'https://aur.archlinux.org/packages/?K={}',
     'cpp' : 'http://www.google.com/search?q=site%3Acplusplus.com%20{}',
     'ddg' : 'https://duckduckgo.com/?q={}',
     'g' : 'https://google.com/search?q={}',
@@ -543,7 +561,7 @@ c.url.searchengines = {
     'wes' : 'http://es.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wiki' : 'http://en.wikipedia.org/w/wiki.phtml?search={}&go=Go',
     'wr' : 'https://www.wordreference.com/es/en/translation.asp?spen={}',
-    'y' : 'http://www.iteroni.com/results?search_query={}',
+    'y' : 'http://yewtu.be/search?q={}',
     'r': 'http://old.reddit.com/r/{}/new'
 }
 c.url.start_pages = ['https://start.duckduckgo.com']
@@ -612,9 +630,9 @@ config.bind(';y', 'hint links yank')
 
 #{{{ Video
 config.bind('x', 'spawn --detach mpv --pause {url}')
-config.bind('X', 'spawn --detach mpv --pause --ytdl-format=worst {url}')
+config.bind('X', 'spawn --detach mpv --pause --ytdl-format=18 {url}')
 config.bind(';x', 'hint links spawn --detach mpv --pause {hint-url}')
-config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=worst {hint-url}')
+config.bind(';X', 'hint links spawn --detach mpv --pause --ytdl-format=18 {hint-url}')
 #}}}
 
 #{{{ Tabs
@@ -627,7 +645,7 @@ config.bind('<Alt-6>', 'tab-focus 6')
 config.bind('<Alt-7>', 'tab-focus 7')
 config.bind('<Alt-8>', 'tab-focus 8')
 config.bind('<Alt-9>', 'tab-focus 9')
-config.bind('<Alt-9>', 'tab-focus -1')
+config.bind('<Alt-0>', 'tab-focus -1')
 bind_multiple(['J', 'gt'], 'tab-next')
 bind_multiple(['K', 'gT'], 'tab-prev')
 config.bind('gm', 'tab-move')
@@ -653,8 +671,8 @@ bind_multiple(['.', '>'], 'forward')
 config.bind('<Ctrl-Alt-p>', 'print')
 
 #{{{ Scroll
-bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 1')
-bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -1')
+bind_multiple(['<PgDown>', '<Ctrl-F>'], 'scroll-page 0 0.5')
+bind_multiple(['<PgUp>', '<Ctrl-B>'], 'scroll-page 0 -0.5')
 config.bind('<Ctrl-D>', 'scroll-page 0 0.5')
 config.bind('<Ctrl-U>', 'scroll-page 0 -0.5')
 config.bind('<Ctrl-E>', 'scroll-px 0 20')
@@ -813,6 +831,8 @@ config.bind('<Return>', 'command-accept', mode='command')
 config.bind('<Shift-Delete>', 'completion-item-del', mode='command')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
 config.bind('<Tab>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-K>', 'completion-item-focus prev', mode='command')
+config.bind('<Ctrl-J>', 'completion-item-focus next', mode='command')
 config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
 #}}}
 
@@ -826,6 +846,9 @@ config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Shift-Escape>', 'fake-key <Escape>', mode='insert')
 config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
+config.bind('<Ctrl-M>', 'fake-key <Return>', mode='insert')
+config.bind('<Ctrl-H>', 'fake-key <Backspace>', mode='insert')
+config.bind('<Ctrl-W>', 'fake-key <Ctrl-Backspace>', mode='insert')
 #}}}
 
 #{{{ Bindings for passthrough mode

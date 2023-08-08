@@ -39,8 +39,15 @@ span[vimbhint^='label'] {
 .promoted, .promotedlink, .listingsignupbar, .premium-banner,
 .maex, .exo_wrapper, ._1iX3k,
 /* accept cookies prompt */
-.js-consent-banner
+.js-consent-banner,
+/* other things */
+.commentsignupbar
 {
+	display: none !important;
+	background-color: #ff0000 !important;
+}
+
+div[aria-label='Anuncios']{
 	display: none !important;
 	background-color: #ff0000 !important;
 }

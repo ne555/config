@@ -1,2 +1,0 @@
-Some programs don't respect the `XDG Base Directory Specification'
-those would be put in this folder and symlinked.

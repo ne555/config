@@ -34,6 +34,7 @@
     bind c exec st -f "Deja Vu Sans Mono"
     # send image to clipboard
     bind i exec scrot --select - | xclip -selection clipboard -t image/png
+    bind S exec scrot - | xclip -selection clipboard -t image/png
     # temperature
     bind t exec ratpoison -c "echo $(temperature.sh)"
   #}}}
