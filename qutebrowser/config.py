@@ -17,8 +17,7 @@ def intercept(request: interceptor.Request):
             and host not in ['allowed-domain.com', 'allowed-domain2.com']:
         request.block()
 
-
-interceptor.register(intercept) 
+interceptor.register(intercept)
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
@@ -242,7 +241,7 @@ c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
 c.content.headers.referer = 'same-domain'
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux i686; rv:111.0) Gecko/20100101 Firefox/111.0'
+c.content.headers.user_agent = 'autofill'
 #}}}
 
 c.content.hyperlink_auditing = False
