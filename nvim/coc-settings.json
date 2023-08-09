@@ -1,0 +1,8 @@
+{
+    "suggest.autoTrigger": "none",
+    "inlayHint.enable": false,
+    "clangd.inlayHint.enable": false,
+    "pyright.inlayHint.enable": false,
+    "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk",
+    "suggest.noselect": true
+}

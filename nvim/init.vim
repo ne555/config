@@ -114,4 +114,4 @@ runtime colors.vim
 runtime plugins.lua
 runtime autocommands.vim
 runtime functions.vim
-runtime lsp.lua
+runtime coc.vim
