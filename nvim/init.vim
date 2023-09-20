@@ -95,8 +95,6 @@ augroup file_cpp
 	autocmd Filetype cpp,c setlocal foldmethod=syntax
 	"compilar
 	autocmd Filetype cpp setlocal makeprg=clear\ &&\ clang++\ -W{all,extra,pedantic}\ -fno-caret-diagnostics\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
-	autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
-	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
 
 set foldlevelstart=99
