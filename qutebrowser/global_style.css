@@ -2,6 +2,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+p {
+    max-width: 75ch;
+}
+
 @font-face { font-family: 'arial'; src: local("Helvetica World"); }
 @font-face { font-family: 'helvetica'; src: local("Helvetica World"); }
 
