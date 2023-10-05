@@ -3,5 +3,11 @@
   "default-address-pools":[
     { "base":"10.201.0.0/16", "size":24 },
     { "base":"10.202.0.0/16", "size":24 }
-  ]
+  ],
+  "runtimes": {
+    "nvidia": {
+      "path": "/usr/bin/nvidia-container-runtime",
+      "runtimeArgs": []
+    }
+  }
 }
