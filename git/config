@@ -1,39 +1,50 @@
 #/* vim: set filetype=gitconfig:*/
 [core]
-  excludesfile = /home/ne555/.config/git/ignore
+    excludesfile = /home/wbedrij/.config/git/ignore
+    pager = delta
 
 [include]
-  path = ~/.config/git/user
+    path = ~/.config/git/user
 
 [github]
-	user = ne555
+    user = ne555
 
 [init]
-	defaultBranch = master
+    defaultBranch = master
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true # n/N to move between diff
+    light = false
 
 [diff]
-  tool = vimdiff
+    tool = vimdiff
+    colorMoved = default
+
 [difftool]
-  prompt = false
+    prompt = false
+
 [alias]
-  d = difftool
+    d = difftool
 
 [status]
-  showUntrackedFiles = no
+    showUntrackedFiles = no
 
 [color]
-  ui = true
+    ui = true
 [color "branch"]
-  current = green
+    current = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 
 [alias]
   # %h -> hash
@@ -41,36 +52,50 @@
   # %ad -> date
   # %an -> author
   # %s -> commit title
-  lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit"
-  graph="log --oneline --graph --decorate"
-  graphbranch="log --simplify-by-decoration --oneline --graph --decorate"
-  subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
-  subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
-  subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
+    lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit"
+    graph="log --oneline --graph --decorate"
+    graphbranch="log --simplify-by-decoration --oneline --graph --decorate"
+    subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
+    subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
+    subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
+    stash-dirty = "!f() { git add --update; git stash apply && git reset; }; f"
 
   # Muestra el hash del primer punto de bifurcación entre las ramas
-  oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+    oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
   # diff contra ese punto
-  branchdiff = !bash -c 'git diff HEAD $(git oldest-ancestor HEAD "${1}")' -
+    branchdiff = !bash -c 'git diff HEAD $(git oldest-ancestor HEAD "${1}")' -
   # log contra ese punto
-  branchlog = !bash -c 'git log --graph --decorate --oneline $(git oldest-ancestor "${2:-HEAD}" "${1}").."${2-HEAD}"' -
+    branchlog = !bash -c 'git log --graph --decorate --oneline $(git oldest-ancestor "${2:-HEAD}" "${1}").."${2-HEAD}"' -
 
 [merge]
-  tool = diffconflicts
+    tool = diffconflicts
+    conflictsyle = diff3
 
 [mergetool]
 # automatically launch merge tool without displaying a prompt
-  prompt = false
-  keepBackup = false
+    prompt = false
+    keepBackup = false
 
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
-  cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+    cmd = nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 
 [mergetool "fugitive"]
-  cmd = nvim -c \"Gdiff!\" \"$MERGED\"
-  trustExitCode = true
+    cmd = nvim -c \"Gdiff!\" \"$MERGED\"
+    trustExitCode = true
 
 [mergetool "diffconflicts"]
-  cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
-  trustExitCode = true
+  #cmd = diffconflicts nvim $BASE $LOCAL $REMOTE $MERGED
+    cmd = nvim -c DiffConflictsWithHistory "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+    trustExitCode = true
+
+[credential]
+    helper = cache
+
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+[protocol "file"]
+    allow = always
