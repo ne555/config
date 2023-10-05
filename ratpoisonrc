@@ -1,17 +1,17 @@
 #/* vim:set foldmethod=marker:*/
 
 #{{{ settings
-  #feh -FZ bug
-  #feh WARNING: Window Manager does not support MWM hints. To get a borderless
-  #window I have to bypass your wm.
+# feh -FZ bug
+# feh WARNING: Window Manager does not support MWM hints. To get a borderless
+# window I have to bypass your wm.
   exec xprop -root -f "_MOTIF_WM_HINTS" 32a -set "_MOTIF_WM_HINTS" 0
-  #java app issues
+# java app issues
   exec wmname LG3D
 
   set rudeness 4
   set winname title
   set border 0
-  #don't remove messages
+# don't remove messages
   set msgwait 0
   addhook switchgroup exec ~/usr/bin/wallpaper.sh
 
@@ -19,29 +19,29 @@
 #}}}
 
 #{{{ bindings
-  #{{{ unbindings
+# {{{ unbindings
     unbind K
     unbind Q
     unbind b
     unbind k
     unbind l
-  #}}}
+# }}}
 
-  #{{{ apps
+# {{{ apps
     bind I exec invert.bin
-    #battery
-    #bind b exec ratpoison -c "echo $(acpi -b)"
+#   battery
+#   bind b exec ratpoison -c "echo $(acpi -b)"
     bind c exec st -f "Deja Vu Sans Mono"
-    # send image to clipboard
+#   send image to clipboard
     bind i exec scrot --select - | xclip -selection clipboard -t image/png
     bind S exec scrot - | xclip -selection clipboard -t image/png
-    # temperature
+#   temperature
     bind t exec ratpoison -c "echo $(temperature.sh)"
-    # lock
+#   lock
     bind Z exec physlock -s
-  #}}}
+# }}}
 
-  #{{{ navigation
+# {{{ navigation
     bind h focusleft
     bind j focusdown
     bind k focusup
@@ -54,9 +54,9 @@
     bind M-Left exec ratpoison -c "gprev" && ratpoison -c "next"
     bind s vsplit
     bind v hsplit
-  #}}}
+# }}}
 
-  #{{{ layouts
+# {{{ layouts
     bind M-exclam exec ratpoison -c "setenv fs1 `ratpoison -c 'fdump'`"
     bind M-1 exec ratpoison -c "frestore `ratpoison -c 'getenv fs1'`"
 
@@ -65,16 +65,16 @@
 
     bind M-numbersign exec ratpoison -c "setenv fs3 `ratpoison -c 'fdump'`"
     bind M-3 exec ratpoison -c "frestore `ratpoison -c 'getenv fs3'`"
-  #}}}
+# }}}
 
-  #{{{ operations
+# {{{ operations
     bind D kill
     bind d delete
     bind o only
     bind C-j exec killall java
-  #}}}
+# }}}
 
-  #{{{ sound
+# {{{ sound
     newkmap music
     definekey music N exec mpc prev
     definekey music i exec ratpoison -c "echo $(mpc current)"
@@ -88,22 +88,22 @@
 
     definekey top M-Down exec pulsemixer --change-volume -5
     definekey top M-Up exec pulsemixer --change-volume +5
-  #}}}
+# }}}
 
   bind Escape abort
-  #Super_L maps to F20 (xmodmap)
-  #escape Super_L
+# Super_L maps to F20 (xmodmap)
+# escape Super_L
   escape F20
 
-  # Hide mouse
+# Hide mouse
   bind b banish
 
-  # Show last message
+# Show last message
   bind semicolon lastmsg
 
-  # Select frame
+# Select frame
   bind F fselect
 
-  # Give temporally control to openbox
+# Give temporally control to openbox
   bind asciitilde tmpwm openbox
 #}}}
