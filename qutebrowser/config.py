@@ -19,24 +19,32 @@ def reject_fonts(request: interceptor.Request):
         request.block()
 
 
-interceptor.register(reject_fonts)
+#interceptor.register(reject_fonts)
 
 # Do not load settings done via the GUI.
 config.load_autoconfig(False)
 
 # Aliases for commands.
 c.aliases = {
-        'w': 'session-save',
-        'q': 'close',
-        'qa': 'quit',
-        'wq': 'quit --save',
-        'wqa': 'quit --save'}
+    'w': 'session-save',
+    'q': 'close',
+    'qa': 'quit',
+    'wq': 'quit --save',
+    'wqa': 'quit --save'}
 c.aliases.update({
     'je': 'set content.javascript.enabled True',
     'jd': 'set content.javascript.enabled False',
+    # current host
+    'tsh': 'set config-cycle --print --temp --pattern *://{url:host}/* content.javascript.enabled ;; reload',
+    # includes subdomains
+    'tsH': 'set config-cycle --print --temp --pattern *://*.{url:host}/* content.javascript.enabled ;; reload',
+    # only url
+    'tsu': 'set config-cycle --print --temp --pattern {url} content.javascript.enabled ;; reload',
     'cd': 'jseval -q -f change_domain.js',
     'np': 'jseval -q -f no_popup.js',
-    })
+    'us': 'spawn --userscript hello_world.py',
+    'fs': 'config-cycle tabs.show always never'
+})
 
 ## Time between auto-saves of config/cookies/etc. (in milliseconds)
 c.auto_save.interval = 30000
