@@ -259,7 +259,7 @@ c.content.images = True
 
 #{{{ Javascript
 c.content.javascript.alert = False
-c.content.javascript.can_access_clipboard = False
+c.content.javascript.clipboard = 'none'
 c.content.javascript.can_open_tabs_automatically = False
 config.set('content.javascript.enabled', True, 'https://www.smn.gob.ar/*')
 config.set('content.javascript.enabled', True, 'https://web.telegram.org/z/*')
@@ -619,19 +619,19 @@ config.bind('=', 'zoom')
 #}}}
 
 config.bind('@', 'macro-run')
-config.bind(':', 'set-cmd-text :')
+config.bind(':', 'cmd-set-text :')
 config.bind('<Ctrl-V>', 'mode-enter passthrough')
 
 #{{{ Search
-config.bind('/', 'set-cmd-text /')
-config.bind('?', 'set-cmd-text ?')
+config.bind('/', 'cmd-set-text /')
+config.bind('?', 'cmd-set-text ?')
 config.bind('n', 'search-next')
 config.bind('N', 'search-prev')
 #}}}
 
 #{{{ Hints
 config.bind(';I', 'hint --rapid images tab-bg')
-config.bind('F', 'hint links tab-bg')
+config.bind('F', 'hint all tab-bg')
 config.bind(';Y', 'hint links yank-primary')
 config.bind(';d', 'hint all spawn --detach download_media.sh {hint-url}')
 config.bind(';D', 'spawn --detach download_media.sh {url}')
@@ -661,6 +661,7 @@ config.bind('<Alt-8>', 'tab-focus 8')
 config.bind('<Alt-9>', 'tab-focus 9')
 config.bind('<Alt-0>', 'tab-focus -1')
 config.bind('<Ctrl-t>', 'tab-focus last')
+config.bind('<F11>', 'config-cycle tabs.show always never')
 bind_multiple(['J', 'gt'], 'tab-next')
 bind_multiple(['K', 'gT'], 'tab-prev')
 config.bind('gm', 'tab-move')
@@ -714,17 +715,17 @@ config.bind('u', 'undo')
 
 #{{{ Open
 config.bind('<Ctrl-Shift-N>', 'open -p')
-config.bind('o', 'set-cmd-text -s :open')
-config.bind('O', 'set-cmd-text :open {url}')
-config.bind('to', 'set-cmd-text -s :open -b')
-config.bind('tO', 'set-cmd-text :open -b {url}')
+config.bind('o', 'cmd-set-text -s :open')
+config.bind('O', 'cmd-set-text :open {url}')
+config.bind('to', 'cmd-set-text -s :open -b')
+config.bind('tO', 'cmd-set-text :open -b {url}')
 #}}}
 
 #{{{ Bookmark
 config.bind('m', 'quickmark-save')
 config.bind('M', 'bookmark-add')
-config.bind('b', 'set-cmd-text -s :quickmark-load -t')
-config.bind('B', 'set-cmd-text -s :bookmark-load -t')
+config.bind('b', 'cmd-set-text -s :quickmark-load -t')
+config.bind('B', 'cmd-set-text -s :bookmark-load -t')
 #}}}
 
 config.bind('<Ctrl-s>', 'stop')
@@ -751,7 +752,7 @@ config.bind('sq', 'bookmark-list')
 config.bind('sb', 'bookmark-list --jump')
 config.bind('sh', 'history')
 config.bind('ss', 'set')
-config.bind('st', 'set-cmd-text -sr :tab-focus')
+config.bind('st', 'cmd-set-text -sr :tab-focus')
 #}}}
 
 config.bind('v', 'mode-enter caret')
