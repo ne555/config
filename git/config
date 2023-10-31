@@ -16,8 +16,15 @@
     diffFilter = delta --color-only
 
 [delta]
-    navigate = true # n/N to move between diff
+    features = decorations
     light = false
+    navigate = true # n/N to move between diff
+    side-by-side = true
+    true-color = always
+
+[delta "decorations"]
+    file-style = yellow
+    hunk-header-style = omit
 
 [diff]
     tool = vimdiff
