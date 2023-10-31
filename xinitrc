@@ -9,4 +9,7 @@ xmodmap ~/.config/Xmodmap
 #desktop notifications
 statnot ~/.config/statnot.py &
 
+#shortcuts
+xbindkeys -fg ~/.config/xbindkeysrc.scm
+
 exec ratpoison --file ~/.config/ratpoisonrc
