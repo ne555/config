@@ -9,6 +9,12 @@ autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 "TODO: open pdf files
 
 
+augroup file_makefile
+    autocmd!
+    autocmd FileType make set noexpandtab
+    autocmd FileType make set list
+augroup END
+
 augroup file_cpp
 	autocmd!
     "indent (clang-format)
@@ -16,8 +22,6 @@ augroup file_cpp
 	autocmd Filetype cpp,c setlocal foldmethod=syntax
 	"compile
 	autocmd Filetype cpp setlocal makeprg=clear\ &&\ clang++\ -W{all,extra,pedantic}\ -fno-caret-diagnostics\ -fsanitize=undefined\ -ggdb\ -std=c++17\ %
-	autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
-	autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
 augroup END
 
 augroup subtitles
@@ -28,4 +32,11 @@ augroup subtitles
 	autocmd BufRead *.srt :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
 	autocmd BufRead *.ass :nnoremap <buffer><Space> :SubPlay<cr>
 	autocmd BufRead *.ass :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
+augroup END
+
+augroup file_yaml
+    autocmd!
+    autocmd FileType yaml set tabstop=2
+    autocmd FileType yaml set shiftwidth=2
+    autocmd FileType yaml set indentexpr=
 augroup END

@@ -4,6 +4,7 @@ filetype plugin on
 
 set hidden
 
+let g:editorconfig = v:false
 set nowritebackup
 set nobackup
 set noswapfile
@@ -12,6 +13,7 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set list
 
 set showcmd
 set number
