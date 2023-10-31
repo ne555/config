@@ -23,6 +23,9 @@ export GIMP2_DIRECTORY="${HOME}/.local/share/gimp"
 export GIMP2_SYSCONFDIR="${HOME}/.config/gimp"
 export IPYTHONDIR="${HOME}/.config/ipython/"
 
+# pass directory
+export PASSWORD_STORE_DIR="${HOME}/.local/share/pass/"
+
 # using nvim
 export EDITOR=nvim
 export VISUAL=nvim

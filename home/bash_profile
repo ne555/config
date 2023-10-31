@@ -1,3 +1,4 @@
 #/* vim: set filetype=sh : */
+
 [[ -f ~/.profile ]] && . ~/.profile
 [[ -f ~/.bashrc ]] && . ~/.bashrc
