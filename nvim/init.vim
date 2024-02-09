@@ -4,7 +4,6 @@ filetype plugin on
 
 set hidden
 
-let g:editorconfig = v:false
 set nowritebackup
 set nobackup
 set noswapfile
@@ -25,6 +24,7 @@ set noincsearch
 
 set colorcolumn+=80
 
+"let g:editorconfig = v:false
 "clipboard
 set clipboard=unnamedplus
 
@@ -102,18 +102,32 @@ xmap ga <Plug>(EasyAlign)
 let g:python3_host_prog = "/usr/bin/python3"
 
 " tests
+"nmap <silent> <leader>t :TestNearest IT_WS=1 <CR> "bifrost
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>C :TestClass<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+"port 5005
+"nmap <silent> <leader>t :TestNearest --debug-jvm<CR>
 
 " debug
 let g:vimspector_enable_mappings = 'HUMAN'
 
 runtime colors.vim
-runtime plugins.lua
-runtime autocommands.vim
+"runtime lazy.lua
+"runtime plugins.lua
 runtime functions.vim
 runtime coc.vim
+runtime lazy.lua
+runtime plugins.lua
+
+runtime autocommands.vim
+
+"function! EchoStrategy(cmd)
+"  echo 'It works! Command for running tests: ' . a:cmd
+"endfunction
+"
+"let g:test#custom_strategies = {'echo': function('EchoStrategy')}
+"let g:test#strategy = 'echo'

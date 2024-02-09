@@ -9,9 +9,12 @@ autocmd BufReadPost *.doc %!antiword -f -i 1 -w 0 "%"
 "TODO: open pdf files
 
 
+autocmd FileType make let b:EditorConfig_disable = 1
 augroup file_makefile
     autocmd!
-    autocmd FileType make set noexpandtab
+    autocmd FileType make let g:editorconfig = v:false
+    "autocmd FileType make let b:EditorConfig_disable = 1
+    autocmd FileType make setlocal noexpandtab
     autocmd FileType make set list
 augroup END
 
@@ -36,6 +39,7 @@ augroup END
 
 augroup file_yaml
     autocmd!
+    autocmd FileType yaml let g:editorconfig = v:false
     autocmd FileType yaml set tabstop=2
     autocmd FileType yaml set shiftwidth=2
     autocmd FileType yaml set indentexpr=

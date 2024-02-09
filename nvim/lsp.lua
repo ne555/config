@@ -27,6 +27,17 @@ cmp.setup({
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-require('lspconfig')['pyright'].setup {
+-- require('lspconfig')['python-lsp-server'].setup {
+-- capabilities = capabilities
+-- }
+require('lspconfig')['pyright'].setup {}
+
+vim.lsp.start({
+    name='jdtls',
+    cmd = {'/usr/share/java/jdtls/bin/jdtls'},
+    root_dir = vim.fs.dirname(vim.fs.find({'gradlew', '.git', 'mvnw'}, { upward = true })[1]),
+})
+-- require('jdtls').start_or_attach(config)
+require('lspconfig')['jdtls'].setup {
     capabilities = capabilities
 }
