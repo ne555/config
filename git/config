@@ -59,9 +59,9 @@
   # %ad -> date
   # %an -> author
   # %s -> commit title
-    lgbt="log --graph --pretty=format:'%Cred%h %C(bold yellow)%D %Cgreen(%an) %Creset%ad: %s' --date=short --abbrev-commit"
+    lgbt="log --graph --pretty=format:'%C(auto)%h %D %ad: %s' --date=short --abbrev-commit"
     graph="log --oneline --graph --decorate"
-    graphbranch="log --simplify-by-decoration --oneline --graph --decorate"
+    graphbranch="lgbt --simplify-by-decoration"
     subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
     subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
     subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
