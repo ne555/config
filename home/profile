@@ -9,8 +9,6 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib6
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig
 export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
 
-# locale
-export LC_ALL=en_US.utf8
 
 # terminal
 export TERM=tmux-256color
