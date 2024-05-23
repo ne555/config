@@ -16,7 +16,21 @@ function remove_ssl(url){
 }
 
 function no_youtube(){
-  let result = change_domain(remove_ssl(window.location.href), 'youtube.com', 'yewtu.be');
+  let result = change_domain(
+      window.location.href,
+      'www.youtube.com',
+      'inv.zzls.xyz');
+      //'yewtu.be');
+  window.location.replace(result) //don't appear on history
+  return 0;
+}
+
+function no_medium(){
+  let result = change_domain(
+      window.location.href,
+      'medium.com',
+      'scribe.rip');
+      //'yewtu.be');
   window.location.replace(result) //don't appear on history
   return 0;
 }
@@ -27,4 +41,7 @@ if (url.search('www.reddit') != -1) {
 }
 else if (url.search('youtube') != -1) {
   no_youtube();
+}
+else if (url.search('medium') != -1) {
+  no_medium();
 }

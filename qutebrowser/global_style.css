@@ -2,8 +2,8 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-p {
-    max-width: 75ch;
+blockquote, p, {
+    max-width: 75ch !important;
 }
 
 @font-face { font-family: 'arial'; src: local("Helvetica World"); }
@@ -27,9 +27,15 @@ span[vimbhint^='label'] {
 /* some ads */
 .promoted, .promotedlink, .listingsignupbar, .premium-banner,
 .maex, .exo_wrapper, ._1iX3k,
+li[data-layout='ad'],
 /* accept cookies prompt */
 .js-consent-banner
 {
 	display: none !important;
+	background-color: #ff0000 !important;
+}
+
+.result--ad
+{
 	background-color: #ff0000 !important;
 }

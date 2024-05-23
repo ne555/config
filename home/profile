@@ -8,7 +8,12 @@ export LIBRARY_PATH=${LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64:
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/.local/lib:${HOME}/.local/lib64
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${HOME}/.local/lib/pkgconfig:${HOME}/.local/lib64/pkgconfig
 export PYTHONPATH=${PYTHONPATH}:${HOME}/.local/lib/python3.10/:${HOME}/usr/lib/python/
+#export npm_config_prefix="${HOME}/.local"
 
+# python environments
+export PYENV_ROOT="$HOME/.local/share/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # terminal
 export TERM=tmux-256color
@@ -20,6 +25,7 @@ export PYTHONDONTWRITEBYTECODE="non empty string"
 export GIMP2_DIRECTORY="${HOME}/.local/share/gimp"
 export GIMP2_SYSCONFDIR="${HOME}/.config/gimp"
 export IPYTHONDIR="${HOME}/.config/ipython/"
+export XCOMPOSEFILE=${HOME}/.config/XCompose
 
 # pass directory
 export PASSWORD_STORE_DIR="${HOME}/.local/share/pass/"

@@ -1,0 +1,54 @@
+# vim: set filetype=conf :
+include "%L"
+
+# Greek letters
+<Multi_key> <g> <a> : "α" Greek_alpha
+<Multi_key> <g> <b> : "β" Greek_beta
+<Multi_key> <g> <g> : "γ" Greek_gamma
+<Multi_key> <g> <d> : "δ" Greek_delta
+<Multi_key> <g> <e> : "ε" Greek_epsilon
+<Multi_key> <g> <z> : "ζ" Greek_zeta
+<Multi_key> <g> <y> : "η" Greek_eta
+<Multi_key> <g> <h> : "θ" Greek_theta
+<Multi_key> <g> <i> : "ι" Greek_iota
+<Multi_key> <g> <k> : "κ" Greek_kappa
+<Multi_key> <g> <l> : "λ" Greek_lambda
+<Multi_key> <g> <m> : "μ" Greek_mu
+<Multi_key> <g> <n> : "ν" Greek_nu
+<Multi_key> <g> <c> : "ξ" Greek_xi
+<Multi_key> <g> <o> : "ο" Greek_omicron
+<Multi_key> <g> <p> : "π" Greek_pi
+<Multi_key> <g> <r> : "ρ" Greek_rho
+<Multi_key> <g> <s> : "σ" Greek_sigma
+<Multi_key> <g> <t> : "τ" Greek_tau
+<Multi_key> <g> <u> : "υ" Greek_upsilon
+<Multi_key> <g> <f> : "φ" Greek_phi
+<Multi_key> <g> <x> : "χ" Greek_chi
+<Multi_key> <g> <q> : "ψ" Greek_psi
+<Multi_key> <g> <w> : "ω" Greek_omega
+<Multi_key> <g> <,> <s> : "ς" #Greek_sigma
+
+<Multi_key> <g> <A> : "Α" Greek_ALPHA
+<Multi_key> <g> <B> : "Β" Greek_BETA
+<Multi_key> <g> <G> : "Γ" Greek_GAMMA
+<Multi_key> <g> <D> : "Δ" Greek_DELTA
+<Multi_key> <g> <E> : "Ε" Greek_EPSILON
+<Multi_key> <g> <Z> : "Ζ" Greek_ZETA
+<Multi_key> <g> <Y> : "Η" Greek_ETA
+<Multi_key> <g> <H> : "Θ" Greek_THETA
+<Multi_key> <g> <I> : "Ι" Greek_IOTA
+<Multi_key> <g> <K> : "Κ" Greek_KAPPA
+<Multi_key> <g> <L> : "Λ" Greek_LAMBDA
+<Multi_key> <g> <M> : "Μ" Greek_MU
+<Multi_key> <g> <N> : "Ν" Greek_NU
+<Multi_key> <g> <C> : "Ξ" Greek_XI
+<Multi_key> <g> <O> : "Ο" Greek_OMICRON
+<Multi_key> <g> <P> : "Π" Greek_PI
+<Multi_key> <g> <R> : "Ρ" Greek_RHO
+<Multi_key> <g> <S> : "Σ" Greek_SIGMA
+<Multi_key> <g> <T> : "Τ" Greek_TAU
+<Multi_key> <g> <U> : "Υ" Greek_UPSILON
+<Multi_key> <g> <F> : "Φ" Greek_PHI
+<Multi_key> <g> <X> : "Χ" Greek_CHI
+<Multi_key> <g> <Q> : "Ψ" Greek_PSI
+<Multi_key> <g> <W> : "Ω" Greek_OMEGA

@@ -12,4 +12,5 @@ statnot ~/.config/statnot.py &
 #shortcuts
 xbindkeys -fg ~/.config/xbindkeysrc.scm
 
+dunst -conf ~/.config/dunst/dunstrc &
 exec ratpoison --file ~/.config/ratpoisonrc

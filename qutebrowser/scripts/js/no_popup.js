@@ -71,4 +71,4 @@ remove_element(() => {
 remove_element(() => {
     return document.querySelectorAll('div[data-object="modal"]');
 });
-document.body.style.overflow = "auto";
+document.body.style.overflow = "auto !important";

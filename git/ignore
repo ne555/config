@@ -12,6 +12,8 @@
 *.so
 *.bin
 a.out
+bin/
+build/
 
 # backup
 .*.swp
