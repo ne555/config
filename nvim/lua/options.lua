@@ -28,11 +28,13 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = false
 
 vim.opt.colorcolumn:append('80')
-vim.g.editorconfig = false
+vim.g.editorconfig = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.lazyredraw = true
 vim.opt.wildmode = 'longest:list'
 vim.opt.completeopt = 'menuone,menu,longest'
+
+vim.opt.more = false
 
 
 vim.g.python3_host_prog = '/usr/bin/python3'

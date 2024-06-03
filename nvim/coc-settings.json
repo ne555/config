@@ -4,5 +4,6 @@
     "clangd.inlayHint.enable": false,
     "pyright.inlayHint.enable": false,
     "java.import.gradle.java.home": "/usr/lib/jvm/java-11-openjdk",
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "sumneko-lua.enableNvimLuaDev": true
 }
