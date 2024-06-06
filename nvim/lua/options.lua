@@ -3,6 +3,7 @@ vim.cmd('syntax on')
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = '\\'
+vim.g.LargeFile = 10 -- in MB
 
 vim.opt.hidden = true
 
