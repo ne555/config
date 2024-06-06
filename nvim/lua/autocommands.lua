@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 })
 
 vim.api.nvim_create_autocmd({ 'BufReadPre' }, {
-    desc = 'Deshabilita opciones para mejorar la carga de archivos enormes',
+    desc = 'disable options to speed up working with big files',
     group = large,
     pattern = { '*' },
     callback = function(args)
