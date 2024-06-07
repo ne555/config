@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     group = yaml,
     pattern = { 'yaml' },
     callback = function()
+        vim.opt.foldmethod='indent'
         vim.opt.indentexpr = ''
         vim.opt.shiftwidth = 2
         vim.opt.tabstop = 2

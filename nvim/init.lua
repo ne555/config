@@ -5,3 +5,5 @@ require('autocommands')
 
 require('plugins')
 require('plugin_config')
+
+require('functions.wipeout')
