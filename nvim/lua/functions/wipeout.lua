@@ -1,14 +1,25 @@
 -- close inactive buffers
 
+local function print_table(table_)
+    for K, x in pairs(table_) do
+        print(K, x)
+    end
+end
+
 function wipeout()
     local buffers = vim.api.nvim_list_bufs()
-    -- remove active buffers from list
-    for K, x in pairs(vim.api.nvim_list_wins()) do
-        local b = vim.api.nvim_win_get_buf(x)
-        buffers[b] = nil
+    local reverse = {}
+    for K, x in pairs(buffers) do
+        reverse[x] = K
     end
 
-    for K, x in pairs(buffers) do
+    -- remove active buffers from list
+    for _, x in pairs(vim.api.nvim_list_wins()) do
+        local b = vim.api.nvim_win_get_buf(x)
+        buffers[reverse[b]] = nil
+    end
+
+    for _, x in pairs(buffers) do
         vim.api.nvim_buf_delete(x, {})
     end
 end
