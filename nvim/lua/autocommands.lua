@@ -65,10 +65,9 @@ vim.api.nvim_create_autocmd({ 'BufReadPre' }, {
         local max_size = vim.g.LargeFile * 1024 * 1024
         if vim.fn.getfsize(args.file) > max_size then
             vim.opt.eventignore:append('FileType')
-            vim.opt.swapfile = false
-            vim.opt.bufhidden = 'unload'
-            vim.opt.buftype = 'nowrite'
-            vim.opt.undolevels = -1
+            vim.bo.swapfile = false
+            vim.bo.bufhidden = 'unload'
+            vim.bo.undolevels = -1
         else
             vim.opt.eventignore:remove('FileType')
         end
