@@ -20,8 +20,8 @@ span[vimbhint^='label'] {
 
 /* Disable animations */
 *, ::before, ::after {
-	transition-property: none !important;
-	animation: none !important;
+    transition-property: none !important;
+    animation: none !important;
 }
 
 /* some ads */
@@ -29,13 +29,29 @@ span[vimbhint^='label'] {
 .maex, .exo_wrapper, ._1iX3k,
 li[data-layout='ad'],
 /* accept cookies prompt */
-.js-consent-banner
-{
-	display: none !important;
-	background-color: #ff0000 !important;
+.js-consent-banner {
+    display: none !important;
+    background-color: #ff0000 !important;
 }
 
-.result--ad
-{
-	background-color: #ff0000 !important;
+.result--ad {
+    background-color: #ff0000 !important;
+}
+
+/* github is backwards */
+.closed.octicon.octicon-issue-closed, .merged.octicon,
+.color-fg-done, .fgColor-done {
+    color: green !important;
+}
+.State--merged,
+.State--closed {
+    background-color: green !important;
+}
+
+.open.octicon {
+    color: orange !important;
+}
+
+.State--open {
+    background-color: orange !important;
 }
