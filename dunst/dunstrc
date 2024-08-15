@@ -1,0 +1,6 @@
+# vim: set filetype=cfg:
+[global]
+    monitor = 0
+    follow = none
+    script = rat_notify.sh
+    skip_display = true
