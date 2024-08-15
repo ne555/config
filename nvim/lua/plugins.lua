@@ -68,4 +68,7 @@ require('lazy').setup({
   'milisims/nvim-luaref',
   'nvim-lua/plenary.nvim',
 
+  -- highlights
+  'm-pilia/vim-pkgbuild',
+
 })
