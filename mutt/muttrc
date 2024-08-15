@@ -101,3 +101,9 @@ macro index '{' ':set my_oldcollapse_unread=$collapse_unread<enter>:set collapse
 macro index '}' '{' '(Un)collapse thread.'
 
 set collapse_unread
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+
+set ssl_ciphers='HIGH:!DH:!aNULL'
