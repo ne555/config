@@ -6,4 +6,5 @@ require('autocommands')
 require('plugins')
 require('plugin_config')
 
+require('functions.root_directory')
 require('functions.wipeout')

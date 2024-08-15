@@ -1,3 +1,9 @@
+local root_dir = require('functions.root_directory')
+local function project_dir()
+    local path = root_dir()
+    return vim.fs.basename(path)
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -20,7 +26,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {project_dir, 'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}

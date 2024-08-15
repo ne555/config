@@ -16,24 +16,39 @@ require('lazy').setup({
   'folke/neoconf.nvim',
   'folke/neodev.nvim',
 
-  'preservim/nerdtree',
+  -- file explorer
+  -- 'preservim/nerdtree',
   'junegunn/fzf',
   'junegunn/fzf.vim',
+  'stevearc/oil.nvim',
+
+  'lambdalisue/vim-suda',
 
   -- ide
   {'neoclide/coc.nvim', branch='release'},
   'vim-test/vim-test',
   'hkupty/iron.nvim',
-
+  'tpope/vim-commentary', -- comment code
+  {'MattesGroeger/vim-bookmarks', config = function()
+    vim.g.bookmark_save_per_working_dir = true
+    vim.g.bookmark_no_default_key_mappings = true
+    vim.g.bookmark_location_list = true
+  end}, -- bookmarks
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
   -- misc
   'tpope/vim-abolish', -- camelCase <-> under_case transformer
-  'tpope/vim-surround', -- change surrounding tokens: [hola] -> 'hola'
+  -- 'tpope/vim-surround', -- change surrounding tokens: [hola] -> 'hola'
   'tpope/vim-unimpaired', -- decoding url, switch options
 
   -- git
   'tpope/vim-fugitive',
   'tommcdo/vim-fugitive-blame-ext',
   'whiteinge/diffconflicts',
+  'junkblocker/git-time-lapse',
 
   -- 'petertriho/cmp-git',
   -- 'sar/cmp-lsp.nvim',
@@ -47,6 +62,10 @@ require('lazy').setup({
   {
       'nvim-lualine/lualine.nvim',
       dependencies = {'nvim-tree/nvim-web-devicons'}
-  }
+  },
+  'andreshazard/vim-logreview',
+  'trapd00r/irc.vim',
+  'milisims/nvim-luaref',
+  'nvim-lua/plenary.nvim',
 
 })
