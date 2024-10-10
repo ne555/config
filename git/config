@@ -62,15 +62,15 @@
     lgbt="log --graph --pretty=format:'%C(auto)%h %an %D(%ad): %s' --date=short --abbrev-commit"
     graph="log --oneline --graph --decorate"
     graphbranch="lgbt --simplify-by-decoration"
-    subtree-add = "!f() { git subtree add --prefix $1 $1 master; }; f"
-    subtree-push = "!f() { git subtree push --prefix $1 $1 master; }; f"
-    subtree-pull = "!f() { git subtree pull --prefix $1 $1 master; }; f"
+    subtree-add = "!f() { git subtree add --prefix src/$1 $1 master; }; f"
+    subtree-push = "!f() { git subtree push --prefix src/$1 $1 master; }; f"
+    subtree-pull = "!f() { git subtree pull --prefix src/$1 $1 master; }; f"
     stash-dirty = "!f() { git add --update; git stash apply && git reset; }; f"
 
   # Muestra el hash del primer punto de bifurcación entre las ramas
     oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
   # diff contra ese punto
-    branchdiff = !bash -c 'git diff HEAD $(git oldest-ancestor HEAD "${1}")' -
+    branchdiff = !bash -c 'git diff "${1}" $(git oldest-ancestor "${1}" "${2}")' -
   # log contra ese punto
     branchlog = !bash -c 'git log --graph --decorate --oneline $(git oldest-ancestor "${2:-HEAD}" "${1}").."${2-HEAD}"' -
 
@@ -106,3 +106,6 @@
     clean = git-lfs clean -- %f
 [protocol "file"]
     allow = always
+
+[submodule]
+    recurse = true
