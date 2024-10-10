@@ -21,3 +21,17 @@ vim.keymap.set({'n'}, ']q', ':cprev <Return>')
 
 -- tests
 vim.keymap.set({'n'}, '<leader>t', ':TestNearest<CR>', {silent=true})
+
+-- subs
+vim.keymap.set({'n'}, '<leader><Space>', ':SubPlay<cr>')
+vim.keymap.set({'n'}, '<leader>s', ':SubPlay keep-going<cr>')
+
+
+-- nmap <silent> <leader>t :TestNearest --debug-jvm<CR> "port 5005
+-- nmap <silent> <leader>t :TestNearest IT_WS=1 <CR> "bifrost
+-- nmap <silent> <leader>t :TestNearest<CR>
+-- nmap <silent> <leader>C :TestClass<CR>
+-- nmap <silent> <leader>T :TestFile<CR>
+-- nmap <silent> <leader>a :TestSuite<CR>
+-- nmap <silent> <leader>l :TestLast<CR>
+-- nmap <silent> <leader>g :TestVisit<CR>

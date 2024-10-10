@@ -73,3 +73,30 @@ vim.api.nvim_create_autocmd({ 'BufReadPre' }, {
         end
     end
 })
+
+vim.api.nvim_create_autocmd({ 'BufRead' }, {
+    desc = 'disable options to speed up working with big files',
+    group = subtitles,
+    pattern = { '*.srt', '*.ass' },
+    callback = function(args)
+        vim.opt_local.bomb = false
+        vim.opt_local.fileencoding = 'utf8'
+        vim.opt_local.fileformat = 'unix'
+        vim.opt_local.cindent = false
+        vim.keymap.set({'n'}, '<buffer><Space>', ':SubPlay<cr>')
+        vim.keymap.set({'n'}, '<buffer><leader><Space>', ':SubPlay keep-going<cr>')
+    end
+})
+
+-- "subtitles
+-- "{{{
+-- augroup subtitles
+-- 	autocmd!
+-- 	autocmd BufRead *.srt :setlocal nobomb fileencoding=utf8 fileformat=unix
+-- 	autocmd BufRead *.srt :setlocal nocindent
+-- 	autocmd BufRead *.srt :nnoremap <buffer><Space> :SubPlay<cr>
+-- 	autocmd BufRead *.srt :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
+-- 	autocmd BufRead *.ass :nnoremap <buffer><Space> :SubPlay<cr>
+-- 	autocmd BufRead *.ass :nnoremap <buffer><leader><Space> :SubPlay video keep-going<cr>
+-- augroup END
+-- "}}}
