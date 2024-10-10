@@ -1,8 +1,3 @@
-# https://wiki.archlinux.org/title/Arch_Linux_Archive
-Server=https://archive.archlinux.org/repos/2023/02/01/$repo/os/$arch
+## Freeze repos
 
-
-# https://archlinux.org/mirrorlist/
-## Argentina
-#Server = http://mirrors.eze.sysarmy.com/archlinux/$repo/os/$arch
-#Server = https://mirrors.eze.sysarmy.com/archlinux/$repo/os/$arch
+Server=https://archive.archlinux.org/repos/2024/07/15/$repo/os/$arch
